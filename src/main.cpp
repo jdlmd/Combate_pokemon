@@ -10,9 +10,4 @@ int main(int argc, char *argv[])
     return a.exec();
 }
 
-// Hola chicos, prueba
-// Prueba 2
-// Prueba 3
-// Prueba Jesús
-// Otra prueba
-// Nerea esta probando
+// Nerea, haz algo bien
