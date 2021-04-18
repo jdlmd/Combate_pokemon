@@ -1,7 +1,7 @@
 #ifndef TIPOS_H
 #define TIPOS_H
 
-#include<string.h>
+#include <string>
 
 typedef unsigned short int uint;
 
@@ -37,10 +37,10 @@ class Tipo{
         Tipo(Tipos primario, Tipos secundario);
         Tipos getPrimary();
         Tipos getSecondary();
-        string getPrimaryName();
-        string getSecondaryName();
+        std::string getPrimaryName();
+        std::string getSecondaryName();
         uint multiplicador(Tipos tipo);
-}
+};
 
 #endif // TIPOS_H
 
