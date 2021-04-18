@@ -39,7 +39,7 @@ class Tipo{;
         Tipos getSecondary();
         string getPrimaryName();
         string getSecondaryName();
-        uint multiplicador(Tipos tipo);
+        float multiplicador(Tipos tipo);
 }
 
 #endif // TIPOS_H
