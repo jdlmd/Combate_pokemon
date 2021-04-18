@@ -28,7 +28,7 @@ enum Tipos : uint {
     HADA = 18,
 };
 
-class Tipo{;
+class Tipo{
     private:
         Tipos primario;
         Tipos secundario;
@@ -44,4 +44,3 @@ class Tipo{;
 };
 
 #endif // TIPOS_H
-
