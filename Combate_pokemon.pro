@@ -11,15 +11,18 @@ CONFIG += c++11
 SOURCES += \
     src/inicio.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/personaje.cpp
 
 HEADERS += \
     src/inicio.h \
-    src/mainwindow.h
+    src/mainwindow.h \
+    src/personaje.h
 
 FORMS += \
     src/inicio.ui \
-    src/mainwindow.ui
+    src/mainwindow.ui \
+    src/personaje.ui
 
 TRANSLATIONS += \
     Combate_pokemon_es_ES.ts

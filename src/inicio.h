@@ -15,6 +15,9 @@ public:
     explicit Inicio(QWidget *parent = nullptr);
     ~Inicio();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Inicio *ui;
 };

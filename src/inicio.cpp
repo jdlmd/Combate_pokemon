@@ -12,3 +12,8 @@ Inicio::~Inicio()
 {
     delete ui;
 }
+
+void Inicio::on_pushButton_clicked()
+{
+
+}
