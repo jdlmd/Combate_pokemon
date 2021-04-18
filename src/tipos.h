@@ -1,7 +1,11 @@
 #ifndef TIPOS_H
 #define TIPOS_H
 
+<<<<<<< HEAD
 #include <string>
+=======
+#include<strings.h>
+>>>>>>> 44b051c74bb860f6355cf4c5738cda8346086ea2
 
 typedef unsigned short int uint;
 
@@ -27,7 +31,7 @@ enum Tipos : uint {
     HADA = 18,
 };
 
-class Tipo{
+class Tipo{;
     private:
         Tipos primario;
         Tipos secundario;
@@ -37,10 +41,17 @@ class Tipo{
         Tipo(Tipos primario, Tipos secundario);
         Tipos getPrimary();
         Tipos getSecondary();
+<<<<<<< HEAD
         std::string getPrimaryName();
         std::string getSecondaryName();
         uint multiplicador(Tipos tipo);
 };
+=======
+        string getPrimaryName();
+        string getSecondaryName();
+        float multiplicador(Tipos tipo);
+}
+>>>>>>> 44b051c74bb860f6355cf4c5738cda8346086ea2
 
 #endif // TIPOS_H
 
