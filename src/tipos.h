@@ -1,7 +1,7 @@
 #ifndef TIPOS_H
 #define TIPOS_H
 
-#include<string.h>
+#include<strings.h>
 
 typedef unsigned short int uint;
 
@@ -27,7 +27,7 @@ enum Tipos : uint {
     HADA = 18,
 };
 
-class Tipo{
+class Tipo{;
     private:
         Tipos primario;
         Tipos secundario;
