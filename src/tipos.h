@@ -44,3 +44,29 @@ class Tipo{
 };
 
 #endif // TIPOS_H
+
+/*
+    string Tipo::getPrimaryName(){
+        switch (primario){
+            case NINGUNO:
+                return "None";
+                break;
+            case NORMAL:
+                return "Normal";
+                break;
+            case FUEGO:
+                return "Fuego";
+                break;
+            case LUCHA:
+                return "Lucha";
+                break;
+            case AGUA:
+                return "Agua";
+                break;
+            default:
+                return "None";
+                break;
+        }
+    }
+
+*/
