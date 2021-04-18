@@ -20,6 +20,20 @@ enum Tipos : uint {
     FUEGO = 2,
     LUCHA = 3,
     AGUA = 4,
+    VOLADOR = 5,
+    PLANTA = 6,
+    ELECTRICO = 7,
+    VENENO = 8,
+    TIERRA = 9,
+    PSIQUICO = 10,
+    ROCA = 11,
+    HIELO = 12,
+    BICHO = 13,
+    DRAGON = 14,
+    FANTASMA = 15,
+    SINIESTO = 16,
+    HIERRO = 17,
+    HADA = 18,
 };
 
 class Tipo{
