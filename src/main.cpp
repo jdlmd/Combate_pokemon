@@ -12,13 +12,24 @@ int main(int argc, char *argv[])
 
 
 /*
+typedef unsigned short int uint
 
-enum Tipos : unsigned short int {
+enum Tipos : uint {
     NINGUNO = 0,
     NORMAL = 1,
     FUEGO = 2,
     LUCHA = 3,
     AGUA = 4,
 };
+
+class Tipo{
+    private:
+        Tipos primario;
+        Tipos secundario;
+
+    public:
+        Tipos getprimario();
+        Tipos getsecundario();
+}
 
 */
