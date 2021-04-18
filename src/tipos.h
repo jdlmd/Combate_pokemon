@@ -4,6 +4,7 @@
 #include <string>
 
 typedef unsigned short int uint;
+using namespace std;
 
 enum Tipos : uint {
     NINGUNO = 0,
@@ -37,8 +38,8 @@ class Tipo{;
         Tipo(Tipos primario, Tipos secundario);
         Tipos getPrimary();
         Tipos getSecondary();
-        std::string getPrimaryName();
-        std::string getSecondaryName();
+        string getPrimaryName();
+        string getSecondaryName();
         float multiplicador(Tipos tipo);
 };
 
