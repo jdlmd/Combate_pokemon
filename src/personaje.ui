@@ -17,77 +17,153 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="profe">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>190</y>
-      <width>321</width>
-      <height>341</height>
+      <x>530</x>
+      <y>170</y>
+      <width>241</width>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/Imagenes/res/profe2.png);</string>
+     <string notr="true">background:transparent;
+border-image: url(:/Imagenes/res/profe2.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="texto">
+   <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>280</x>
       <y>0</y>
       <width>511</width>
       <height>131</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+border-image: url(:/res/frame.png);</string>
+    </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;¡Felicidades! Por fin tienes lo que hay que tener para ser un entrenador pokémon.&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Antes de empezar esta aventura cuéntame un poco más de ti, dime,&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;¿cómo te llamas?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="nombre">
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>120</y>
+      <x>80</x>
+      <y>50</y>
       <width>161</width>
       <height>41</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="ma">
+   <widget class="CustomLabel" name="label">
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>200</y>
-      <width>191</width>
-      <height>331</height>
+      <y>170</y>
+      <width>171</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/Imagenes/res/m.png);</string>
+     <string notr="true">background:transparent;
+border-image: url(:/res/lucho_inf.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="fe">
+   <widget class="CustomLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>200</y>
-      <width>171</width>
-      <height>331</height>
+      <x>190</x>
+      <y>170</y>
+      <width>241</width>
+      <height>361</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/Imagenes/res/f.png);</string>
+     <string notr="true">background:transparent;
+border-image: url(:/res/profe2_inf.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>240</y>
+      <width>72</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CheckBox</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>220</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Female</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>-70</x>
+      <y>-10</y>
+      <width>961</width>
+      <height>611</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/res/back.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>313</x>
+      <y>10</y>
+      <width>445</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white;</string>
+    </property>
+    <property name="text">
+     <string>¡Felicidades! Por fin tienes lo que hay que tener para ser un entrenador pokémon.
+Antes de empezar esta aventura cuéntame un poco más de ti, dime,
+¿cómo te llamas?</string>
+    </property>
+   </widget>
+   <zorder>label_6</zorder>
+   <zorder>label_2</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>label</zorder>
+   <zorder>label_3</zorder>
+   <zorder>checkBox</zorder>
+   <zorder>label_5</zorder>
+   <zorder>label_7</zorder>
+   <zorder>label_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -95,12 +171,19 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CustomLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">src/personaje.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -3,7 +3,17 @@
         <file>res/inicio2.png</file>
         <file>res/profe2.png</file>
         <file>res/av.png</file>
-        <file>res/m.png</file>
-        <file>res/f.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>res/lucho.png</file>
+        <file>res/lucho_inf.png</file>
+        <file>res/lucho_sup.png</file>
+        <file>res/av.png</file>
+        <file>res/inicio2.png</file>
+        <file>res/profe2.png</file>
+        <file>res/profe2_inf.png</file>
+        <file>res/profe2_sup.png</file>
+        <file>res/frame.png</file>
+        <file>res/back.png</file>
     </qresource>
 </RCC>
