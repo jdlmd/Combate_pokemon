@@ -3,5 +3,7 @@
         <file>res/inicio2.png</file>
         <file>res/profe2.png</file>
         <file>res/av.png</file>
+        <file>res/m.png</file>
+        <file>res/f.png</file>
     </qresource>
 </RCC>
