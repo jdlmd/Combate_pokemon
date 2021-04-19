@@ -11,12 +11,14 @@ CONFIG += c++11
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/movimientos.cpp \
     src/pokemon.cpp \
     src/tipos.cpp
 
 HEADERS += \
     src/definiciones.h \
     src/mainwindow.h \
+    src/movimientos.h \
     src/pokemon.h \
     src/tipos.h
 
