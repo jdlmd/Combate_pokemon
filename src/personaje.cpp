@@ -41,7 +41,7 @@ void Personaje::closeEvent(QCloseEvent *event){
     event->accept();
 }
 
-void CustomLabel::enterEvent(QEnterEvent *ev){
+void CustomLabel::enterEvent(QEvent *ev){
     QLabel::enterEvent(ev);
     if (!internal_flag)
         this->setStyleSheet(file_sup);
@@ -72,4 +72,11 @@ void CustomLabel::changeFileSup(QString file){
 void CustomLabel::lowImage(){
     this->setStyleSheet(file_inf);
     internal_flag = true;
+}
+
+
+
+void Personaje::on_listo_clicked()
+{
+  close();
 }

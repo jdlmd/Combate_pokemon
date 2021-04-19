@@ -9,20 +9,20 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/batalla.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/personaje.cpp \
-    src/inicio.cpp
+    src/personaje.cpp
 
 HEADERS += \
+    src/batalla.h \
     src/mainwindow.h \
-    src/personaje.h \
-    src/inicio.h
+    src/personaje.h
 
 FORMS += \
+    src/batalla.ui \
     src/mainwindow.ui \
-    src/personaje.ui \
-    src/inicio.ui
+    src/personaje.ui
 
 TRANSLATIONS += \
     Combate_pokemon_es_ES.ts

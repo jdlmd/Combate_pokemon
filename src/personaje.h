@@ -25,7 +25,11 @@ class Personaje : public QMainWindow {
         void selection_male();
         void selection_female();
 
-    private:
+        void on_pushButton_clicked();
+
+        void on_listo_clicked();
+
+private:
         Ui::Personaje *ui;
         void closeEvent(QCloseEvent *event) override;
 };
@@ -48,7 +52,7 @@ class CustomLabel : public QLabel {
         QString file_sup;
 
     protected:
-        void enterEvent(QEnterEvent *ev) override;
+        void enterEvent(QEvent *ev) override;
         void leaveEvent(QEvent *ev) override;
         void mousePressEvent(QMouseEvent *ev) override;
 

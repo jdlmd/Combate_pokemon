@@ -16,4 +16,8 @@
         <file>res/frame.png</file>
         <file>res/back.png</file>
     </qresource>
+    <qresource prefix="/pokemon">
+        <file>res/pi.png</file>
+        <file>res/char.png</file>
+    </qresource>
 </RCC>

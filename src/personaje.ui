@@ -155,6 +155,19 @@ Antes de empezar esta aventura cuéntame un poco más de ti, dime,
 ¿cómo te llamas?</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="listo">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>500</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>¡LISTO!</string>
+    </property>
+   </widget>
    <zorder>label_6</zorder>
    <zorder>label_2</zorder>
    <zorder>lineEdit</zorder>
@@ -164,6 +177,7 @@ Antes de empezar esta aventura cuéntame un poco más de ti, dime,
    <zorder>label_5</zorder>
    <zorder>label_7</zorder>
    <zorder>label_4</zorder>
+   <zorder>listo</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -171,7 +185,7 @@ Antes de empezar esta aventura cuéntame un poco más de ti, dime,
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
