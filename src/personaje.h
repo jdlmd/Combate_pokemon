@@ -14,8 +14,8 @@ class CustomLabel;
 
 class Personaje : public QMainWindow {
     Q_OBJECT
-    bool selection = false;
-    bool genre = false; // male = false, female = true;
+        bool selection = false;
+        bool genre = false; // male = false, female = true;
 
     public:
         explicit Personaje(QWidget *parent = nullptr);
@@ -24,12 +24,13 @@ class Personaje : public QMainWindow {
     private slots:
         void selection_male();
         void selection_female();
-
         void on_listo_clicked();
 
-private:
+    private:
         Ui::Personaje *ui;
         void closeEvent(QCloseEvent *event) override;
+    signals:
+        void genrePicked(bool genero);
 };
 
 

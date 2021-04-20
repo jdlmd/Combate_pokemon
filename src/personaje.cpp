@@ -19,6 +19,8 @@ Personaje::Personaje(QWidget *parent) :
     QWidget::connect(ui->label_3,SIGNAL(changeImage()),this,SLOT(selection_female()));
 
     ui->listo->setVisible(false);
+
+    QObject::connect(this,SIGNAL(genrePicked(bool)),parentWidget()->parentWidget(),SLOT(set_genre(bool)));
 }
 
 Personaje::~Personaje()
@@ -38,18 +40,18 @@ void Personaje::selection_female() {
     ui->listo->setVisible(true);
 }
 
-void Personaje::closeEvent(QCloseEvent *event){
+void Personaje::closeEvent(QCloseEvent *event) {
     parentWidget()->parentWidget()->show();
     event->accept();
 }
 
-void CustomLabel::enterEvent(QEnterEvent *ev){
+void CustomLabel::enterEvent(QEnterEvent *ev) {
     QLabel::enterEvent(ev);
     if (!internal_flag)
         this->setStyleSheet(file_sup);
 }
 
-void CustomLabel::leaveEvent(QEvent *ev){
+void CustomLabel::leaveEvent(QEvent *ev) {
     QLabel::leaveEvent(ev);
     if (!internal_flag)
        this->setStyleSheet(file_inf);
@@ -63,22 +65,22 @@ void CustomLabel::mousePressEvent(QMouseEvent *ev) {
     /* contrario->lowImage(); */
 }
 
-void CustomLabel::changeFileInf(QString file){
+void CustomLabel::changeFileInf(QString file) {
     file_inf = file;
 }
 
-void CustomLabel::changeFileSup(QString file){
+void CustomLabel::changeFileSup(QString file) {
     file_sup = file;
 }
 
-void CustomLabel::lowImage(){
+void CustomLabel::lowImage() {
     this->setStyleSheet(file_inf);
     internal_flag = true;
 }
 
 
-void Personaje::on_listo_clicked()
-{
-  close();
+void Personaje::on_listo_clicked() {
+    emit genrePicked(genre);
+    close();
 }
 

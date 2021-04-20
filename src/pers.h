@@ -2,6 +2,7 @@
 #define PERS_H
 
 #include <QMainWindow>
+#include <QString>
 
 namespace Ui {
 class pers;
@@ -21,6 +22,9 @@ class pers : public QMainWindow {
     private:
         Ui::pers *ui;
         void closeEvent(QCloseEvent *event) override;
+
+    signals:
+        void namePicked(QString nombre);
 };
 
 #endif // PERS_H

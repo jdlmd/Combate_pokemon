@@ -28,13 +28,17 @@ void MainWindow::on_personaje_clicked()
     hide();
     pers *v_personaje=new pers(this);
     v_personaje->show();
+    QObject::connect(v_personaje,SIGNAL(namePicked(QString)),this,SLOT(set_name(QString)));
 }
 
-void MainWindow::set_name(QString a)
+void MainWindow::set_name(QString nombre)
 {
-    QString name=a;
+    name = nombre;
+    ui->label_2->setText(name);
 }
-void MainWindow::set_genre(bool b)
+
+void MainWindow::set_genre(bool genero)
 {
-    bool genre=b;
+    genre = genero;
+    ui->checkBox->setChecked(genero);
 }

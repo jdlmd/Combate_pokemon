@@ -15,15 +15,17 @@ class MainWindow : public QMainWindow
     public:
         MainWindow(QWidget *parent = nullptr);
         ~MainWindow();
-        void set_name(QString);
-        void set_genre(bool);
 
-private slots:
-        void on_start_clicked();
-        void on_personaje_clicked();
+    private slots:
+            void on_start_clicked();
+            void on_personaje_clicked();
+            void set_name(QString nombre);
+            void set_genre(bool genero);
 
-private:
-        Ui::MainWindow *ui;
+    private:
+            Ui::MainWindow *ui;
+            QString name;
+            bool genre;
 };
 
 #endif // MAINWINDOW_H
