@@ -4,7 +4,7 @@
 #include <string>
 #include "definiciones.h"
 
-
+using namespace std;
 
 
 class Tipo{

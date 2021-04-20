@@ -2,7 +2,6 @@
 #define DEFINICIONES_H
 
 typedef unsigned short int uint;
-using namespace std;
 
 enum Tipos : uint {
     NINGUNO = 0,
