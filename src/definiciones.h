@@ -24,4 +24,11 @@ enum Tipos : uint {
     ACERO = 17,
     HADA = 18,
 };
+
+enum Genero : uint {
+    NO_BIN = 0,
+    MALE = 1,
+    FEMALE = 2,
+};
+
 #endif // DEFINICIONES_H

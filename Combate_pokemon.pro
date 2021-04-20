@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/entrenador.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/movimientos.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     src/definiciones.h \
+    src/entrenador.h \
     src/mainwindow.h \
     src/movimientos.h \
     src/pokemon.h \
