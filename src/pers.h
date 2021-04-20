@@ -18,6 +18,8 @@ public:
 private slots:
     void on_siguiente_clicked();
 
+    void on_listo_clicked();
+
 private:
     Ui::pers *ui;
 };

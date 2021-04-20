@@ -21,6 +21,7 @@ void MainWindow::on_start_clicked()
  hide();
  Batalla *v_batalla=new Batalla(this);
  v_batalla->show();
+ setVisible(true);
 }
 
 void MainWindow::on_personaje_clicked()
@@ -28,4 +29,5 @@ void MainWindow::on_personaje_clicked()
     hide();
     pers *v_personaje=new pers(this);
     v_personaje->show();
+    setVisible(true);
 }

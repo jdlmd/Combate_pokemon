@@ -9,6 +9,7 @@ pers::pers(QWidget *parent) :
     ui(new Ui::pers)
 {
     ui->setupUi(this);
+    ui->listo->setVisible(false);
 }
 
 pers::~pers()
@@ -21,9 +22,14 @@ void pers::on_siguiente_clicked()
     QString nombre=ui->nombre->text();
     QMessageBox::information(this,tr("Usuario generado correctamente."),tr("Aprendiz %1, tiene gancho.").arg(nombre));
 
-    hide();
-
     Personaje *v_per=new Personaje(this);
     v_per->show();
+    hide();
+    ui->listo->setVisible(true);
 
+}
+
+void pers::on_listo_clicked()
+{
+    close();
 }

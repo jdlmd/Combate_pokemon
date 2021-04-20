@@ -1,15 +1,16 @@
 #include "personaje.h"
 #include "ui_personaje.h"
+#include "pers.h"
 
 Personaje::Personaje(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Personaje)
 {
     ui->setupUi(this);
-    ui->label->changeFileInf("background:transparent;\nborder-image: url(:/res/lucho_inf.png);");
-    ui->label->changeFileSup("background:transparent;\nborder-image: url(:/res/lucho_sup.png);");
-    ui->label_3->changeFileInf("background:transparent;\nborder-image: url(:/res/profe2_inf.png);");
-    ui->label_3->changeFileSup("background:transparent;\nborder-image: url(:/res/profe2_sup.png);");
+    ui->label->changeFileInf("background:transparent;\nborder-image: url(:/res/m2.png);");
+    ui->label->changeFileSup("background:transparent;\nborder-image: url(:/res/m.png);");
+    ui->label_3->changeFileInf("background:transparent;\nborder-image: url(:/res/f.png);");
+    ui->label_3->changeFileSup("background:transparent;\nborder-image: url(:/res/f2.png);");
 
     CustomLabel::connect(ui->label,SIGNAL(changeImage()),ui->label_3,SLOT(lowImage()));
     CustomLabel::connect(ui->label_3,SIGNAL(changeImage()),ui->label,SLOT(lowImage()));
@@ -79,4 +80,6 @@ void CustomLabel::lowImage(){
 void Personaje::on_listo_clicked()
 {
   close();
+
+
 }

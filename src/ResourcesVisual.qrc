@@ -15,11 +15,18 @@
         <file>res/profe2_sup.png</file>
         <file>res/frame.png</file>
         <file>res/back.png</file>
+        <file>res/f2.png</file>
+        <file>res/f.png</file>
+        <file>res/m2.png</file>
+        <file>res/m.png</file>
     </qresource>
     <qresource prefix="/pokemon"/>
     <qresource prefix="/personaje">
         <file>res/bibli.png</file>
         <file>res/cuadrro.jpg</file>
         <file>res/profebivli.png</file>
+        <file>res/f.png</file>
+        <file>res/m.png</file>
+        <file>res/m2.png</file>
     </qresource>
 </RCC>
