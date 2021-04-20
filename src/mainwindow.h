@@ -17,7 +17,6 @@ class MainWindow : public QMainWindow
 
 private slots:
         void on_start_clicked();
-
         void on_personaje_clicked();
 
 private:
