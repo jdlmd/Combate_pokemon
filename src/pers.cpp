@@ -33,3 +33,8 @@ void pers::on_listo_clicked()
 {
     close();
 }
+
+void pers::closeEvent(QCloseEvent *event){
+    parentWidget()->show();
+    event->accept();
+}

@@ -38,7 +38,7 @@ void Personaje::selection_female() {
 }
 
 void Personaje::closeEvent(QCloseEvent *event){
-    parentWidget()->show();
+    parentWidget()->parentWidget()->show();
     event->accept();
 }
 
@@ -76,10 +76,8 @@ void CustomLabel::lowImage(){
 }
 
 
-
 void Personaje::on_listo_clicked()
 {
   close();
-
-
 }
+
