@@ -34,33 +34,6 @@ border-image: url(:/Imagenes/res/profe2.png);</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>0</y>
-      <width>511</width>
-      <height>131</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background:transparent;
-border-image: url(:/res/frame.png);</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>50</y>
-      <width>161</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="CustomLabel" name="label">
     <property name="geometry">
      <rect>
@@ -137,24 +110,6 @@ border-image: url(:/res/profe2_inf.png);</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>313</x>
-      <y>10</y>
-      <width>445</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: white;</string>
-    </property>
-    <property name="text">
-     <string>¡Felicidades! Por fin tienes lo que hay que tener para ser un entrenador pokémon.
-Antes de empezar esta aventura cuéntame un poco más de ti, dime,
-¿cómo te llamas?</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="listo">
     <property name="geometry">
      <rect>
@@ -170,13 +125,10 @@ Antes de empezar esta aventura cuéntame un poco más de ti, dime,
    </widget>
    <zorder>label_6</zorder>
    <zorder>label_2</zorder>
-   <zorder>lineEdit</zorder>
    <zorder>label</zorder>
    <zorder>label_3</zorder>
    <zorder>checkBox</zorder>
    <zorder>label_5</zorder>
-   <zorder>label_7</zorder>
-   <zorder>label_4</zorder>
    <zorder>listo</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">

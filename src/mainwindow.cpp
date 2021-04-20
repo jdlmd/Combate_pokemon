@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "personaje.h"
+#include "pers.h"
 #include "batalla.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -26,6 +26,6 @@ void MainWindow::on_start_clicked()
 void MainWindow::on_personaje_clicked()
 {
     hide();
-    Personaje *v_personaje=new Personaje(this);
+    pers *v_personaje=new pers(this);
     v_personaje->show();
 }

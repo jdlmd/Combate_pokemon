@@ -16,8 +16,10 @@
         <file>res/frame.png</file>
         <file>res/back.png</file>
     </qresource>
-    <qresource prefix="/pokemon">
-        <file>res/pi.png</file>
-        <file>res/char.png</file>
+    <qresource prefix="/pokemon"/>
+    <qresource prefix="/personaje">
+        <file>res/bibli.png</file>
+        <file>res/cuadrro.jpg</file>
+        <file>res/profebivli.png</file>
     </qresource>
 </RCC>

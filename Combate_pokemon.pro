@@ -9,19 +9,31 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    src/atacar.cpp \
     src/batalla.cpp \
+    src/cambio.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/mochila.cpp \
+    src/pers.cpp \
     src/personaje.cpp
 
 HEADERS += \
+    src/atacar.h \
     src/batalla.h \
+    src/cambio.h \
     src/mainwindow.h \
+    src/mochila.h \
+    src/pers.h \
     src/personaje.h
 
 FORMS += \
+    src/atacar.ui \
     src/batalla.ui \
+    src/cambio.ui \
     src/mainwindow.ui \
+    src/mochila.ui \
+    src/pers.ui \
     src/personaje.ui
 
 TRANSLATIONS += \
