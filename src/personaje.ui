@@ -51,32 +51,6 @@ border-image: url(:/personaje/res/f.png);</string>
      <string/>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>40</y>
-      <width>72</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CheckBox</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>50</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Female</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
@@ -162,8 +136,6 @@ background:transparent;</string>
    <zorder>label_6</zorder>
    <zorder>label</zorder>
    <zorder>label_3</zorder>
-   <zorder>checkBox</zorder>
-   <zorder>label_5</zorder>
    <zorder>listo</zorder>
    <zorder>label_2</zorder>
    <zorder>textBrowser</zorder>

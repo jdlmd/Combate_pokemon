@@ -29,3 +29,12 @@ void MainWindow::on_personaje_clicked()
     pers *v_personaje=new pers(this);
     v_personaje->show();
 }
+
+void MainWindow::set_name(QString a)
+{
+    QString name=a;
+}
+void MainWindow::set_genre(bool b)
+{
+    bool genre=b;
+}

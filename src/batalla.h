@@ -16,11 +16,11 @@ public:
     ~Batalla();
 
 private slots:
-    void on_atacar_clicked();
 
-    void on_mochila_clicked();
-
-    void on_cambio_clicked();
+    void on_next_clicked();
+    void batalla();
+    void get_name();
+    void get_genre();
 
 private:
     Ui::Batalla *ui;

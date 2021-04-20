@@ -18,6 +18,7 @@ Personaje::Personaje(QWidget *parent) :
     QWidget::connect(ui->label,SIGNAL(changeImage()),this,SLOT(selection_male()));
     QWidget::connect(ui->label_3,SIGNAL(changeImage()),this,SLOT(selection_female()));
 
+    ui->listo->setVisible(false);
 }
 
 Personaje::~Personaje()
@@ -28,13 +29,13 @@ Personaje::~Personaje()
 void Personaje::selection_male() {
     selection = true;
     genre = false;
-    ui->checkBox->setChecked(genre);
+    ui->listo->setVisible(true);
 }
 
 void Personaje::selection_female() {
     selection = true;
     genre = true;
-    ui->checkBox->setChecked(genre);
+    ui->listo->setVisible(true);
 }
 
 void Personaje::closeEvent(QCloseEvent *event){

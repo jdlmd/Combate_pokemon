@@ -3,6 +3,7 @@
 #include <QString>
 #include "QMessageBox"
 #include "personaje.h"
+#include "mainwindow.h"
 
 pers::pers(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +21,7 @@ pers::~pers()
 void pers::on_siguiente_clicked()
 {
     QString nombre=ui->nombre->text();
+    parentWidget()->set_name(nombre);
     QMessageBox::information(this,tr("Usuario generado correctamente."),tr("Aprendiz %1, tiene gancho.").arg(nombre));
 
     Personaje *v_per=new Personaje(this);

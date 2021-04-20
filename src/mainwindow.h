@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include <QString>
 
 #include <QMainWindow>
 
@@ -14,6 +15,8 @@ class MainWindow : public QMainWindow
     public:
         MainWindow(QWidget *parent = nullptr);
         ~MainWindow();
+        void set_name(QString);
+        void set_genre(bool);
 
 private slots:
         void on_start_clicked();
@@ -22,4 +25,5 @@ private slots:
 private:
         Ui::MainWindow *ui;
 };
+
 #endif // MAINWINDOW_H
