@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_start_clicked()
 {
      hide();
-     Batalla *v_batalla=new Batalla(this);
+     Batalla *v_batalla=new Batalla(this,name,genre);
      v_batalla->show();
 }
 

@@ -11,14 +11,20 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-Batalla::Batalla(QWidget *parent) :
+Batalla::Batalla(QWidget *parent,QString sname,bool sgenre) :
     QMainWindow(parent),
     ui(new Ui::Batalla)
 {
     ui->setupUi(this);
-    if (1)
-    {
 
+    if (sgenre)
+    {
+       ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/fbatalla.png);");
+
+    }
+    else
+    {
+        ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/mbatalla.png);");
     }
     ui->texto->setText("   Ahora te voy a explicar como funcionan las batallas pokemon.\n"
 "   Estas batallas van por turnos, durante tu turno puedes:\n   atacar una vez,"
@@ -32,11 +38,11 @@ Batalla::~Batalla()
 
 void Batalla:: get_name()
 {
-   parentWidget();
+
 }
 void Batalla:: get_genre()
 {
-    parentWidget();
+
 }
 
 void Batalla::on_next_clicked()
@@ -45,12 +51,6 @@ void Batalla::on_next_clicked()
     "¡Buena suerte!"));
 
         //Comienza Batalla
-
-        ui->texto->hide();
-        ui->recuadro->hide();
-        ui->next->hide();
-        ui->profesor->hide();
-        ui->avatar->hide();
 
 }
 

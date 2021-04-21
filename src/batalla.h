@@ -12,7 +12,9 @@ class Batalla : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Batalla(QWidget *parent = nullptr);
+    bool sgenre;
+    QString sname;
+    explicit Batalla(QWidget *parent = nullptr,QString sname="usuario",bool genre=0);
     ~Batalla();
 
 private slots:
