@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -52,3 +52,6 @@ DISTFILES += \
 
 RESOURCES += \
     src/ResourcesVisual.qrc
+
+LIBS += \
+    -L./lib/OpenAL/OpenAL32.dll # Se añade la librería de OpenAL al linkador

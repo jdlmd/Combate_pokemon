@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QThread>
 #include <QString>
+#include <QFile>
 
 namespace Ui {
     class Battle;

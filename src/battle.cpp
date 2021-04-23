@@ -7,7 +7,7 @@ Battle::Battle(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Se obtienen los tamaños y coordenadas de la ventana. (Si todo
+    // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
     ancho = this->geometry().width();
     alto = this->geometry().height();
@@ -34,6 +34,7 @@ void Battle::launchAnimation() {
 Genera la animación de vs y devuelve un puntero al fondo en blanco superpuesto, para que pueda ser eliminado en la animación de fadeOut */
 
 QLabel* Battle::vsAnimation() {
+
     // Variables de altura y posición para los elementos de la animación
     int width = 0.8*ancho/2;
     int height = (alto-ui->label_2->geometry().height())/3;

@@ -26,6 +26,7 @@
         <file>res/Nerea.png</file>
         <file>res/blue.png</file>
         <file>res/red.png</file>
+        <file>res/theme.wav</file>
     </qresource>
     <qresource prefix="/pokemon"/>
     <qresource prefix="/personaje">
