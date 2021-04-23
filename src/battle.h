@@ -5,13 +5,15 @@
 #include <QLabel>
 #include <QTimer>
 #include <QDebug>
+#include <QThread>
+#include <QString>
 
 namespace Ui {
     class Battle;
 }
 
-class Battle : public QMainWindow
-{
+class Battle : public QMainWindow {
+
         Q_OBJECT
 
     public:
@@ -22,12 +24,11 @@ class Battle : public QMainWindow
         void launchAnimation();
 
     private:
-        int posX;
-        int posY;
         int ancho;
         int alto;
         Ui::Battle *ui;
-        void vsAnimation();
+        QLabel* vsAnimation();
+        void battleStartAnimation(QLabel* fondo);
 };
 
 #endif // BATTLE_H
