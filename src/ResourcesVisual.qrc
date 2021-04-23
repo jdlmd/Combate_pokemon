@@ -21,11 +21,11 @@
         <file>res/m.png</file>
         <file>res/pokeball_battle.png</file>
         <file>res/vs.png</file>
-        <file>res/Jesus.png</file>
-        <file>res/Maria.png</file>
-        <file>res/Nerea.png</file>
         <file>res/blue.png</file>
         <file>res/red.png</file>
+        <file>res/Nerea.png</file>
+        <file>res/Jesus.png</file>
+        <file>res/Maria.png</file>
     </qresource>
     <qresource prefix="/pokemon"/>
     <qresource prefix="/personaje">
