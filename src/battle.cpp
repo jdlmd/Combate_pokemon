@@ -5,29 +5,6 @@
 #include <SDL_main.h>
 #include "iostream"
 
-#define FILE_PATH "./theme.wav"
-
-struct AudioData {
-    Uint8* pos;
-    Uint32 length;
-};
-
-void MyAudioCallback(void* userdata, Uint8* stream, int streamLength) {
-    AudioData* audio = (AudioData*)userdata;
-    if(audio->length == 0) {
-        return;
-    }
-
-    Uint32 length = (Uint32)streamLength;
-    length = (length > audio->length ? audio->length : length);
-
-    SDL_memcpy(stream,audio->pos,length);
-
-    audio->pos += length;
-    audio->length -= length;
-
-}
-
 Battle::Battle(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Battle)
@@ -63,30 +40,21 @@ Genera la animación de vs y devuelve un puntero al fondo en blanco superpuesto,
 QLabel* Battle::vsAnimation() {
 
     SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_AudioSpec wavSpec;
-    Uint8* wavStart;
-    Uint32 wavLength;
+    SDL_AudioSpec want, have;
+    SDL_memset(&want, 0, sizeof(want));
+    want.freq = 16000;
+    want.format = AUDIO_U16;
+    want.channels = 1;
+    want.samples = 4096;
+    auto audio = SDL_OpenAudioDevice(nullptr, false, &want, &have, 0);
 
-    if(SDL_LoadWAV(FILE_PATH, &wavSpec, &wavStart, &wavLength) == NULL) {
-        std::cerr << "Error: " << FILE_PATH << " no se puede cargar\n";
-        QString pt = QDir::currentPath();
-        qDebug() << pt;
-    }
+    Uint8* buf;
+    Uint32 len;
+    SDL_LoadWAV("../Combate_pokemon/audio/theme.wav", &have ,&buf, &len);
+    SDL_QueueAudio(audio, buf, len);
+    SDL_FreeWAV(buf);
+    SDL_PauseAudioDevice(audio,false);
 
-    AudioData audio;
-    audio.pos = wavStart;
-    audio.length = wavLength;
-
-    wavSpec.callback = MyAudioCallback;
-    wavSpec.userdata = &audio;
-
-    SDL_AudioDeviceID device = SDL_OpenAudioDevice(NULL,0,&wavSpec,NULL,SDL_AUDIO_ALLOW_ANY_CHANGE);
-
-    if(device == 0) {
-        std::cerr << "Error, no se puede reproducir.\n";
-    }
-
-    SDL_PauseAudioDevice(device,0);
     // Variables de altura y posición para los elementos de la animación
     int width = 0.8*ancho/2;
     int height = (alto-ui->label_2->geometry().height())/3;
@@ -167,8 +135,9 @@ QLabel* Battle::vsAnimation() {
     delete Vs;
     delete Poke;
 
-    SDL_CloseAudioDevice(device);
-    SDL_FreeWAV(wavStart);
+    QThread::msleep(500);
+
+    SDL_CloseAudioDevice(audio);
     SDL_Quit();
 
     return fondo; // Se duelve la capa superior, para que pueda ser manejada por otras animaciones (fadeOut)
