@@ -62,3 +62,14 @@ INCLUDEPATH += $$PWD/lib/SDL2-2.0.14/lib/x86
 DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x86
 
 # Copia de los archivos de audio a la carpeta build
+CONFIG += file_copies
+COPIES += audioFiles
+audioFiles.files = $$files(audio/*.wav) # Path de copia
+audioFiles.path = $$OUT_PWD/audio # Path destino
+audioFiles.base = $$PWD/audio # Base del path
+
+# Copia de los archivos de entrenadores a la carpeta build
+COPIES += trainerFiles
+trainerFiles.files = $$files(*.txt) # Path de copia
+trainerFiles.path = $$OUT_PWD/Combate_pokemon # Path destino
+# trainerFiles.base = $$PWD/audio # Base del path

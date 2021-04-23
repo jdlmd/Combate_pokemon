@@ -5,11 +5,15 @@
 #include <SDL_main.h>
 #include "iostream"
 
+#define AUDIO_PATH "./Combate_pokemon/audio/theme.wav"
+
 Battle::Battle(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Battle)
 {
     ui->setupUi(this);
+
+    this->centralWidget()->hide();
 
     // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
@@ -50,10 +54,12 @@ QLabel* Battle::vsAnimation() {
 
     Uint8* buf;
     Uint32 len;
-    SDL_LoadWAV("../Combate_pokemon/audio/theme.wav", &have ,&buf, &len);
+    SDL_LoadWAV(AUDIO_PATH, &have ,&buf, &len);
     SDL_QueueAudio(audio, buf, len);
     SDL_FreeWAV(buf);
     SDL_PauseAudioDevice(audio,false);
+
+    QThread::msleep(200);
 
     // Variables de altura y posición para los elementos de la animación
     int width = 0.8*ancho/2;
@@ -69,7 +75,8 @@ QLabel* Battle::vsAnimation() {
 
     ui->label_2->setText("Te retaron wey!");
 
-    this->repaint();
+    this->centralWidget()->show();
+    this->repaint(); 
     QThread::msleep(100);
 
     // Se generan los elementos de la animación
