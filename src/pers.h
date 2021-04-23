@@ -28,4 +28,3 @@ class pers : public QMainWindow {
 };
 
 #endif // PERS_H
-//

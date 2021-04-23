@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     src/atacar.cpp \
     src/batalla.cpp \
+    src/battle.cpp \
     src/cambio.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     src/atacar.h \
     src/batalla.h \
+    src/battle.h \
     src/cambio.h \
     src/mainwindow.h \
     src/mochila.h \
@@ -30,6 +32,7 @@ HEADERS += \
 FORMS += \
     src/atacar.ui \
     src/batalla.ui \
+    src/battle.ui \
     src/cambio.ui \
     src/mainwindow.ui \
     src/mochila.ui \
