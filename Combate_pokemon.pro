@@ -1,4 +1,4 @@
-QT       += core gui multimedia
+QT       += core gui multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -53,5 +53,12 @@ DISTFILES += \
 RESOURCES += \
     src/ResourcesVisual.qrc
 
-LIBS += \
-    -L./lib/OpenAL/OpenAL32.dll # Se añade la librería de OpenAL al linkador
+# Instalación de la librería SDL
+INCLUDEPATH += ./lib/SDL2-2.0.14/include/
+
+unix|win32: LIBS += -L$$PWD/lib/SDL2-2.0.14/lib/x86/ -lSDL2
+
+INCLUDEPATH += $$PWD/lib/SDL2-2.0.14/lib/x86
+DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x86
+
+# Copia de los archivos de audio a la carpeta build

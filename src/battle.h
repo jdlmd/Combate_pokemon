@@ -8,6 +8,7 @@
 #include <QThread>
 #include <QString>
 #include <QFile>
+#include <QDir>
 
 namespace Ui {
     class Battle;
