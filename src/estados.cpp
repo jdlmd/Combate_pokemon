@@ -30,6 +30,7 @@ void Estados::resolveState(Pokemon *pokemon) {
             if (!turnos) { // Si se han acabado los turnos...
                 turnos = -1;
                 estado = NONE;
+                pokemon->estadisticas_actuales.speed = pokemon->estadisticas_actuales.speed*2;
                 solve = false;
             }
 
