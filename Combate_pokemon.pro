@@ -18,7 +18,12 @@ SOURCES += \
     src/mainwindow.cpp \
     src/mochila.cpp \
     src/pers.cpp \
-    src/personaje.cpp
+    src/personaje.cpp \
+    src/entrenador.cpp \
+    src/estados.cpp \
+    src/movimientos.cpp \
+    src/tipos.cpp \
+    src/pokemon.cpp
 
 HEADERS += \
     src/atacar.h \
@@ -29,8 +34,13 @@ HEADERS += \
     src/mainwindow.h \
     src/mochila.h \
     src/pers.h \
-    src/personaje.h
-
+    src/personaje.h \
+    src/entrenador.h \
+    src/estados.h \
+    src/movimientos.h \
+    src/tipos.h \
+    src/definiciones.h \
+    src/pokemon.h
 
 FORMS += \
     src/atacar.ui \
