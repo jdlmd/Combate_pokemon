@@ -10,6 +10,9 @@
 #include <QFile>
 #include <QDir>
 
+#include "audio/audio.h"
+#include "iostream"
+
 namespace Ui {
     class Battle;
 }
@@ -29,8 +32,10 @@ class Battle : public QMainWindow {
         int ancho;
         int alto;
         Ui::Battle *ui;
+        Audio audio;
         QLabel* vsAnimation();
         void battleStartAnimation(QLabel* fondo);
+        void closeEvent(QCloseEvent *event) override;
 };
 
 #endif // BATTLE_H

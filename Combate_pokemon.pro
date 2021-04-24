@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     src/atacar.cpp \
+    audio/audio.cpp \
     src/batalla.cpp \
     src/battle.cpp \
     src/cambio.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     src/atacar.h \
+    audio/audio.h \
     src/batalla.h \
     src/battle.h \
     src/cambio.h \
@@ -64,7 +66,7 @@ DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x86
 # Copia de los archivos de audio a la carpeta build
 CONFIG += file_copies
 COPIES += audioFiles
-audioFiles.files = $$files(audio/*.wav) # Path de copia
+audioFiles.files = $$files(audio/files/*.wav) # Path de copia
 audioFiles.path = $$OUT_PWD/audio # Path destino
 audioFiles.base = $$PWD/audio # Base del path
 

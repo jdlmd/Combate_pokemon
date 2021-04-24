@@ -1,12 +1,6 @@
 #include "battle.h"
 #include "ui_battle.h"
 
-#include <SDL.h>
-#include <SDL_main.h>
-#include "iostream"
-
-#define AUDIO_PATH "./Combate_pokemon/audio/theme.wav"
-
 Battle::Battle(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Battle)
@@ -43,24 +37,9 @@ Genera la animación de vs y devuelve un puntero al fondo en blanco superpuesto,
 
 QLabel* Battle::vsAnimation() {
 
-    SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_AudioSpec want, have;
-    SDL_memset(&want, 0, sizeof(want));
-    want.freq = 16000;
-    want.format = AUDIO_U16;
-    want.channels = 1;
-    want.samples = 4096;
-    auto audio = SDL_OpenAudioDevice(nullptr, false, &want, &have, 0);
-
-    Uint8* buf;
-    Uint32 len;
-    SDL_LoadWAV(AUDIO_PATH, &have ,&buf, &len);
-    SDL_QueueAudio(audio, buf, len);
-    SDL_FreeWAV(buf);
-    SDL_PauseAudioDevice(audio,false);
+    audio.launchAudio("./Combate_pokemon/audio/files/theme.wav");
 
     QThread::msleep(200);
-
     // Variables de altura y posición para los elementos de la animación
     int width = 0.8*ancho/2;
     int height = (alto-ui->label_2->geometry().height())/3;
@@ -144,14 +123,10 @@ QLabel* Battle::vsAnimation() {
 
     QThread::msleep(500);
 
-    SDL_CloseAudioDevice(audio);
-    SDL_Quit();
-
     return fondo; // Se duelve la capa superior, para que pueda ser manejada por otras animaciones (fadeOut)
 }
 
 void Battle::battleStartAnimation(QLabel *fondo) {
-
     // Se va disminuyendo la opacidad del fondo blanco
     for (int i = 15 ; i >= 0 ; i--){
         QString back = "background-color: rgba(255, 255, 255, ";
@@ -159,4 +134,12 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         QThread::msleep(50);
         this->repaint();
     }
+    delete fondo; // Se borra el fondo
+}
+
+// Método para manejar el cierre de la ventana de forma correcta
+void Battle::closeEvent(QCloseEvent *event) {
+    audio.killAudio(); // Libera el audio
+    parentWidget()->show();
+    QMainWindow::closeEvent(event); // Se cierra la ventana
 }
