@@ -1,4 +1,4 @@
-QT       += core gui multimedia multimediawidgets
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -55,14 +55,6 @@ DISTFILES += \
 RESOURCES += \
     src/ResourcesVisual.qrc
 
-# Instalación de la librería SDL
-INCLUDEPATH += ./lib/SDL2-2.0.14/include/
-
-unix|win32: LIBS += -L$$PWD/lib/SDL2-2.0.14/lib/x86/ -lSDL2
-
-INCLUDEPATH += $$PWD/lib/SDL2-2.0.14/lib/x86
-DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x86
-
 # Copia de los archivos de audio a la carpeta build
 CONFIG += file_copies
 COPIES += audioFiles
@@ -75,3 +67,11 @@ COPIES += trainerFiles
 trainerFiles.files = $$files(*.txt) # Path de copia
 trainerFiles.path = $$OUT_PWD/Combate_pokemon # Path destino
 # trainerFiles.base = $$PWD/audio # Base del path
+
+# Instalación de la librería SDL
+INCLUDEPATH += ./lib/SDL2-2.0.14/include/
+
+unix|win32: LIBS += -L$$PWD/lib/SDL2-2.0.14/lib/x64/ -lSDL2
+
+INCLUDEPATH += $$PWD/lib/SDL2-2.0.14/lib/x64
+DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x64

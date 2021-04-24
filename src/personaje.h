@@ -51,7 +51,7 @@ class CustomLabel : public QLabel {
         QString file_sup;
 
     protected:
-        void enterEvent(QEvent *ev) override;
+        void enterEvent(QEnterEvent *ev) override;
         void leaveEvent(QEvent *ev) override;
         void mousePressEvent(QMouseEvent *ev) override;
 

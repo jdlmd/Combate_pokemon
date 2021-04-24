@@ -45,7 +45,7 @@ void Personaje::closeEvent(QCloseEvent *event) {
     event->accept();
 }
 
-void CustomLabel::enterEvent(QEvent *ev) {
+void CustomLabel::enterEvent(QEnterEvent *ev) {
     QLabel::enterEvent(ev);
     if (!internal_flag)
         this->setStyleSheet(file_sup);
