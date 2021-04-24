@@ -3,6 +3,7 @@
 
 #include "tipos.h"
 #include "string"
+#include "pokemon.h"
 
 using namespace std;
 
@@ -17,8 +18,10 @@ class Movimientos {
         uint potencia; // Potencia del movimiento
         uint ppTotal; // PP's totales
         uint ppRemaining; // PP's actuales
+        uint atckORsp;  // Movimiento fisico (0), especial(1) o de estado(2)
+        bool defORspdef; // Defensa fisica (false) o especial (true)
 
-        virtual void getDamage(); // Calcular el daño
+        virtual void getDamage(Pokemon *atacante,Pokemon *defensor); // Calcular el daño
 };
 
 class Movimiento_estado : public Movimientos {
@@ -26,7 +29,7 @@ class Movimiento_estado : public Movimientos {
         Movimiento_estado();
     // Enum estados
     private:
-        void getDamage();
+        void getDamage(Pokemon *atacante,Pokemon *defensor);
         void resolveState();
 };
 
@@ -34,7 +37,7 @@ class Movimiento_caracteristicas : public Movimientos {
     public:
         Movimiento_caracteristicas();
     private:
-        void getDamage();
+        void getDamage(Pokemon *atacante,Pokemon *defensor);
         void resolveStat();
 };
 
