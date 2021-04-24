@@ -31,6 +31,7 @@ HEADERS += \
     src/pers.h \
     src/personaje.h
 
+
 FORMS += \
     src/atacar.ui \
     src/batalla.ui \
