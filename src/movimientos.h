@@ -8,6 +8,12 @@
 
 using namespace std;
 
+
+/* Clase movimientos:
+La clase movimientos se encargará de guardar los datos a utilizar en la resolución
+del uso de un movimiento por parte de un Pokemon. Por tanto, sus métodos deberán
+ser capaz de leer la zona de memoria donde se guarde el pokemon.
+*/
 class Movimientos {
     public:
         Movimientos(); // Constructor
@@ -28,19 +34,8 @@ class Movimientos {
 class Movimiento_estado : public Movimientos , public Estados {
     public:
         Movimiento_estado();
-    // Enum estados
     private:
-
-        void getDamage(Pokemon *atacante,Pokemon *defensor);
-        void resolveState();
-};
-
-class Movimiento_caracteristicas : public Movimientos {
-    public:
-        Movimiento_caracteristicas();
-    private:
-        void getDamage(Pokemon *atacante,Pokemon *defensor);
-        void resolveStat();
+        void getDamage(Pokemon *atacante,Pokemon *defensor); // Se utiliza en lugar de la habitual
 };
 
 #endif // MOVIMIENTOS_H

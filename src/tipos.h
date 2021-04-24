@@ -6,7 +6,13 @@
 
 using namespace std;
 
-
+/* Clase tipo:
+Un objeto Tipo guardará los dos tipos a los que puede pertenecer un pokemon,
+haciendo uso del enum Tipos. Además, este mismo objeto será el encargado de
+resolver la eficacio de los ataques de un determinado tipo, en función de los tipos
+del pokemon que lo reciviera (Por ejemplo, fuego es fuerte contra planta, y agua
+es fuerte contra fuego)
+*/
 class Tipo{
     private:
         Tipos primario;
@@ -19,33 +25,8 @@ class Tipo{
         Tipos getSecondary();
         string getPrimaryName();
         string getSecondaryName();
-        float multiplicador(Tipos tipo);
+        float multiplicador(Tipos tipo); // Introduciendo un tipo, devuelve el multiplicador
+        float getStab(Tipos tipo); // Calcula el stab
 };
 
 #endif // TIPOS_H
-
-/*
-    string Tipo::getPrimaryName(){
-        switch (primario){
-            case NINGUNO:
-                return "None";
-                break;
-            case NORMAL:
-                return "Normal";
-                break;
-            case FUEGO:
-                return "Fuego";
-                break;
-            case LUCHA:
-                return "Lucha";
-                break;
-            case AGUA:
-                return "Agua";
-                break;
-            default:
-                return "None";
-                break;
-        }
-    }
-
-*/
