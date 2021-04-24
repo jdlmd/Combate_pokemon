@@ -3,6 +3,8 @@
 
 #include "tipos.h"
 #include "string"
+#include "pokemon.h"
+#include "estados.h"
 
 using namespace std;
 
@@ -19,23 +21,15 @@ class Movimientos {
         uint ppRemaining; // PP's actuales
 
         virtual void getDamage(); // Calcular el daño
+        void resolveStat(); // Resolver características
 };
 
-class Movimiento_estado : public Movimientos {
+class Movimiento_estado : public Movimientos , public Estados {
     public:
         Movimiento_estado();
     // Enum estados
     private:
         void getDamage();
-        void resolveState();
-};
-
-class Movimiento_caracteristicas : public Movimientos {
-    public:
-        Movimiento_caracteristicas();
-    private:
-        void getDamage();
-        void resolveStat();
 };
 
 #endif // MOVIMIENTOS_H
