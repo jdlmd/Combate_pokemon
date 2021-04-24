@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     src/entrenador.cpp \
+    src/estados.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/movimientos.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 HEADERS += \
     src/definiciones.h \
     src/entrenador.h \
+    src/estados.h \
     src/mainwindow.h \
     src/movimientos.h \
     src/pokemon.h \

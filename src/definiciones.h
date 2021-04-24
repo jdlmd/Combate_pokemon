@@ -31,4 +31,13 @@ enum Genero : uint {
     FEMALE = 2,
 };
 
+enum Estado : uint {
+    NONE = 0,
+    PARALIZADO = 1,
+    QUEMADO = 2,
+    ENVENENADO = 3,
+    DORMIDO = 4,
+    CONGELADO = 5,
+};
+
 #endif // DEFINICIONES_H
