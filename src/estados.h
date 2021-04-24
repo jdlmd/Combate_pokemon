@@ -7,7 +7,13 @@
 #include <time.h>
 #include <random>
 
-class Estados {
+/* Clase estados:
+La clase estados guardará un enum de tipo estado, que servirá posteriormente para
+resolver los turnos de cada pokemon. Cada estado tendrá una duración, expresado por
+la variable turnos. Haciendo uso de las banderas mov y solve, se determinará si el pokemon
+puede moverse o si se ha solucionado los stats del pokemon en la entrada del Stat.
+*/
+class Estados {			//  	NEREA
     public:
         Estados();
         ~Estados();
@@ -15,12 +21,13 @@ class Estados {
         bool getMov();
     protected:
         Estado estado;
-        short int turnos; // -1 = Infinito
+        uint turnos; // -1 = Infinito
         bool mov;
         bool solve;
         void setState(Estado state); // Fija el estado del pokemon
         void setTurns(); // Fija los turnos
         virtual void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
+    friend class Pokemon;
  };
 
 #endif // ESTADOS_H
