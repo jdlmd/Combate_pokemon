@@ -4,6 +4,7 @@
 #include "tipos.h"
 #include "string"
 #include "pokemon.h"
+#include "estados.h"
 
 using namespace std;
 
@@ -20,15 +21,16 @@ class Movimientos {
         uint ppRemaining; // PP's actuales
         uint atckORsp;  // Movimiento fisico (0), especial(1) o de estado(2)
         bool defORspdef; // Defensa fisica (false) o especial (true)
-
         virtual void getDamage(Pokemon *atacante,Pokemon *defensor); // Calcular el daño
+
 };
 
-class Movimiento_estado : public Movimientos {
+class Movimiento_estado : public Movimientos , public Estados {
     public:
         Movimiento_estado();
     // Enum estados
     private:
+
         void getDamage(Pokemon *atacante,Pokemon *defensor);
         void resolveState();
 };

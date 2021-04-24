@@ -4,6 +4,7 @@
 #include "definiciones.h"
 #include "movimientos.h"
 #include "tipos.h"
+#include "estados.h"
 #include <vector>
 
 struct stats {
@@ -36,6 +37,7 @@ class Pokemon {
         struct stats estadisticas;
 //        Movimientos attck[4];
         vector<Movimientos> attck;
+        Estados state;
 };
 
 #endif // POKEMON_H
