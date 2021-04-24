@@ -122,7 +122,6 @@ QLabel* Battle::vsAnimation() {
     delete Poke;
 
     QThread::msleep(500);
-
     return fondo; // Se duelve la capa superior, para que pueda ser manejada por otras animaciones (fadeOut)
 }
 

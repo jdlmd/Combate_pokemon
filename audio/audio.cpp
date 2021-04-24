@@ -2,12 +2,7 @@
 
 // Constructor
 Audio::Audio() {
-    SDL_Init(SDL_INIT_EVERYTHING); // Se inicia SDL
-    SDL_memset(&want, 0, sizeof(want)); // Se generan los bloques de memoria para want
-    want.freq = 44100;// Especificaciones de los archivos de audio
-    want.format = AUDIO_S16;
-    want.channels = 1;
-    want.samples = 4096;
+
 }
 
 // Destructor
@@ -17,6 +12,12 @@ Audio::~Audio() {
 
 // Método para lanzar el audio de la ventana actual
 void Audio::launchAudio(std::string filename) {
+    SDL_Init(SDL_INIT_EVERYTHING); // Se inicia SDL
+    SDL_memset(&want, 0, sizeof(want)); // Se generan los bloques de memoria para want
+    want.freq = 44100;// Especificaciones de los archivos de audio
+    want.format = AUDIO_S16;
+    want.channels = 1;
+    want.samples = 4096;
     // Generación del dispoisitivo de audio
     audio = SDL_OpenAudioDevice(nullptr, false, &want, &have, 0);
     Uint8* buf; // Puntero para el buffer
