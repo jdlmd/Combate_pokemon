@@ -42,8 +42,13 @@ class Tipo{
         Tipos secundario;
 
     public:
-        Tipos getprimario();
-        Tipos getsecundario();
+        Tipo();
+        Tipo(Tipos primario, Tipos secundario);
+        Tipos getPrimary();
+        Tipos getSecondary();
+        string getPrimaryName();
+        string getSecondaryName();
+        uint multiplicador(Tipos tipo);
 }
 
 */
