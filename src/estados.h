@@ -1,11 +1,10 @@
 #ifndef ESTADOS_H
 #define ESTADOS_H
 
-#include "definiciones.h"
-#include "pokemon.h"
-#include "movimientos.h"
 #include <time.h>
 #include <random>
+#include "pokemon.h"
+#include "definiciones.h"
 
 /* Clase estados:
 La clase estados guardará un enum de tipo estado, que servirá posteriormente para
@@ -13,6 +12,7 @@ resolver los turnos de cada pokemon. Cada estado tendrá una duración, expresad
 la variable turnos. Haciendo uso de las banderas mov y solve, se determinará si el pokemon
 puede moverse o si se ha solucionado los stats del pokemon en la entrada del Stat.
 */
+class Pokemon;
 class Estados {			//  	NEREA
     public:
         Estados();

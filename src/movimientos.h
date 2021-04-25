@@ -1,25 +1,22 @@
 #ifndef MOVIMIENTOS_H
 #define MOVIMIENTOS_H
 
-#include "tipos.h"
+#include "tipo.h"
 #include "string"
 #include "pokemon.h"
-#include "estados.h"
-
-using namespace std;
-
 
 /* Clase movimientos:
 La clase movimientos se encargará de guardar los datos a utilizar en la resolución
 del uso de un movimiento por parte de un Pokemon. Por tanto, sus métodos deberán
 ser capaz de leer la zona de memoria donde se guarde el pokemon.
 */
+class Pokemon;
 class Movimientos {
     public:
         Movimientos(); // Constructor
-
+        ~Movimientos();
     protected:
-        string nombre; // Nombre del movimiento
+        std::string nombre; // Nombre del movimiento
         Tipo type; // Tipo del movimiento
         uint precision; // Precisión del movimiento
         uint potencia; // Potencia del movimiento
@@ -29,13 +26,6 @@ class Movimientos {
         bool defORspdef; // Defensa fisica (false) o especial (true)
         virtual void getDamage(Pokemon *atacante,Pokemon *defensor); // Calcular el daño
 
-};
-
-class Movimiento_estado : public Movimientos , public Estados {
-    public:
-        Movimiento_estado();
-    private:
-        void getDamage(Pokemon *atacante,Pokemon *defensor); // Se utiliza en lugar de la habitual
 };
 
 #endif // MOVIMIENTOS_H

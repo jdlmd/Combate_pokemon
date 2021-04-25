@@ -1,10 +1,8 @@
-#ifndef TIPOS_H
-#define TIPOS_H
+#ifndef TIPO_H
+#define TIPO_H
 
 #include <string>
 #include "definiciones.h"
-
-using namespace std;
 
 /* Clase tipo:
 Un objeto Tipo guardará los dos tipos a los que puede pertenecer un pokemon,
@@ -23,10 +21,10 @@ class Tipo{
         Tipo(Tipos primario, Tipos secundario);
         Tipos getPrimary();
         Tipos getSecondary();
-        string getPrimaryName();
-        string getSecondaryName();
+        std::string getPrimaryName();
+        std::string getSecondaryName();
         float multiplicador(Tipos tipo); // Introduciendo un tipo, devuelve el multiplicador
         float getStab(Tipos tipo); // Calcula el stab
 };
 
-#endif // TIPOS_H
+#endif // TIPO_H

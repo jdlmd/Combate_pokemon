@@ -40,4 +40,15 @@ enum Estado : uint {
     CONGELADO = 5,
 };
 
+struct stats {
+    uint hp;
+    uint atack;
+    uint defense;
+    uint sp_atack;
+    uint sp_defense;
+    uint speed;
+    uint evasion;
+    uint precision;
+};
+
 #endif // DEFINICIONES_H
