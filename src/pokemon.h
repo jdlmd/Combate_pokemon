@@ -36,6 +36,7 @@ class Pokemon {
         std::vector<Movimientos*> attck;
         Estados* state;
         Tipo type;
+    friend class Estados;
 };
 
 #endif // POKEMON_H
