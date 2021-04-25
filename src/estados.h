@@ -23,7 +23,7 @@ class Estados {
         uint turnos; // -1 = Infinito
         bool mov;
         bool solve;
-        void setState(Estado state); // Fija el estado del pokemon
+        void setState(Estado state, Pokemon* receiver); // Fija el estado del pokemon
         void setTurns(); // Fija los turnos
         virtual void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
  };

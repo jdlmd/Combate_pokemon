@@ -1,5 +1,7 @@
 #include "estados.h"
 
+using namespace std;
+
 Estados::Estados() {
     estado = NONE;
     turnos = -1;
@@ -10,12 +12,24 @@ Estados::Estados() {
 Estados::~Estados() {
 
 }
-void Estados::setState(Estado state) {
 
-}
-
-void Estados::setTurns() {
-
+string Estados::getStateName() {
+    switch (estado) {
+        case(NONE):
+            return "NINGUNO";
+        case(PARALIZADO):
+            return "PARALIZADO";
+        case(QUEMADO):
+            return "QUEMADO";
+        case(ENVENENADO):
+            return "ENVENENADO";
+        case(DORMIDO):
+            return "DORMIDO";
+        case(CONGELADO):
+            return "CONGELADO";
+        default:
+            return "NINGUNO";
+    }
 }
 
 void Estados::resolveState(Pokemon *pokemon) {
@@ -77,12 +91,14 @@ void Estados::resolveState(Pokemon *pokemon) {
 
             break;
         case(CONGELADO):
-            if (first!=HIELO && second!=HIELO){
+            if (first!=HIELO && second!=HIELO) {
                 turnos = -1;
                 srand(time(NULL));
 
                 if(rand() % 100 <= 80) { // El pokemon tiene un 20% de posibilidades de librarse del estado
                     mov = false;
+                }else {
+                    mov = true;
                     estado = NONE;
                 }
             }
@@ -92,5 +108,13 @@ void Estados::resolveState(Pokemon *pokemon) {
 }
 
 bool Estados::getMov() {
+    return mov;
+}
+
+void Estados::setState(Estado estado, Pokemon* pokemon) {
+
+}
+
+void Estados::setTurns() {
 
 }
