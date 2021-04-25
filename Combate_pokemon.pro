@@ -9,17 +9,33 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    src/entrenador.cpp \
-    src/estados.cpp \
+    src/atacar.cpp \
+    audio/audio.cpp \
+    src/batalla.cpp \
+    src/battle.cpp \
+    src/cambio.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/movimientoestado.cpp \
     src/movimientos.cpp \
     src/pokemon.cpp \
     src/tipo.cpp
+    src/mochila.cpp \
+    src/pers.cpp \
+    src/personaje.cpp \
+    src/entrenador.cpp \
+    src/estados.cpp 
 
 HEADERS += \
-    src/definiciones.h \
+    src/atacar.h \
+    audio/audio.h \
+    src/batalla.h \
+    src/battle.h \
+    src/cambio.h \
+    src/mainwindow.h \
+    src/mochila.h \
+    src/pers.h \
+    src/personaje.h \
     src/entrenador.h \
     src/estados.h \
     src/mainwindow.h \
@@ -27,9 +43,17 @@ HEADERS += \
     src/movimientos.h \
     src/pokemon.h \
     src/tipo.h
+    src/definiciones.h 
 
 FORMS += \
-    src/mainwindow.ui
+    src/atacar.ui \
+    src/batalla.ui \
+    src/battle.ui \
+    src/cambio.ui \
+    src/mainwindow.ui \
+    src/mochila.ui \
+    src/pers.ui \
+    src/personaje.ui
 
 TRANSLATIONS += \
     Combate_pokemon_es_ES.ts
@@ -41,3 +65,27 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
         README.md
+
+RESOURCES += \
+    src/ResourcesVisual.qrc
+
+# Copia de los archivos de audio a la carpeta build
+CONFIG += file_copies
+COPIES += audioFiles
+audioFiles.files = $$files(audio/files/*.wav) # Path de copia
+audioFiles.path = $$OUT_PWD/audio # Path destino
+audioFiles.base = $$PWD/audio # Base del path
+
+# Copia de los archivos de entrenadores a la carpeta build
+COPIES += trainerFiles
+trainerFiles.files = $$files(*.txt) # Path de copia
+trainerFiles.path = $$OUT_PWD/Combate_pokemon # Path destino
+# trainerFiles.base = $$PWD/audio # Base del path
+
+# Instalación de la librería SDL
+INCLUDEPATH += ./lib/SDL2-2.0.14/include/
+
+unix|win32: LIBS += -L$$PWD/lib/SDL2-2.0.14/lib/x64/ -lSDL2
+
+INCLUDEPATH += $$PWD/lib/SDL2-2.0.14/lib/x64
+DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x64
