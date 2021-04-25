@@ -19,7 +19,7 @@ SOURCES += \
     src/movimientoestado.cpp \
     src/movimientos.cpp \
     src/pokemon.cpp \
-    src/tipo.cpp
+    src/tipo.cpp \
     src/mochila.cpp \
     src/pers.cpp \
     src/personaje.cpp \
@@ -42,7 +42,7 @@ HEADERS += \
     src/movimientoestado.h \
     src/movimientos.h \
     src/pokemon.h \
-    src/tipo.h
+    src/tipo.h \
     src/definiciones.h 
 
 FORMS += \
