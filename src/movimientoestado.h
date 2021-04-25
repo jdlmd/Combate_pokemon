@@ -1,5 +1,5 @@
-#ifndef MOVIMIENTO_ESTADO_H
-#define MOVIMIENTO_ESTADO_H
+#ifndef MOVIMIENTOESTADO_H
+#define MOVIMIENTOESTADO_H
 
 #include "pokemon.h"
 #include "movimientos.h"
@@ -13,4 +13,4 @@ class MovimientoEstado : public Movimientos , public Estados {
         void getDamage(Pokemon *atacante,Pokemon *defensor); // Se utiliza en lugar de la habitual
 };
 
-#endif // MOVIMIENTO_ESTADO_H
+#endif // MOVIMIENTOESTADO_H

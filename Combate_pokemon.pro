@@ -12,7 +12,7 @@ SOURCES += \
     src/estados.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/movimiento_estado.cpp \
+    src/movimientoestado.cpp \
     src/movimientos.cpp \
     src/pokemon.cpp \
     src/tipo.cpp
@@ -21,7 +21,7 @@ HEADERS += \
     src/definiciones.h \
     src/estados.h \
     src/mainwindow.h \
-    src/movimiento_estado.h \
+    src/movimientoestado.h \
     src/movimientos.h \
     src/pokemon.h \
     src/tipo.h
