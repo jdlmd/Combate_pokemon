@@ -12,7 +12,6 @@ resolver los turnos de cada pokemon. Cada estado tendrá una duración, expresad
 la variable turnos. Haciendo uso de las banderas mov y solve, se determinará si el pokemon
 puede moverse o si se ha solucionado los stats del pokemon en la entrada del Stat.
 */
-class Pokemon;
 class Estados {			//  	NEREA
     public:
         Estados();

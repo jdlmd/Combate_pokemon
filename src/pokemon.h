@@ -3,8 +3,6 @@
 
 #include "tipo.h"
 #include <vector>
-#include "movimientos.h"
-#include "estados.h"
 #include "definiciones.h"
 
 /* Clase pokemon:

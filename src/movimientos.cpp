@@ -1,18 +1,16 @@
 #include "movimientos.h"
 #include "pokemon.h"
 
-Movimientos::Movimientos()
-{
+Movimientos::Movimientos() {
 
 }
 
-Movimientos::~Movimientos()
-{
+Movimientos::~Movimientos() {
 
 }
 
 void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
-    /*
+
     if(potencia>0){
         uint atk_stat= atacante->estadisticas_actuales.atack;
         uint def_stat=defensor->estadisticas_actuales.defense;
@@ -43,7 +41,7 @@ void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
         }
 
         int precision_mod=precision*atacante->estadisticas_actuales.precision/defensor->estadisticas_actuales.evasion;
-
+/*
         if ((rand() % 100+1)>precision_mod){
             float stab=atacante->getStab(type);
             float effectiveness=defensor->tipo_Pkm.multiplicador(type.getPrimary());
@@ -55,6 +53,6 @@ void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
             // Bajar la barra de vida
             defensor->estadisticas_actuales.hp=defensor->estadisticas_actuales.hp-damage;
 
-        }
-    } */
+        } */
+    }
 }
