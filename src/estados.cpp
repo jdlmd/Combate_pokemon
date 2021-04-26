@@ -33,6 +33,7 @@ string Estados::getStateName() {
 }
 
 void Estados::resolveState(Pokemon *pokemon) {
+
     Tipos first = pokemon->type.getPrimary();
     Tipos second = pokemon->type.getSecondary();
     switch (estado) {
@@ -64,9 +65,9 @@ void Estados::resolveState(Pokemon *pokemon) {
             turnos = -1;
 
             if (first!=FUEGO && second!=FUEGO) { // Hace daño cada turno
-                pokemon->setHP(pokemon->getHP()-pokemon->getTotalHP()/16);
+                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
             }else if (!solve) { // Las estadisticas solo se las baja una vez
-                pokemon->estadisticas_actuales.atack = pokemon->estadisticas_actuales.atack/2;
+                pokemon->estadisticas_actuales.attack = pokemon->estadisticas_actuales.attack/2;
                     solve = true;
                 }
 
@@ -75,7 +76,7 @@ void Estados::resolveState(Pokemon *pokemon) {
             turnos = -1;
 
             if (first!=VENENO && second!=VENENO && first!=ACERO && second!=ACERO) {
-                pokemon->setHP(pokemon->getHP()-pokemon->getTotalHP()/16);
+                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
             }
 
             break;
@@ -127,8 +128,4 @@ Estado Estados::getStateByName(std::string _state) {
     }else {
         return NONE;
     }
-}
-
-void Estados::changeState(Estado state, uint turno) {
-
 }

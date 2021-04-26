@@ -1,5 +1,6 @@
 #include "entrenador.h"
 
+/* Constructor por defecto: generado un entrenador genérico llamado 'N' */
 Entrenador::Entrenador() {
     nombre = "N";
     genre = MALE;
@@ -9,17 +10,22 @@ Entrenador::Entrenador() {
     derrotado = false;
 }
 
+/* Constructor por archivo: Recibe como argumento de entrada el nombre
+de un fichero. El constructor accederá al fichero, y siguiendo la estructura
+específica que tendrán estos ficheros construirá al entrenador con sus respectivos
+pokemons y movimientos */
 Entrenador::Entrenador(std::string filename) {
+    // Variables a utilizar durante la ejecución del método
     uint cont, cont2, supp, _precision, _potencia, _pp, _porcentaje, _stOP, _turnos;
     std::string aux;
     std::ifstream entrada;
     std::string name, t1, t2;
     uint level;
     struct stats ivs, evs, base;
-    derrotado = false;
+    derrotado = false; // Se coloca el entrenador como no derrotado
     entrada.open(filename.c_str()); // Se genera el stream de entrada
-    if(entrada.fail()) {
-        std::cout << "Archivo no encontrado\n";
+    if(entrada.fail()) { // Si no se consigue encontrar o abrir el archivo...
+        std::cout << "Archivo no encontrado o imposible de abrir.\n";
         nombre = "N";
         genre = MALE;
         numPoke = 1;
@@ -28,7 +34,7 @@ Entrenador::Entrenador(std::string filename) {
         derrotado = false;
         return;
     }
-    entrada >> nombre >> aux >> number;
+    entrada >> nombre >> aux >> number; // Se dirigen las salidas del stream a las variables correspondientes
     // Se determina el género en función del parámetro de entrada
     if (aux == "M")
         genre = MALE;
@@ -56,61 +62,94 @@ Entrenador::Entrenador(std::string filename) {
         entrada >> ivs.hp >> ivs.attack >> ivs.defense >> ivs.sp_attack >> ivs.sp_defense >> ivs.speed;
         entrada >> evs.hp >> evs.attack >> evs.defense >> evs.sp_attack >> evs.sp_defense >> evs.speed;
         entrada >> base.hp >> base.attack >> base.defense >> base.sp_attack >> base.sp_defense >> base.speed;
-        Pokemon* poke = new Pokemon(name,t1,t2,level,ivs,evs,base);
-
+        Pokemon* poke = new Pokemon(name,t1,t2,level,ivs,evs,base); // Se genera el pokemon
+        // Se comprueba la cantidad de movimientos del pokemon
         entrada >> cont2;
-
         if(cont2 > 4) {
             std::cout << "El pokemon no puede tener más de 4 ataques.\n";
             cont2 = 4;
         } else if (cont2 < 1) {
-            std::cout << "El pokemon debe tener al menos 1 ataque. Se pondrá uno por defecto\n";
-            cont2 = 0;
+            std::cout << "El pokemon debe tener al menos 1 movimiento. Se pondra uno por defecto\n";
+            cont2 = 0; // Si no tiene movimientos, añade uno por defecto
             Movimientos* move = new Movimientos("Forcejeo","NORMAL",0,100,50,50);
             poke->addMove(move);
         }
+        // Se generan los movimientos uno por uno
         while(!entrada.eof() && cont2--) {
             entrada >> name >> t1 >> supp;
-            if (supp == 0) {
+            if (supp == 0) { // Si la variable supp = 0, el movimiento es normal
                 entrada >> _precision >> _potencia >> _pp >> _stOP;
                 Movimientos* move = new Movimientos(name,t1,_stOP,_precision,_potencia,_pp);
                 poke->addMove(move);
-            } else {
+            } else { // Si la variable supp != 0, el movimiento es de estado
                 entrada >> _precision >> _potencia >> _pp >> _stOP >> t2 >> _porcentaje >> _turnos;
                 MovimientoEstado* move = new MovimientoEstado(name,t1,_stOP,_precision,_potencia,_pp,t2,_turnos,_porcentaje);
                 poke->addMove(move);
             }
         }
+        // Se introduce el pokemon en el equipo del entrenador
         equipo.push_back(poke);
     }
 }
 
+/* Destructor */
 Entrenador::~Entrenador() {
     /* Vacío */
 }
 
+/* Cargar nombre al entrenador */
 void Entrenador::setNombre(std::string name) {
     nombre = name;
 }
 
+/* Recive el nombre del entrenador */
 std::string Entrenador::getNombre(){
     return nombre;
 }
 
-void Entrenador::setNumPoke(uint num) {
-    numPoke = num;
-}
-
+/* Devuelve el número de pokemons vivos */
 uint Entrenador::getNumPoke(){
     return numPoke;
 }
 
+/* Establece el número de pokemons vivos */
+void Entrenador::setNumPoke(uint num) {
+    numPoke = num;
+}
+
+/* Devuelve el número total de pokemons del entrenador */
+uint Entrenador::getNumber() {
+    return number;
+}
+
+/* Establece el número máximos de pokemons del entrenador */
+void Entrenador::setNumber(uint _number) {
+    number = _number;
+}
+
+/* Update del status (derrotado o no) del entrenador */
 void Entrenador::updateStatus() {
     // Hacer la función de updateStatus
 }
 
+/* Devuelve el estado actual del entrenador */
 bool Entrenador::checkStatus() {
     return derrotado;
+}
+
+/* Añade un pokemon al entrenador */
+void Entrenador::addPokemon(Pokemon* _new) {
+    if (equipo.size() < 6) {
+        equipo.push_back(_new);
+        number = equipo.size();
+    } else {
+        std::cout << "Numero maximo de pokemons.\n";
+    }
+}
+
+/* Quita un pokemon al entrenador */
+void Entrenador::removePokemon(int i) {
+
 }
 
 void Entrenador::defaultPoke() {
@@ -125,7 +164,7 @@ void Entrenador::defaultPoke() {
     // Se otorgan los base stats de charyzard
     base.hp = 78; base.attack = 84; base.defense = 78;
     base.sp_attack = 109; base.sp_defense = 85; base.speed = 100;
-    Pokemon* poke = new Pokemon("Charyzard","FUEGO","VOLADOR",80,ivs,evs,base);
+    Pokemon* poke = new Pokemon("Charizard","FUEGO","VOLADOR",80,ivs,evs,base);
     equipo.push_back(poke);
     // Se generan los movimientos por defecto de Charyzard
     MovimientoEstado* mov1 = new MovimientoEstado("Inferno","FUEGO",1,50,100,5,"QUEMADO",3,100);

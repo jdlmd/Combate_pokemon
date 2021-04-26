@@ -22,8 +22,6 @@ class Tipo{
         void setSecondary(Tipos _sec);
         Tipos getPrimary();
         Tipos getSecondary();
-        void setPrimary(Tipos _primario);
-        void setSecondary(Tipos _secundario);
         std::string getPrimaryName();
         std::string getSecondaryName();
 
@@ -32,7 +30,6 @@ class Tipo{
         float multiplicador(Tipos tipo); // Introduciendo un tipo, devuelve el multiplicador
         float getStab(Tipos tipo); // Calcula el stab (daño adicional por afinidad de tipos)
         std::string eficacia(float mult); // Indica si es supereficaz o poco eficaz
-        static Tipos getTypeByName(std::string _type); // Función estática
 };
 
 #endif // TIPO_H

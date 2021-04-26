@@ -1,7 +1,7 @@
 Jesus
 M
 1
-Charyzard
+Charizard
 FUEGO VOLADOR
 80
 21 25 16 30 21 30
@@ -17,7 +17,7 @@ FUEGO
 1
 QUEMADO
 100
-3
+-1
 FlareBlitz
 FUEGO
 1
@@ -27,7 +27,7 @@ FUEGO
 0
 QUEMADO
 10
-3
+-1
 Acrobatics
 VOLADOR
 0

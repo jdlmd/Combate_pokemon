@@ -27,11 +27,11 @@ class Entrenador {
         uint getNumPoke(); // Comprueba la cantidad de pokemons vivos que tiene
         void setNumPoke(uint _numPoke); // Fija la cantidad de pokemons vivos que tiene
         uint getNumber(); // Comprueba la cantida máximas de pokemons que tiene
-        void setNumber(); // Fija la cantidad total de pokemons (max 6)
+        void setNumber(uint _number); // Fija la cantidad total de pokemons (max 6)
         void updateStatus(); // Actualiza el status del entrenador
         bool checkStatus(); // Comprueba si el entrenador ha sido derrotado
-        void addPokemon(); // Añade un pokemon
-        void removePokemon(); // Quita un pokemon
+        void addPokemon(Pokemon* _new); // Añade un pokemon
+        void removePokemon(int i); // Quita un pokemon
         Pokemon* getPokemon(int i); // Devuelve un pokemon
 
     private:
@@ -42,7 +42,6 @@ class Entrenador {
         std::vector<Pokemon*> equipo; // El vector con sus pokemons
         bool derrotado; // Guarda si el entrenador ha sido derrotado
         void defaultPoke(); // Pokemon por defecto
-
 };
 
 #endif // ENTRENADOR_H
