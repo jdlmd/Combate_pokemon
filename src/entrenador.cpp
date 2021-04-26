@@ -149,9 +149,19 @@ void Entrenador::addPokemon(Pokemon* _new) {
 
 /* Quita un pokemon al entrenador */
 void Entrenador::removePokemon(int i) {
-
+    Pokemon* poke = equipo[i];
+    equipo.erase(equipo.begin() + i); // Se elimina la posición del vector
+    number--;
+    numPoke--;
+    delete poke;
 }
 
+/* Devuelve un pokemon */
+Pokemon* Entrenador::getPokemon(int i) {
+    return equipo[i];
+}
+
+/* Genera un pokemon por defecto dentro de entrenador*/
 void Entrenador::defaultPoke() {
     struct stats ivs, evs, base;
     srand(time(NULL));

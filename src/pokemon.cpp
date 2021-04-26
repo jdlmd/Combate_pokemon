@@ -1,8 +1,10 @@
 #include "pokemon.h"
 #include "estados.h"
+#include "movimientos.h"
+#include "movimientoestado.h"
 
 Pokemon::Pokemon() {
-
+    name = "MISSIGNO";
 }
 
 Pokemon::Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level, struct stats _ivs, struct stats _evs, struct stats _base) {
@@ -28,4 +30,34 @@ void Pokemon::addMove(Movimientos* move) {
 
 void Pokemon::setHP(uint newHP) {
     estadisticas_actuales.hp = newHP;
+}
+
+void Pokemon::removeMove(int i) {
+    Movimientos* move = attck[i];
+    attck.erase(attck.begin() + i);
+    delete move;
+}
+
+uint Pokemon::getNumberMoves() {
+    return attck.size();
+}
+
+void Pokemon::setSecondaryType(Tipos _second) {
+    type.setSecondary(_second);
+}
+
+Movimientos* Pokemon::getMove(int i) {
+    return attck[i];
+}
+
+std::string Pokemon::getName() {
+    return name;
+}
+
+uint Pokemon::getHP() {
+    return estadisticas_actuales.hp;
+}
+
+uint Pokemon::getHPtotal() {
+    return estadisticas.hp;
 }

@@ -14,7 +14,11 @@ class Movimientos {
     public:
         Movimientos();
         Movimientos(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp); // Constructor
-        ~Movimientos();
+        virtual ~Movimientos();
+        std::string getName();
+        uint getPPtotal();
+        uint getPPremaining();
+        Tipos getType();
     protected:
         std::string nombre; // Nombre del movimiento
         Tipos type; // Tipo del movimiento
