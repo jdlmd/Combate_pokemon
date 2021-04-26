@@ -42,7 +42,7 @@ class Pokemon {
         uint level;
         Estados* state;
         Tipo type;
-        void calculateStatsFromBase(); // Implementar
+        void calculateStatsFromBase(struct stats,struct stats,struct stats); // Implementar
 
     friend class Estados;
     friend class Movimientos;

@@ -27,7 +27,7 @@ class Movimientos {
         uint ppTotal; // PP's totales
         uint ppRemaining; // PP's actuales
         uint atckORsp;  // Movimiento fisico (0), especial(1) o de estado(2)
-        bool defORspdef; // Defensa fisica (false) o especial (true)
+        uint defORspdef; // Defensa fisica (false) o especial (true)
         virtual void getDamage(Pokemon* atacante,Pokemon* defensor); // Calcular el daño
 
 };
