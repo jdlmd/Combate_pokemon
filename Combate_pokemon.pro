@@ -16,11 +16,11 @@ SOURCES += \
     src/cambio.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/mapa.cpp \
     src/movimientoestado.cpp \
     src/movimientos.cpp \
     src/pokemon.cpp \
     src/tipo.cpp \
-    src/mochila.cpp \
     src/pers.cpp \
     src/personaje.cpp \
     src/entrenador.cpp \
@@ -33,7 +33,7 @@ HEADERS += \
     src/battle.h \
     src/cambio.h \
     src/mainwindow.h \
-    src/mochila.h \
+    src/mapa.h \
     src/pers.h \
     src/personaje.h \
     src/entrenador.h \
@@ -51,7 +51,7 @@ FORMS += \
     src/battle.ui \
     src/cambio.ui \
     src/mainwindow.ui \
-    src/mochila.ui \
+    src/mapa.ui \
     src/pers.ui \
     src/personaje.ui
 

@@ -49,5 +49,6 @@
         <file>res/fbatalla.png</file>
         <file>res/mbatalla.png</file>
         <file>res/text_box.png</file>
+        <file>res/mapa.png</file>
     </qresource>
 </RCC>

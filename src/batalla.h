@@ -20,7 +20,6 @@ public:
 private slots:
 
     void on_next_clicked();
-    void batalla();
     void get_name();
     void get_genre();
 
