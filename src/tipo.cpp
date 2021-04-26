@@ -7,6 +7,14 @@ Tipo::Tipo() {
     secundario = NINGUNO;
 }
 
+void Tipo::setPrimary(Tipos _prim) {
+    primario = _prim;
+}
+
+void Tipo::setSecondary(Tipos _sec) {
+    secundario = _sec;
+}
+
 Tipos Tipo::getPrimary() {
     return primario;
 }
@@ -49,7 +57,7 @@ string Tipo::getPrimaryName() {
             return "DRAGON";
         case(FANTASMA):
             return "FANTASMA";
-        case(SINIESTO):
+        case(SINIESTRO):
             return "SINIESTRO";
         case(ACERO):
             return "ACERO";
@@ -94,7 +102,7 @@ string Tipo::getSecondaryName() {
             return "DRAGON";
         case(FANTASMA):
             return "FANTASMA";
-        case(SINIESTO):
+        case(SINIESTRO):
             return "SINIESTRO";
         case(ACERO):
             return "ACERO";
@@ -144,7 +152,7 @@ float Tipo::multiplicador(Tipos tipo) {
                 value *= 2;
             if (primario == ROCA || secundario == ROCA)
                 value *= 2;
-            if (primario == SINIESTO || secundario == SINIESTO)
+            if (primario == SINIESTRO || secundario == SINIESTRO)
                 value *= 2;
             if (primario == BICHO || secundario == BICHO)
                 value /= 2;
@@ -268,7 +276,7 @@ float Tipo::multiplicador(Tipos tipo) {
                 value *= 2;
             if (primario == PSIQUICO || secundario == PSIQUICO)
                 value /= 2;
-            if (primario == SINIESTO || secundario == SINIESTO)
+            if (primario == SINIESTRO || secundario == SINIESTRO)
                 value = 0;
             break;
         case(ROCA):
@@ -310,7 +318,7 @@ float Tipo::multiplicador(Tipos tipo) {
                 value *= 2;
             if (primario == PLANTA || secundario == PLANTA)
                 value *= 2;
-            if (primario == SINIESTO || secundario == SINIESTO)
+            if (primario == SINIESTRO || secundario == SINIESTRO)
                 value *= 2;
             if (primario == ACERO || secundario == ACERO)
                 value /= 2;
@@ -340,19 +348,19 @@ float Tipo::multiplicador(Tipos tipo) {
                 value *= 2;
             if (primario == PSIQUICO || secundario == PSIQUICO)
                 value *= 2;
-            if (primario == SINIESTO || secundario == SINIESTO)
+            if (primario == SINIESTRO || secundario == SINIESTRO)
                 value /= 2;
             if (primario == NORMAL || secundario == NORMAL)
                 value = 0;
             break;
-        case(SINIESTO):
+        case(SINIESTRO):
             if (primario == FANTASMA || secundario == FANTASMA)
                 value *= 2;
             if (primario == PSIQUICO || secundario == PSIQUICO)
                 value *= 2;
             if (primario == HADA || secundario == HADA)
                 value /= 2;
-            if (primario == SINIESTO || secundario == SINIESTO)
+            if (primario == SINIESTRO || secundario == SINIESTRO)
                 value /= 2;
             if (primario == LUCHA || secundario == LUCHA)
                 value /= 2;
@@ -378,7 +386,7 @@ float Tipo::multiplicador(Tipos tipo) {
                 value *= 2;
             if (primario == LUCHA || secundario == LUCHA)
                 value *= 2;
-            if (primario == SINIESTO || secundario == SINIESTO)
+            if (primario == SINIESTRO || secundario == SINIESTRO)
                 value *= 2;
             if (primario == ACERO || secundario == ACERO)
                 value /= 2;
@@ -407,7 +415,9 @@ string Tipo::eficacia(float mult) {
     string effective;
     if (mult == 0) {
         effective = "No ha tenido efecto...";
-    }else if (mult == 1) {
+    }else if (mult == 0.25) {
+        effective = "Apenas tiene eficacia...";
+    }else if (mult == 0.5) {
         effective = "No es muy eficaz...";
     }else if (mult == 1) {
         effective = " ";
@@ -415,7 +425,52 @@ string Tipo::eficacia(float mult) {
         effective = "Es muy eficaz";
     }else if (mult == 4) {
         effective = "¡Es supereficaz!";
+    } else {
+        effective = "";
     }
     return effective;
 }
 
+Tipos Tipo::getTypeByName(std::string _type) {
+    if (_type == "NINGUNO") {
+        return NINGUNO;
+    }else if (_type == "NORMAL") {
+        return NORMAL;
+    }else if (_type == "FUEGO") {
+        return FUEGO;
+    }else if (_type == "LUCHA") {
+        return LUCHA;
+    }else if (_type == "AGUA") {
+        return AGUA;
+    }else if (_type == "VOLADOR") {
+        return VOLADOR;
+    }else if (_type == "PLANTA") {
+        return PLANTA;
+    }else if (_type == "ELECTRICO") {
+        return ELECTRICO;
+    }else if (_type == "VENENO") {
+        return VENENO;
+    }else if (_type == "TIERRA") {
+        return TIERRA;
+    }else if (_type == "PSIQUICO") {
+        return PSIQUICO;
+    }else if (_type == "ROCA") {
+        return ROCA;
+    }else if (_type == "HIELO") {
+        return HIELO;
+    }else if (_type == "BICHO") {
+        return BICHO;
+    }else if (_type == "DRAGON") {
+        return DRAGON;
+    }else if (_type == "FANTASMA") {
+        return FANTASMA;
+    }else if (_type == "SINIESTRO") {
+        return SINIESTRO;
+    }else if (_type == "ACERO") {
+        return ACERO;
+    }else if (_type == "HADA") {
+        return HADA;
+    }else {
+        return NINGUNO;
+    }
+}

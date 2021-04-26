@@ -112,9 +112,26 @@ bool Estados::getMov() {
 }
 
 void Estados::setState(Estado estado, Pokemon* pokemon) {
-
+    pokemon->state->estado=estado;
+}
+Estado Estados::getStateByName(std::string _state) {
+    if (_state == "NINGUNO") {
+        return NONE;
+    }else if (_state == "PARALIZADO") {
+        return PARALIZADO;
+    }else if (_state == "QUEMADO") {
+        return QUEMADO;
+    }else if (_state == "ENVENENADO") {
+        return ENVENENADO;
+    }else if (_state == "DORMIDO") {
+        return DORMIDO;
+    }else if (_state == "CONGELADO") {
+        return CONGELADO;
+    }else {
+        return NONE;
+    }
 }
 
-void Estados::setTurns() {
+void Estados::changeState(Estado state, uint turno) {
 
 }

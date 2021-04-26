@@ -24,8 +24,9 @@ class Estados {
         bool mov;
         bool solve;
         void setState(Estado state, Pokemon* receiver); // Fija el estado del pokemon
-        void setTurns(); // Fija los turnos
+        void changeState(Estado state, uint turno); // Fija los turnos
         virtual void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
+        static Estado getStateByName(std::string _state);
  };
 
 #endif // ESTADOS_H
