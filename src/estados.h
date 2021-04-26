@@ -26,6 +26,7 @@ class Estados {			//  	NEREA
         void setState(Estado state); // Fija el estado del pokemon
         void setTurns(); // Fija los turnos
         virtual void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
+        static Estado getStateByName(std::string _state);
     friend class Pokemon;
  };
 

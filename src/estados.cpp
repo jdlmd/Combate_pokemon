@@ -42,3 +42,7 @@ void Estados::resolveState(Pokemon *pokemon) {
             break;
     }
 }
+
+Estado Estados::getStateByName(std::string _state){
+    return NONE;
+}

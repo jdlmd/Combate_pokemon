@@ -4,12 +4,13 @@ Entrenador::Entrenador() {
     nombre = "N";
     genre = MALE;
     numPoke = 1;
+    number = 1;
     defaultPoke();
     derrotado = false;
 }
 
 Entrenador::Entrenador(std::string filename) {
-    uint cont, cont2;
+    uint cont, cont2, supp, _precision, _potencia, _pp, _porcentaje, _stOP, _turnos;
     std::string aux;
     std::ifstream entrada;
     std::string name, t1, t2;
@@ -19,7 +20,12 @@ Entrenador::Entrenador(std::string filename) {
     entrada.open(filename.c_str()); // Se genera el stream de entrada
     if(entrada.fail()) {
         std::cout << "Archivo no encontrado\n";
-        Entrenador(); // Se llama al constructor por defecto
+        nombre = "N";
+        genre = MALE;
+        numPoke = 1;
+        number = 1;
+        defaultPoke();
+        derrotado = false;
         return;
     }
     entrada >> nombre >> aux >> number;
@@ -36,9 +42,12 @@ Entrenador::Entrenador(std::string filename) {
         number = 6;
     } else if (number < 1) {
         std::cout << "No tienes ningun pokemon. Te daremos uno!\n";
+        number = 1;
+        numPoke = 1;
         defaultPoke();
         return;
     }
+    numPoke = number;
     cont = number;
     // Se introducen los pokemones poco a poco
     while(!entrada.eof() && cont--) {
@@ -48,21 +57,32 @@ Entrenador::Entrenador(std::string filename) {
         entrada >> evs.hp >> evs.attack >> evs.defense >> evs.sp_attack >> evs.sp_defense >> evs.speed;
         entrada >> base.hp >> base.attack >> base.defense >> base.sp_attack >> base.sp_defense >> base.speed;
         Pokemon* poke = new Pokemon(name,t1,t2,level,ivs,evs,base);
-        equipo.push_back(poke);
+
         entrada >> cont2;
 
         if(cont2 > 4) {
             std::cout << "El pokemon no puede tener más de 4 ataques.\n";
-        } else if (cont < 1) {
-            std::cout << "El pokemon debe tener al menos 1 ataque.\n;";
+            cont2 = 4;
+        } else if (cont2 < 1) {
+            std::cout << "El pokemon debe tener al menos 1 ataque. Se pondrá uno por defecto\n";
+            cont2 = 0;
+            Movimientos* move = new Movimientos("Forcejeo","NORMAL",0,100,50,50);
+            poke->addMove(move);
         }
         while(!entrada.eof() && cont2--) {
-
+            entrada >> name >> t1 >> supp;
+            if (supp == 0) {
+                entrada >> _precision >> _potencia >> _pp >> _stOP;
+                Movimientos* move = new Movimientos(name,t1,_stOP,_precision,_potencia,_pp);
+                poke->addMove(move);
+            } else {
+                entrada >> _precision >> _potencia >> _pp >> _stOP >> t2 >> _porcentaje >> _turnos;
+                MovimientoEstado* move = new MovimientoEstado(name,t1,_stOP,_precision,_potencia,_pp,t2,_turnos,_porcentaje);
+                poke->addMove(move);
+            }
         }
-
+        equipo.push_back(poke);
     }
-
-
 }
 
 Entrenador::~Entrenador() {

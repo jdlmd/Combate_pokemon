@@ -21,6 +21,8 @@ class Tipo{
         Tipo(Tipos primario, Tipos secundario);
         Tipos getPrimary();
         Tipos getSecondary();
+        void setPrimary(Tipos _primario);
+        void setSecondary(Tipos _secundario);
         std::string getPrimaryName();
         std::string getSecondaryName();
 
