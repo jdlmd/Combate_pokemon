@@ -4,6 +4,7 @@
 #include "tipo.h"
 #include <vector>
 #include "definiciones.h"
+#include <iostream>
 
 /* Clase pokemon:
 La clase pokemon guardará un vector con los movimientos a usar. Los pokemons
@@ -19,7 +20,7 @@ class Pokemon {
         struct stats estadisticas_actuales;
 
         Pokemon();
-        Pokemon(std::string _name); // Terminar constructor
+        Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level, struct stats _ivs, struct stats _evs, struct stats _base); // Terminar constructor
         void setHP(uint newHP);
         uint getHP();
         uint getTotalHP();
@@ -28,12 +29,14 @@ class Pokemon {
         uint getSpAtack();
         uint getDefense();
         uint getSpDefense();
+        void addMove(Movimientos* move);
     private:
         std::string name;
         struct stats IVs;
         struct stats EVs;
         struct stats estadisticas;
         std::vector<Movimientos*> attck;
+        uint level;
         Estados* state;
         Tipo type;
 };

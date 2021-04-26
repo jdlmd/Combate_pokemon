@@ -1,0 +1,42 @@
+Jesus
+M
+1
+Charyzard
+FUEGO VOLADOR
+80
+21 25 16 30 21 30
+120 60 50 140 110 30
+78 84 78 109 85 100
+4
+Inferno
+FUEGO
+1 // 0 Normal, 1 estado
+50
+100
+5
+1
+QUEMADO
+100
+Flare Blitz
+FUEGO
+1
+100
+120
+15
+0
+QUEMADO
+10
+Acrobatics
+VOLADOR
+0
+100
+55
+15
+0
+Metal Claw
+ACERO
+0
+95
+50
+35
+0

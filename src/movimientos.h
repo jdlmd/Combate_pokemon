@@ -12,11 +12,12 @@ ser capaz de leer la zona de memoria donde se guarde el pokemon.
 */
 class Movimientos {
     public:
-        Movimientos(); // Constructor
+        Movimientos();
+        Movimientos(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp); // Constructor
         ~Movimientos();
     protected:
         std::string nombre; // Nombre del movimiento
-        Tipo type; // Tipo del movimiento
+        Tipos type; // Tipo del movimiento
         uint precision; // Precisión del movimiento
         uint potencia; // Potencia del movimiento
         uint ppTotal; // PP's totales

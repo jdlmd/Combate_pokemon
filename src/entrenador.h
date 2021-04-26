@@ -6,6 +6,9 @@
 #include "definiciones.h"
 #include "string"
 #include "pokemon.h"
+#include "movimientoestado.h"
+#include <random>
+#include <time.h>
 
 /* Clase entrenador:
 La clase entrenador guardará un vector con los pokemons (se guardarán de forma
@@ -38,6 +41,7 @@ class Entrenador {
         uint number; // El número de pokemon totales que tiene (max 6)
         std::vector<Pokemon*> equipo; // El vector con sus pokemons
         bool derrotado; // Guarda si el entrenador ha sido derrotado
+        void defaultPoke(); // Pokemon por defecto
 
 };
 

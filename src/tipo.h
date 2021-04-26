@@ -23,6 +23,9 @@ class Tipo{
         Tipos getSecondary();
         std::string getPrimaryName();
         std::string getSecondaryName();
+
+        static Tipos getTypeByName(std::string); // Función estática
+
         float multiplicador(Tipos tipo); // Introduciendo un tipo, devuelve el multiplicador
         float getStab(Tipos tipo); // Calcula el stab
 };
