@@ -26,6 +26,7 @@
         <file>res/Nerea.png</file>
         <file>res/Jesus.png</file>
         <file>res/Maria.png</file>
+        <file>res/chus.png</file>
     </qresource>
     <qresource prefix="/pokemon"/>
     <qresource prefix="/personaje">
@@ -40,15 +41,18 @@
         <file>res/b2.jpg</file>
         <file>res/b3.jpg</file>
         <file>res/b4.jpg</file>
-        <file>res/b11.jpg</file>
-        <file>res/b22.jpg</file>
-        <file>res/b33.jpg</file>
-        <file>res/b44.jpg</file>
-        <file>res/fondo5.jpg</file>
         <file>res/interior.jpg</file>
         <file>res/fbatalla.png</file>
         <file>res/mbatalla.png</file>
         <file>res/text_box.png</file>
         <file>res/mapa.png</file>
+        <file>res/f2.png</file>
+        <file>res/m.png</file>
+        <file>res/agua_abajo.png</file>
+        <file>res/agua_arriba.png</file>
+        <file>res/arena_arriba.png</file>
+        <file>res/hierba_abajo.png</file>
+        <file>res/hierba_arriba.png</file>
+        <file>res/tierra_abajo.png</file>
     </qresource>
 </RCC>

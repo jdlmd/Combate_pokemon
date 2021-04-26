@@ -2,11 +2,12 @@
 #include "ui_mapa.h"
 #include "battle.h"
 
-Mapa::Mapa(QWidget *parent) :
+Mapa::Mapa(QWidget *parent, bool sgenre) :
     QMainWindow(parent),
     ui(new Ui::Mapa)
 {
     ui->setupUi(this);
+    genre=sgenre;
 }
 
 Mapa::~Mapa()
@@ -17,27 +18,31 @@ Mapa::~Mapa()
 void Mapa::on_b3_clicked()
 {
     hide();
-    Battle *v_battle=new Battle(this);
+    numbat=3;
+    Battle *v_battle=new Battle(this,numbat,genre);
     v_battle->show();
 }
 
 void Mapa::on_b2_clicked()
 {
     hide();
-    Battle *v_battle=new Battle(this);
+    numbat=2;
+    Battle *v_battle=new Battle(this,numbat,genre);
     v_battle->show();
 }
 
 void Mapa::on_b1_clicked()
 {
     hide();
-    Battle *v_battle=new Battle(this);
+    numbat=1;
+    Battle *v_battle=new Battle(this,numbat,genre);
     v_battle->show();
 }
 
 void Mapa::on_b4_clicked()
 {
     hide();
-    Battle *v_battle=new Battle(this);
+    numbat=4;
+    Battle *v_battle=new Battle(this,numbat,genre);
     v_battle->show();
 }

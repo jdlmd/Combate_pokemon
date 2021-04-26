@@ -1,14 +1,20 @@
 #include "battle.h"
 #include "ui_battle.h"
 
-Battle::Battle(QWidget *parent) :
+Battle::Battle(QWidget *parent, int snumbat,bool sgenre) :
     QMainWindow(parent),
     ui(new Ui::Battle)
 {
     ui->setupUi(this);
-
     this->centralWidget()->hide();
-
+    numbat=snumbat;
+    genre=sgenre;
+    ui->atacar->hide();
+    ui->cambio->hide();
+    ui->plat_sup->hide();
+    ui->plat_inf->hide();
+    ui->avatar->hide();
+    ui->enemigo->hide();
     // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
     ancho = this->geometry().width();
@@ -42,17 +48,15 @@ QLabel* Battle::vsAnimation() {
     QThread::msleep(200);
     // Variables de altura y posición para los elementos de la animación
     int width = 0.8*ancho/2;
-    int height = (alto-ui->label_2->geometry().height())/3;
-    int pY = (alto-ui->label_2->geometry().height())/2 - height/2;
+    int height = (alto-ui->cuadro_texto->geometry().height())/3;
+    int pY = (alto-ui->cuadro_texto->geometry().height())/2 - height/2;
 
     QLabel* font = new QLabel(this->centralWidget()); // Se genera un fondo negro
     font->setGeometry(0,0,ancho,alto);
     font->setStyleSheet("background-color: black;");
     font->lower();
     font->show();
-    ui->label->lower();
-
-    ui->label_2->setText("Te retaron wey!");
+    ui->fondobat->lower();
 
     this->centralWidget()->show();
     this->repaint(); 
@@ -82,8 +86,32 @@ QLabel* Battle::vsAnimation() {
     fondo->show();
     Izq->setStyleSheet("border-image: url(:/res/blue.png);\nbackground: transparent;"); // Se les da el StyleSheet
     Der->setStyleSheet("border-image: url(:/res/red.png);\nbackground: transparent;");
-    PjIzq->setStyleSheet("border-image: url(:/res/Nerea.png);\nbackground: transparent;");
-    PjDer->setStyleSheet("border-image: url(:/res/Maria.png);\nbackground: transparent;");
+
+    switch (numbat) {
+
+    case(1):
+    {PjDer->setStyleSheet("border-image: url(:/res/Nerea.png);\nbackground: transparent;");
+        break;}
+    case(2):{
+        PjDer->setStyleSheet("border-image: url(:/res/Jesus.png);\nbackground: transparent;");
+        break;}
+    case(3):
+    {PjDer->setStyleSheet("border-image: url(:/res/Maria.png);\nbackground: transparent;");
+    break;}
+    case(4):
+    {PjDer->setStyleSheet("border-image: url(:/res/chus.png);\nbackground: transparent;");
+    break;}
+    }
+
+    if (genre)
+    {
+        PjIzq->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
+    }
+    else{
+        PjIzq->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
+    }
+
+
     Poke->setStyleSheet("border-image: url(:/res/pokeball_battle.png);\nbackground: transparent;");
     Vs->setStyleSheet("border-image: url(:/res/vs.png);\nbackground: transparent;");
 
@@ -100,7 +128,7 @@ QLabel* Battle::vsAnimation() {
         this->repaint();
     }
 
-    ui->label_2->setText("¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
+    ui->cuadro_texto->setText("¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
     this->repaint();
     QThread::msleep(3500);
     fondo->setGeometry(0,0,ancho,alto);
@@ -123,6 +151,7 @@ QLabel* Battle::vsAnimation() {
 
     QThread::msleep(500);
     return fondo; // Se duelve la capa superior, para que pueda ser manejada por otras animaciones (fadeOut)
+
 }
 
 void Battle::battleStartAnimation(QLabel *fondo) {
@@ -134,6 +163,76 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         this->repaint();
     }
     delete fondo; // Se borra el fondo
+
+    ui->atacar->setVisible(true);
+    ui->cambio->setVisible(true);
+    ui->plat_sup->setVisible(true);
+    ui->plat_inf->setVisible(true);
+    ui->avatar->setVisible(true);
+    ui->enemigo->setVisible(true);
+
+    switch (numbat) {
+
+    case(1):{
+
+        if (genre)
+        {
+            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
+        }
+        else{
+           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
+        }
+        ui->enemigo->setStyleSheet("border-image: url(:/res/Nerea.png);\nbackground: transparent;");
+        ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/agua_abajo.png);");
+        ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/agua_arriba.png);");
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b1.jpg);");
+        break;}
+    case(2):{
+
+        if (genre)
+        {
+            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
+        }
+        else{
+           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
+        }
+        ui->enemigo->setStyleSheet("border-image: url(:/res/Jesus.png);\nbackground: transparent;");
+        ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_abajo.png);");
+        ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_arriba.png);");
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b3.jpg);");
+        break;}
+    case(3):{
+        if (genre)
+        {
+            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
+        }
+        else{
+           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
+        }
+        ui->enemigo->setStyleSheet("border-image: url(:/res/Maria.png);\nbackground: transparent;");
+        ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_abajo.png);");
+        ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_arriba.png);");
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b2.jpg);");
+    break;}
+    case(4):{
+        if (genre)
+        {
+            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
+        }
+        else{
+           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
+        }
+        ui->enemigo->setStyleSheet("border-image: url(:/res/chus.png);\nbackground: transparent;");
+        ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/tierra_abajo.png);");
+        ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/arena_arriba.png);");
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b4.jpg);");
+    break;}}
+
+    ui->cuadro_texto->setText("¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
+    this->repaint();
+    ui->cuadro_texto->setText("¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
+    QThread::msleep(15);
+    this->repaint();
 }
 
 // Método para manejar el cierre de la ventana de forma correcta

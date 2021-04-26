@@ -12,7 +12,9 @@ class Mapa : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Mapa(QWidget *parent = nullptr);
+    bool genre;
+    int numbat;
+    explicit Mapa(QWidget *parent = nullptr,bool genre=0);
     ~Mapa();
 
 private slots:

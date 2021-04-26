@@ -22,7 +22,9 @@ class Battle : public QMainWindow {
         Q_OBJECT
 
     public:
-        explicit Battle(QWidget *parent = nullptr);
+    int numbat;
+    bool genre;
+        explicit Battle(QWidget *parent = nullptr,int numbat=1,bool genre=0);
         ~Battle();
 
     private slots:

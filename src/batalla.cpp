@@ -11,12 +11,12 @@
 #include "stdlib.h"
 #include "mapa.h"
 
-Batalla::Batalla(QWidget *parent,QString sname,bool sgenre) :
+Batalla::Batalla(QWidget *parent,QString sname,bool genre) :
     QMainWindow(parent),
     ui(new Ui::Batalla)
 {
     ui->setupUi(this);
-
+    sgenre=genre;
     if (sgenre)
     {
        ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/fbatalla.png);");
@@ -52,7 +52,7 @@ void Batalla::on_next_clicked()
 
         //Ver el mapa
         hide();
-        Mapa *v_mapa=new Mapa(this);
+        Mapa *v_mapa=new Mapa(this,sgenre);
         v_mapa->show();
 
 
