@@ -39,6 +39,7 @@ class Pokemon {
         uint level;
         Estados* state;
         Tipo type;
+    friend class Estados;
 };
 
 #endif // POKEMON_H

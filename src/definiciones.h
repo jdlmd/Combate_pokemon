@@ -20,7 +20,7 @@ enum Tipos : uint {
     BICHO = 13,
     DRAGON = 14,
     FANTASMA = 15,
-    SINIESTO = 16,
+    SINIESTRO = 16,
     ACERO = 17,
     HADA = 18,
 };
