@@ -64,9 +64,9 @@ void Estados::resolveState(Pokemon *pokemon) {
             turnos = -1;
 
             if (first!=FUEGO && second!=FUEGO) { // Hace daño cada turno
-                pokemon->setHP(pokemon->getHP()-pokemon->getTotalHP()/16);
+                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
             }else if (!solve) { // Las estadisticas solo se las baja una vez
-                pokemon->estadisticas_actuales.atack = pokemon->estadisticas_actuales.atack/2;
+                pokemon->estadisticas_actuales.attack = pokemon->estadisticas_actuales.attack/2;
                     solve = true;
                 }
 
@@ -75,7 +75,7 @@ void Estados::resolveState(Pokemon *pokemon) {
             turnos = -1;
 
             if (first!=VENENO && second!=VENENO && first!=ACERO && second!=ACERO) {
-                pokemon->setHP(pokemon->getHP()-pokemon->getTotalHP()/16);
+                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
             }
 
             break;
@@ -111,9 +111,6 @@ bool Estados::getMov() {
     return mov;
 }
 
-void Estados::setState(Estado estado, Pokemon* pokemon) {
-    pokemon->state->estado=estado;
-}
 Estado Estados::getStateByName(std::string _state) {
     if (_state == "NINGUNO") {
         return NONE;
@@ -132,6 +129,28 @@ Estado Estados::getStateByName(std::string _state) {
     }
 }
 
-void Estados::changeState(Estado state, uint turno) {
+void Estados::changeState(Estado _state, Pokemon* pokemon) {
+    /* Se restablecen las características que eran modificadas por el estado que tenían */
+    if (estado == PARALIZADO && solve == true) {
+        pokemon->estadisticas_actuales.speed = pokemon->estadisticas_actuales.speed*2;
+        mov = true;
+        solve = false;
+    }else if (estado == QUEMADO && solve == true) {
+        pokemon->estadisticas_actuales.attack = pokemon->estadisticas_actuales.attack*2;
+        solve = false;
+    }else { // El caso congelado y dormido se contemplan aqui ya que esos impedían moverse al pokemon
+        mov = true;
+        solve = false;
+    }
 
+    if (mov == true && solve == false) { // Compruebo que se han vuelto a la normalidad las características
+        pokemon->state->estado = _state; // Cambia el estado del pokemon
+        if (_state == PARALIZADO) {
+            pokemon->state->turnos = 3;
+        }else if (_state == DORMIDO) {
+            pokemon->state->turnos = round(1+rand()%3);
+        }else {
+            pokemon->state->turnos = -1;
+        }
+    }
 }

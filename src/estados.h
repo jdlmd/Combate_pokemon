@@ -10,7 +10,7 @@
 La clase estados guardará un enum de tipo estado, que servirá posteriormente para
 resolver los turnos de cada pokemon. Cada estado tendrá una duración, expresado por
 la variable turnos. Haciendo uso de las banderas mov y solve, se determinará si el pokemon
-puede moverse o si se ha solucionado los stats del pokemon en la entrada del Stat.
+puede moverse .o si se ha solucionado los stats del pokemon en la entrada del Stat.
 */
 class Estados {
     public:
@@ -23,8 +23,7 @@ class Estados {
         uint turnos; // -1 = Infinito
         bool mov;
         bool solve;
-        void setState(Estado state, Pokemon* receiver); // Fija el estado del pokemon
-        void changeState(Estado state, uint turno); // Fija los turnos
+        void changeState(Estado _state, Pokemon* receiver); // Cambiar el estado
         virtual void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
         static Estado getStateByName(std::string _state);
  };
