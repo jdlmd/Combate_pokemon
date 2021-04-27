@@ -15,6 +15,7 @@ para saber si puede atacar, si recibe daño por turno, etc
 */
 class Movimientos;
 class Estados;
+class MovimientoEstado;
 class Pokemon {
     public:
         Pokemon();
@@ -30,7 +31,9 @@ class Pokemon {
         uint getHPtotal();
         Tipos getPrimary();
         Tipos getSecondary();
-        Estado getState();
+//        Estado getState();
+        Estados* getStatePtr();
+        uint getSpeed();
 
     private:
         std::string name;
@@ -42,10 +45,12 @@ class Pokemon {
         uint level;
         Estados* state;
         Tipo type;
-        void calculateStatsFromBase(); // Implementar
+        void calculateStatsFromBase(struct stats,struct stats,struct stats); // Implementar
+        void returnStats();
 
     friend class Estados;
     friend class Movimientos;
+    friend class MovimientoEstado;
 };
 
 #endif // POKEMON_H
