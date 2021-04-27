@@ -24,10 +24,11 @@ class Tipo{
         Tipos getSecondary();
         std::string getPrimaryName();
         std::string getSecondaryName();
-        static Tipos getTypeByName(std::string); // Función estática
+        static Tipos getTypeByName(std::string _type); // Función estática
         float multiplicador(Tipos tipo); // Introduciendo un tipo, devuelve el multiplicador
         float getStab(Tipos tipo); // Calcula el stab (daño adicional por afinidad de tipos)
         std::string eficacia(float mult); // Indica si es supereficaz o poco eficaz
+
 };
 
 #endif // TIPO_H
