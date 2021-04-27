@@ -6,6 +6,9 @@
 #include "definiciones.h"
 #include "string"
 #include "pokemon.h"
+#include "movimientoestado.h"
+#include <random>
+#include <time.h>
 
 /* Clase entrenador:
 La clase entrenador guardará un vector con los pokemons (se guardarán de forma
@@ -24,11 +27,11 @@ class Entrenador {
         uint getNumPoke(); // Comprueba la cantidad de pokemons vivos que tiene
         void setNumPoke(uint _numPoke); // Fija la cantidad de pokemons vivos que tiene
         uint getNumber(); // Comprueba la cantida máximas de pokemons que tiene
-        void setNumber(); // Fija la cantidad total de pokemons (max 6)
+        void setNumber(uint _number); // Fija la cantidad total de pokemons (max 6)
         void updateStatus(); // Actualiza el status del entrenador
         bool checkStatus(); // Comprueba si el entrenador ha sido derrotado
-        void addPokemon(); // Añade un pokemon
-        void removePokemon(); // Quita un pokemon
+        void addPokemon(Pokemon* _new); // Añade un pokemon
+        void removePokemon(int i); // Quita un pokemon
         Pokemon* getPokemon(int i); // Devuelve un pokemon
 
     private:
@@ -38,7 +41,7 @@ class Entrenador {
         uint number; // El número de pokemon totales que tiene (max 6)
         std::vector<Pokemon*> equipo; // El vector con sus pokemons
         bool derrotado; // Guarda si el entrenador ha sido derrotado
-
+        void defaultPoke(); // Pokemon por defecto
 };
 
 #endif // ENTRENADOR_H

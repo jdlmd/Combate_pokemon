@@ -3,6 +3,8 @@
 
 using namespace std;
 
+// Test de constructores superado
+
 int main() {
     Entrenador* jesus = new Entrenador("Jesus.txt");
     Entrenador* chus = new Entrenador("Chus.txt");
