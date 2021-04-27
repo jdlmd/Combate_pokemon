@@ -4,19 +4,20 @@
 #include <QDialog>
 
 namespace Ui {
-class atacar;
+class Atacar;
 }
 
-class atacar : public QDialog
+class Atacar : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit atacar(QWidget *parent = nullptr);
-    ~atacar();
+    int numpok;
+    explicit Atacar(QWidget *parent = nullptr,int numpok=1);
+    ~Atacar();
 
 private:
-    Ui::atacar *ui;
+    Ui::Atacar *ui;
 };
 
 #endif // ATACAR_H

@@ -55,4 +55,27 @@
         <file>res/hierba_arriba.png</file>
         <file>res/tierra_abajo.png</file>
     </qresource>
+    <qresource prefix="/Atacar">
+        <file>res/fondomov.png</file>
+    </qresource>
+    <qresource prefix="/Cambio">
+        <file>res/fondocambiopok.png</file>
+        <file>res/poknoselec.png</file>
+        <file>res/pokselec.png</file>
+    </qresource>
+    <qresource prefix="/pokNerea">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokJesus">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokChus">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokMaria">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokAvatar">
+        <file>res/vs.png</file>
+    </qresource>
 </RCC>

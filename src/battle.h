@@ -23,6 +23,7 @@ class Battle : public QMainWindow {
 
     public:
     int numbat;
+    int numpok=1;
     bool genre;
         explicit Battle(QWidget *parent = nullptr,int numbat=1,bool genre=0);
         ~Battle();
@@ -30,7 +31,11 @@ class Battle : public QMainWindow {
     private slots:
         void launchAnimation();
 
-    private:
+        void on_atacar_clicked();
+
+        void on_cambio_clicked();
+
+private:
         int ancho;
         int alto;
         Ui::Battle *ui;

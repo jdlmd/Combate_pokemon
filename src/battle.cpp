@@ -1,6 +1,7 @@
 #include "battle.h"
 #include "ui_battle.h"
-
+#include "atacar.h"
+#include "cambio.h"
 Battle::Battle(QWidget *parent, int snumbat,bool sgenre) :
     QMainWindow(parent),
     ui(new Ui::Battle)
@@ -149,21 +150,6 @@ QLabel* Battle::vsAnimation() {
     delete Vs;
     delete Poke;
 
-    QThread::msleep(500);
-    return fondo; // Se duelve la capa superior, para que pueda ser manejada por otras animaciones (fadeOut)
-
-}
-
-void Battle::battleStartAnimation(QLabel *fondo) {
-    // Se va disminuyendo la opacidad del fondo blanco
-    for (int i = 15 ; i >= 0 ; i--){
-        QString back = "background-color: rgba(255, 255, 255, ";
-        fondo->setStyleSheet(back.append(QString::number(255/15*i)).append(");"));
-        QThread::msleep(50);
-        this->repaint();
-    }
-    delete fondo; // Se borra el fondo
-
     ui->atacar->setVisible(true);
     ui->cambio->setVisible(true);
     ui->plat_sup->setVisible(true);
@@ -196,10 +182,10 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         else{
            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
         }
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b3.jpg);");
         ui->enemigo->setStyleSheet("border-image: url(:/res/Jesus.png);\nbackground: transparent;");
         ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_abajo.png);");
         ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_arriba.png);");
-        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b3.jpg);");
         break;}
     case(3):{
         if (genre)
@@ -209,10 +195,10 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         else{
            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
         }
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b2.jpg);");
         ui->enemigo->setStyleSheet("border-image: url(:/res/Maria.png);\nbackground: transparent;");
         ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_abajo.png);");
         ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_arriba.png);");
-        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b2.jpg);");
     break;}
     case(4):{
         if (genre)
@@ -222,17 +208,66 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         else{
            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
         }
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b4.jpg);");
         ui->enemigo->setStyleSheet("border-image: url(:/res/chus.png);\nbackground: transparent;");
         ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/tierra_abajo.png);");
         ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/arena_arriba.png);");
-        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b4.jpg);");
     break;}}
+    QThread::msleep(500);
+    return fondo; // Se duelve la capa superior, para que pueda ser manejada por otras animaciones (fadeOut)
 
-    ui->cuadro_texto->setText("¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
-    this->repaint();
-    ui->cuadro_texto->setText("¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
-    QThread::msleep(15);
-    this->repaint();
+}
+
+void Battle::battleStartAnimation(QLabel *fondo) {
+    // Se va disminuyendo la opacidad del fondo blanco
+    for (int i = 15 ; i >= 0 ; i--){
+        QString back = "background-color: rgba(255, 255, 255, ";
+        fondo->setStyleSheet(back.append(QString::number(255/15*i)).append(");"));
+        QThread::msleep(50);
+        this->repaint();
+    }
+    delete fondo; // Se borra el fondo
+
+        //Dialogo
+    switch (numbat) {
+    case(1):{
+        ui->cuadro_texto->setText("Parece que hoy tengo visita.");
+        this->repaint();
+        QThread::msleep(3000);
+        ui->cuadro_texto->setText("Vamos a ver que es lo que puedes hacer");
+        this->repaint();
+        QThread::msleep(2500);
+        break;
+    }
+    case(2):{
+        ui->cuadro_texto->setText("¿Quién me molesta a estas horas?");
+        this->repaint();
+        QThread::msleep(3000);
+        ui->cuadro_texto->setText("Ah... solo eres tú.");
+        this->repaint();
+        QThread::msleep(2500);
+        break;
+    }
+    case(3):{
+        ui->cuadro_texto->setText("¿Quieres ganarme?");
+        this->repaint();
+        QThread::msleep(3000);
+        ui->cuadro_texto->setText("¡Veremos si puedes hacerlo!");
+        this->repaint();
+        QThread::msleep(2500);
+        break;
+    }
+    case(4):{
+        ui->cuadro_texto->setText("¿Por qué tanto alboroto?");
+        this->repaint();
+        QThread::msleep(3000);
+        ui->cuadro_texto->setText("¿Quieres un chicle""?");
+        this->repaint();
+        QThread::msleep(2500);
+        break;
+    }
+    }
+
 }
 
 // Método para manejar el cierre de la ventana de forma correcta
@@ -240,4 +275,16 @@ void Battle::closeEvent(QCloseEvent *event) {
     audio.killAudio(); // Libera el audio
     parentWidget()->show();
     QMainWindow::closeEvent(event); // Se cierra la ventana
+}
+
+void Battle::on_atacar_clicked()
+{
+    Atacar *v_ataque=new Atacar(this,numpok);
+    v_ataque->show();
+}
+
+void Battle::on_cambio_clicked()
+{
+    cambio *v_cambio=new cambio(this);
+    v_cambio->show();
 }
