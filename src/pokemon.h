@@ -31,7 +31,7 @@ class Pokemon {
         uint getHPtotal();
         Tipos getPrimary();
         Tipos getSecondary();
-        Estado getState();
+//        Estado getState();
         Estados* getStatePtr();
         uint getSpeed();
 

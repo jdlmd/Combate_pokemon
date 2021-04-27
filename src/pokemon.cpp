@@ -79,3 +79,11 @@ uint Pokemon::getSpeed(){
 void Pokemon::returnStats(){
     estadisticas_actuales=estadisticas;
 }
+
+Tipos Pokemon::getPrimary(){
+    return type.getPrimary();
+}
+
+Tipos Pokemon::getSecondary(){
+    return type.getSecondary();
+}
