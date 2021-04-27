@@ -142,3 +142,4 @@ void Estados::changeState(Estado _state, Pokemon* pokemon) {
         mov = true;
     }
 }
+

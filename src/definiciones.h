@@ -47,8 +47,6 @@ struct stats {
     uint sp_attack;
     uint sp_defense;
     uint speed;
-    uint evasion;
-    uint precision;
 };
 
 #endif // DEFINICIONES_H
