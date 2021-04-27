@@ -57,6 +57,7 @@
     </qresource>
     <qresource prefix="/Atacar">
         <file>res/fondomov.png</file>
+        <file>res/movimientos.png</file>
     </qresource>
     <qresource prefix="/Cambio">
         <file>res/fondocambiopok.png</file>
@@ -77,5 +78,12 @@
     </qresource>
     <qresource prefix="/pokAvatar">
         <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/estados">
+        <file>res/congelado.png</file>
+        <file>res/dormido.png</file>
+        <file>res/envenenado.png</file>
+        <file>res/paralizado.png</file>
+        <file>res/quemado.png</file>
     </qresource>
 </RCC>

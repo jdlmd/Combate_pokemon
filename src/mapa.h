@@ -14,7 +14,8 @@ class Mapa : public QMainWindow
 public:
     bool genre;
     int numbat;
-    explicit Mapa(QWidget *parent = nullptr,bool genre=0);
+    QString nombre;
+    explicit Mapa(QWidget *parent = nullptr,bool genre=0,QString nombre="");
     ~Mapa();
 
 private slots:

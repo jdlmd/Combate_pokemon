@@ -2,7 +2,8 @@
 #include "ui_battle.h"
 #include "atacar.h"
 #include "cambio.h"
-Battle::Battle(QWidget *parent, int snumbat,bool sgenre) :
+#include "QMessageBox"
+Battle::Battle(QWidget *parent, int snumbat,bool sgenre, QString snombre) :
     QMainWindow(parent),
     ui(new Ui::Battle)
 {
@@ -10,6 +11,7 @@ Battle::Battle(QWidget *parent, int snumbat,bool sgenre) :
     this->centralWidget()->hide();
     numbat=snumbat;
     genre=sgenre;
+    nombre=snombre;
     ui->atacar->hide();
     ui->cambio->hide();
     ui->plat_sup->hide();
@@ -150,70 +152,43 @@ QLabel* Battle::vsAnimation() {
     delete Vs;
     delete Poke;
 
-    ui->atacar->setVisible(true);
-    ui->cambio->setVisible(true);
+    //Pantalla batalla
+
+    if (genre)
+    {
+        ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
+    }
+    else{
+       ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
+    }
+
     ui->plat_sup->setVisible(true);
     ui->plat_inf->setVisible(true);
-    ui->avatar->setVisible(true);
-    ui->enemigo->setVisible(true);
 
     switch (numbat) {
 
     case(1):{
-
-        if (genre)
-        {
-            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
-        }
-        else{
-           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
-        }
-        ui->enemigo->setStyleSheet("border-image: url(:/res/Nerea.png);\nbackground: transparent;");
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b1.jpg);");
         ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/agua_abajo.png);");
         ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/agua_arriba.png);");
-        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b1.jpg);");
         break;}
     case(2):{
-
-        if (genre)
-        {
-            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
-        }
-        else{
-           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
-        }
         ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b3.jpg);");
-        ui->enemigo->setStyleSheet("border-image: url(:/res/Jesus.png);\nbackground: transparent;");
         ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_abajo.png);");
         ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_arriba.png);");
         break;}
     case(3):{
-        if (genre)
-        {
-            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
-        }
-        else{
-           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
-        }
         ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b2.jpg);");
-        ui->enemigo->setStyleSheet("border-image: url(:/res/Maria.png);\nbackground: transparent;");
         ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_abajo.png);");
         ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/hierba_arriba.png);");
     break;}
     case(4):{
-        if (genre)
-        {
-            ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/f2.png);");
-        }
-        else{
-           ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/m.png);");
-        }
         ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b4.jpg);");
-        ui->enemigo->setStyleSheet("border-image: url(:/res/chus.png);\nbackground: transparent;");
         ui->plat_inf->setStyleSheet("background: transparent;border-image: url(:/combate/res/tierra_abajo.png);");
         ui->plat_sup->setStyleSheet("background: transparent;border-image: url(:/combate/res/arena_arriba.png);");
     break;}}
-    QThread::msleep(500);
+
+    QThread::msleep(200);
     return fondo; // Se duelve la capa superior, para que pueda ser manejada por otras animaciones (fadeOut)
 
 }
@@ -228,15 +203,54 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     }
     delete fondo; // Se borra el fondo
 
+    //Pantalla Batalla
+
+    ui->atacar->setVisible(true);
+    ui->cambio->setVisible(true);
+    ui->avatar->setVisible(true);
+    ui->enemigo->setVisible(true);
+
+    switch (numbat) {
+
+    case(1):{
+        ui->enemigo->setStyleSheet("border-image: url(:/res/Nerea.png);\nbackground: transparent;");
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b1.jpg);");
+        break;}
+    case(2):{
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b3.jpg);");
+        ui->enemigo->setStyleSheet("border-image: url(:/res/Jesus.png);\nbackground: transparent;");
+        break;}
+    case(3):{
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b2.jpg);");
+        ui->enemigo->setStyleSheet("border-image: url(:/res/Maria.png);\nbackground: transparent;");
+    break;}
+    case(4):{
+        ui->fondobat->setStyleSheet("background: transparent;border-image: url(:/combate/res/b4.jpg);");
+        ui->enemigo->setStyleSheet("border-image: url(:/res/chus.png);\nbackground: transparent;");
+    break;}}
+
         //Dialogo
+
     switch (numbat) {
     case(1):{
         ui->cuadro_texto->setText("Parece que hoy tengo visita.");
         this->repaint();
         QThread::msleep(3000);
-        ui->cuadro_texto->setText("Vamos a ver que es lo que puedes hacer");
+        ui->cuadro_texto->setText("Vamos a ver que es lo que puedes hacer.");
         this->repaint();
         QThread::msleep(2500);
+        pok=pokNerea[1];
+        QMessageBox::information(this,tr("Maestra Nerea"),tr("¡La Maestra Nerea saca a %1!").arg(pok));
+        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/pokNerea/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        pok=pokAvatar[1];
+        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
+        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/pokAvatar/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        ui->cuadro_texto->setText("Haz tu movimiento.");
+        this->repaint();
         break;
     }
     case(2):{
@@ -246,6 +260,21 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         ui->cuadro_texto->setText("Ah... solo eres tú.");
         this->repaint();
         QThread::msleep(2500);
+        pok=pokJesus[1];
+        QMessageBox::information(this,tr("Maestro Jesus"),tr("¡El Maestro Jesus saca a %1!").arg(pok));
+        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/pokJesus/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        pok=pokAvatar[1];
+        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
+        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/pokAvatar/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        ui->cuadro_texto->setText("Haz tu movimiento.");
+        this->repaint();
+        this->repaint();
+
+
         break;
     }
     case(3):{
@@ -255,6 +284,19 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         ui->cuadro_texto->setText("¡Veremos si puedes hacerlo!");
         this->repaint();
         QThread::msleep(2500);
+        pok=pokMaria[1];
+        QMessageBox::information(this,tr("Maestra Maria"),tr("¡La Maestra Maria saca a %1!").arg(pok));
+        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/pokMaria/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        pok=pokAvatar[1];
+        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
+        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/pokAvatar/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        ui->cuadro_texto->setText("Haz tu movimiento.");
+        this->repaint();
+        this->repaint();
         break;
     }
     case(4):{
@@ -264,6 +306,19 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         ui->cuadro_texto->setText("¿Quieres un chicle""?");
         this->repaint();
         QThread::msleep(2500);
+        pok=pokChus[1];
+        QMessageBox::information(this,tr("Maestro Chus"),tr("¡El Maestro Chus saca a %1!").arg(pok));
+        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/pokChus/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        pok=pokAvatar[1];
+        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
+        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/pokAvatar/res/vs.png);");
+        this->repaint();
+        QThread::msleep(500);
+        ui->cuadro_texto->setText("Haz tu movimiento.");
+        this->repaint();
+        this->repaint();
         break;
     }
     }
