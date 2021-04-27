@@ -67,3 +67,15 @@ uint Pokemon::getHP() {
 uint Pokemon::getHPtotal() {
     return estadisticas.hp;
 }
+
+Estados* Pokemon::getStatePtr(){
+    return state;
+}
+
+uint Pokemon::getSpeed(){
+    return estadisticas_actuales.speed;
+}
+
+void Pokemon::returnStats(){
+    estadisticas_actuales=estadisticas;
+}

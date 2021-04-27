@@ -32,6 +32,8 @@ class Pokemon {
         Tipos getPrimary();
         Tipos getSecondary();
         Estado getState();
+        Estados* getStatePtr();
+        uint getSpeed();
 
     private:
         std::string name;
@@ -44,6 +46,7 @@ class Pokemon {
         Estados* state;
         Tipo type;
         void calculateStatsFromBase(struct stats,struct stats,struct stats); // Implementar
+        void returnStats();
 
     friend class Estados;
     friend class Movimientos;
