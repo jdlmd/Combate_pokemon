@@ -12,7 +12,7 @@
 #include <QVector>
 #include <QStringList>
 
-#include "audio/audio.h"
+#include "audio/extern.h"
 #include "iostream"
 
 namespace Ui {
@@ -60,7 +60,6 @@ private:
         int ancho;
         int alto;
         Ui::Battle *ui;
-        Audio audio;
         QLabel* vsAnimation();
         void battleStartAnimation(QLabel* fondo);
         void closeEvent(QCloseEvent *event) override;

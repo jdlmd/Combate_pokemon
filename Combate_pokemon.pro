@@ -27,6 +27,7 @@ SOURCES += \
     src/estados.cpp 
 
 HEADERS += \
+    audio/extern.h \
     cambio.h \
     src/atacar.h \
     audio/audio.h \
@@ -64,7 +65,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-        README.md
+        README.md \
+        audio/files/door2.wav
 
 RESOURCES += \
     src/ResourcesVisual.qrc
@@ -73,6 +75,7 @@ RESOURCES += \
 CONFIG += file_copies
 COPIES += audioFiles
 audioFiles.files = $$files(audio/files/*.wav) # Path de copia
+audioFiles.files = $$files(audio/files/*.mp3)
 audioFiles.path = $$OUT_PWD/audio # Path destino
 audioFiles.base = $$PWD/audio # Base del path
 
@@ -82,10 +85,16 @@ trainerFiles.files = $$files(*.txt) # Path de copia
 trainerFiles.path = $$OUT_PWD/Combate_pokemon # Path destino
 # trainerFiles.base = $$PWD/audio # Base del path
 
-# Instalación de la librería SDL
+# Instalación de las librería SDL
 INCLUDEPATH += ./lib/SDL2-2.0.14/include/
+INCLUDEPATH += ./lib/SDL2_mixer-2.0.4/include/
 
 unix|win32: LIBS += -L$$PWD/lib/SDL2-2.0.14/lib/x64/ -lSDL2
 
 INCLUDEPATH += $$PWD/lib/SDL2-2.0.14/lib/x64
 DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x64
+
+unix|win32: LIBS += -L$$PWD/lib/SDL2_mixer-2.0.4/lib/x64/ -lSDL2_mixer
+
+INCLUDEPATH += $$PWD/lib/SDL2_mixer-2.0.4/lib/x64
+DEPENDPATH += $$PWD/lib/SDL2_mixer-2.0.4/lib/x64
