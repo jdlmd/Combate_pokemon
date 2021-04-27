@@ -69,7 +69,6 @@
     </qresource>
     <qresource prefix="/pokNerea">
         <file>res/vs.png</file>
-        <file>res/lucha.png</file>
     </qresource>
     <qresource prefix="/pokJesus">
         <file>res/vs.png</file>
