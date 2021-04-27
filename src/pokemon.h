@@ -4,6 +4,7 @@
 #include "tipo.h"
 #include <vector>
 #include "definiciones.h"
+#include <iostream>
 
 /* Clase pokemon:
 La clase pokemon guardará un vector con los movimientos a usar. Los pokemons
@@ -14,28 +15,42 @@ para saber si puede atacar, si recibe daño por turno, etc
 */
 class Movimientos;
 class Estados;
+class MovimientoEstado;
 class Pokemon {
     public:
-        struct stats estadisticas_actuales;
-
         Pokemon();
-        Pokemon(std::string _name); // Terminar constructor
+        Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level, struct stats _ivs, struct stats _evs, struct stats _base); // Terminar constructor
         void setHP(uint newHP);
+        void addMove(Movimientos* move);
+        void removeMove(int i);
+        void setSecondaryType(Tipos _second);
+        uint getNumberMoves();
+        Movimientos* getMove(int i);
+        std::string getName();
         uint getHP();
-        uint getTotalHP();
-        uint getLevel();
-        uint getAtack();
-        uint getSpAtack();
-        uint getDefense();
-        uint getSpDefense();
+        uint getHPtotal();
+        Tipos getPrimary();
+        Tipos getSecondary();
+//        Estado getState();
+        Estados* getStatePtr();
+        uint getSpeed();
+
     private:
         std::string name;
         struct stats IVs;
         struct stats EVs;
         struct stats estadisticas;
+        struct stats estadisticas_actuales;
         std::vector<Movimientos*> attck;
+        uint level;
         Estados* state;
         Tipo type;
+        void calculateStatsFromBase(struct stats,struct stats,struct stats); // Implementar
+        void returnStats();
+
+    friend class Estados;
+    friend class Movimientos;
+    friend class MovimientoEstado;
 };
 
 #endif // POKEMON_H
