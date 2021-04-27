@@ -46,7 +46,7 @@ Genera la animación de vs y devuelve un puntero al fondo en blanco superpuesto,
 
 QLabel* Battle::vsAnimation() {
 
-    audio.launchAudio("./Combate_pokemon/audio/files/theme.wav");
+    audio.launchAudio("theme.wav");
 
     QThread::msleep(200);
     // Variables de altura y posición para los elementos de la animación
