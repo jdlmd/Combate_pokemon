@@ -25,7 +25,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="fondobat">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -41,38 +41,44 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="cuadro_texto">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>685</y>
-      <width>931</width>
-      <height>111</height>
+      <x>0</x>
+      <y>680</y>
+      <width>1001</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>MS Shell Dlg 2</family>
-      <pointsize>20</pointsize>
+      <family>MS Sans Serif</family>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background: white;</string>
     </property>
+    <property name="lineWidth">
+     <number>1</number>
+    </property>
     <property name="text">
-     <string>REPORT</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="cuadro11">
     <property name="geometry">
      <rect>
       <x>-10</x>
-      <y>680</y>
+      <y>670</y>
       <width>1011</width>
-      <height>121</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -82,8 +88,11 @@ background: transparent;</string>
     <property name="text">
      <string/>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="cuadro111">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -99,10 +108,107 @@ background: transparent;</string>
      <string/>
     </property>
    </widget>
-   <zorder>label_4</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
+   <widget class="QPushButton" name="atacar">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>760</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>atacar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cambio">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>760</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>cambio</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="plat_inf">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>590</y>
+      <width>511</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-image: url(:/combate/res/agua_abajo.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="plat_sup">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>280</y>
+      <width>411</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/combate/res/agua_arriba.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="enemigo">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>70</y>
+      <width>211</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/res/Jesus.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="avatar">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>290</y>
+      <width>281</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/combate/res/f2.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>cuadro111</zorder>
+   <zorder>fondobat</zorder>
+   <zorder>cuadro_texto</zorder>
+   <zorder>cuadro11</zorder>
+   <zorder>atacar</zorder>
+   <zorder>cambio</zorder>
+   <zorder>plat_inf</zorder>
+   <zorder>plat_sup</zorder>
+   <zorder>enemigo</zorder>
+   <zorder>avatar</zorder>
   </widget>
  </widget>
  <resources/>

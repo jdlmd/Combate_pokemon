@@ -26,6 +26,7 @@
         <file>res/Nerea.png</file>
         <file>res/Jesus.png</file>
         <file>res/Maria.png</file>
+        <file>res/chus.png</file>
     </qresource>
     <qresource prefix="/pokemon"/>
     <qresource prefix="/personaje">
@@ -40,14 +41,49 @@
         <file>res/b2.jpg</file>
         <file>res/b3.jpg</file>
         <file>res/b4.jpg</file>
-        <file>res/b11.jpg</file>
-        <file>res/b22.jpg</file>
-        <file>res/b33.jpg</file>
-        <file>res/b44.jpg</file>
-        <file>res/fondo5.jpg</file>
         <file>res/interior.jpg</file>
         <file>res/fbatalla.png</file>
         <file>res/mbatalla.png</file>
         <file>res/text_box.png</file>
+        <file>res/mapa.png</file>
+        <file>res/f2.png</file>
+        <file>res/m.png</file>
+        <file>res/agua_abajo.png</file>
+        <file>res/agua_arriba.png</file>
+        <file>res/arena_arriba.png</file>
+        <file>res/hierba_abajo.png</file>
+        <file>res/hierba_arriba.png</file>
+        <file>res/tierra_abajo.png</file>
+    </qresource>
+    <qresource prefix="/Atacar">
+        <file>res/fondomov.png</file>
+        <file>res/movimientos.png</file>
+    </qresource>
+    <qresource prefix="/Cambio">
+        <file>res/fondocambiopok.png</file>
+        <file>res/poknoselec.png</file>
+        <file>res/pokselec.png</file>
+    </qresource>
+    <qresource prefix="/pokNerea">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokJesus">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokChus">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokMaria">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/pokAvatar">
+        <file>res/vs.png</file>
+    </qresource>
+    <qresource prefix="/estados">
+        <file>res/congelado.png</file>
+        <file>res/dormido.png</file>
+        <file>res/envenenado.png</file>
+        <file>res/paralizado.png</file>
+        <file>res/quemado.png</file>
     </qresource>
 </RCC>

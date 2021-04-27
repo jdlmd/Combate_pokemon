@@ -1,7 +1,6 @@
 #include "batalla.h"
 #include "ui_batalla.h"
 #include "atacar.h"
-#include "mochila.h"
 #include "cambio.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -10,13 +9,15 @@
 #include "QMessageBox"
 #include "stdio.h"
 #include "stdlib.h"
+#include "mapa.h"
 
-Batalla::Batalla(QWidget *parent,QString sname,bool sgenre) :
+Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     QMainWindow(parent),
     ui(new Ui::Batalla)
 {
     ui->setupUi(this);
-
+    sgenre=genre;
+    sname=name;
     if (sgenre)
     {
        ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/fbatalla.png);");
@@ -50,11 +51,11 @@ void Batalla::on_next_clicked()
         QMessageBox::information(this,tr("Misión"),tr("Derrota a los cuatro maestros de la ciudad.\n"
     "¡Buena suerte!"));
 
-        //Comienza Batalla
+        //Ver el mapa
+        hide();
+        Mapa *v_mapa=new Mapa(this,sgenre,sname);
+        v_mapa->show();
+
 
 }
 
-void Batalla::batalla()
-{
-
-}
