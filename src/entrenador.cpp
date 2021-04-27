@@ -16,7 +16,7 @@ específica que tendrán estos ficheros construirá al entrenador con sus respec
 pokemons y movimientos */
 Entrenador::Entrenador(std::string filename) {
     // Variables a utilizar durante la ejecución del método
-    uint cont, cont2, supp, _precision, _potencia, _pp, _porcentaje, _stOP, _turnos;
+    uint cont, cont2, supp, _precision, _potencia, _pp, _porcentaje, _stOP, _turnos, _defOR;
     std::string aux;
     std::ifstream entrada;
     std::string name, t1, t2;
@@ -71,19 +71,19 @@ Entrenador::Entrenador(std::string filename) {
         } else if (cont2 < 1) {
             std::cout << "El pokemon debe tener al menos 1 movimiento. Se pondra uno por defecto\n";
             cont2 = 0; // Si no tiene movimientos, añade uno por defecto
-            Movimientos* move = new Movimientos("Forcejeo","NORMAL",0,100,50,50);
+            Movimientos* move = new Movimientos("Forcejeo","NORMAL",0,100,50,50,0);
             poke->addMove(move);
         }
         // Se generan los movimientos uno por uno
         while(!entrada.eof() && cont2--) {
             entrada >> name >> t1 >> supp;
             if (supp == 0) { // Si la variable supp = 0, el movimiento es normal
-                entrada >> _precision >> _potencia >> _pp >> _stOP;
-                Movimientos* move = new Movimientos(name,t1,_stOP,_precision,_potencia,_pp);
+                entrada >> _precision >> _potencia >> _pp >> _stOP >> _defOR;
+                Movimientos* move = new Movimientos(name,t1,_stOP,_precision,_potencia,_pp,_defOR);
                 poke->addMove(move);
             } else { // Si la variable supp != 0, el movimiento es de estado
-                entrada >> _precision >> _potencia >> _pp >> _stOP >> t2 >> _porcentaje >> _turnos;
-                MovimientoEstado* move = new MovimientoEstado(name,t1,_stOP,_precision,_potencia,_pp,t2,_turnos,_porcentaje);
+                entrada >> _precision >> _potencia >> _pp >> _stOP >> _defOR >> t2 >> _porcentaje >> _turnos;
+                MovimientoEstado* move = new MovimientoEstado(name,t1,_stOP,_precision,_potencia,_pp,t2,_turnos,_porcentaje,_defOR);
                 poke->addMove(move);
             }
         }
@@ -177,10 +177,10 @@ void Entrenador::defaultPoke() {
     Pokemon* poke = new Pokemon("Charizard","FUEGO","VOLADOR",80,ivs,evs,base);
     equipo.push_back(poke);
     // Se generan los movimientos por defecto de Charyzard
-    MovimientoEstado* mov1 = new MovimientoEstado("Inferno","FUEGO",1,50,100,5,"QUEMADO",3,100);
-    MovimientoEstado* mov2 = new MovimientoEstado("Flare Blitz","FUEGO",0,100,120,15,"QUEMADO",3,10);
-    Movimientos* mov3 = new Movimientos("Acrobatics","VOLADOR",0,100,55,15);
-    Movimientos* mov4 = new Movimientos("Metal Claw","ACERO",0,95,50,35);
+    MovimientoEstado* mov1 = new MovimientoEstado("Inferno","FUEGO",1,50,100,5,"QUEMADO",3,100,1);
+    MovimientoEstado* mov2 = new MovimientoEstado("Flare Blitz","FUEGO",0,100,120,15,"QUEMADO",3,10,0);
+    Movimientos* mov3 = new Movimientos("Acrobatics","VOLADOR",0,100,55,15,0);
+    Movimientos* mov4 = new Movimientos("Metal Claw","ACERO",0,95,50,35,0);
     poke->addMove(mov1);
     poke->addMove(mov2);
     poke->addMove(mov3);

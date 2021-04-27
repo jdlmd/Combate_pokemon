@@ -5,7 +5,7 @@ Movimientos::Movimientos() {
 
 }
 
-Movimientos::Movimientos(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp) {
+Movimientos::Movimientos(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp, uint _defORspdef) {
     nombre = _name;
     type = Tipo::getTypeByName(_type);
     atckORsp = _atckORsp;
@@ -13,6 +13,7 @@ Movimientos::Movimientos(std::string _name, std::string _type, uint _atckORsp, u
     potencia = _potencia;
     ppTotal = _pp;
     ppRemaining = _pp;
+    defORspdef = _defORspdef;
 }
 
 Movimientos::~Movimientos() {
