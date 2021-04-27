@@ -15,6 +15,7 @@ para saber si puede atacar, si recibe daño por turno, etc
 */
 class Movimientos;
 class Estados;
+class MovimientoEstado;
 class Pokemon {
     public:
         Pokemon();
@@ -46,6 +47,7 @@ class Pokemon {
 
     friend class Estados;
     friend class Movimientos;
+    friend class MovimientoEstado;
 };
 
 #endif // POKEMON_H
