@@ -22,9 +22,8 @@ class Estados {
         Estado estado;
         uint turnos; // -1 = Infinito
         bool mov;
-        bool solve;
         void changeState(Estado _state, Pokemon* receiver); // Cambiar el estado
-        virtual void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
+        void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
         static Estado getStateByName(std::string _state);
  };
 

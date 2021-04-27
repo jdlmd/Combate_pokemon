@@ -6,7 +6,6 @@ Estados::Estados() {
     estado = NONE;
     turnos = -1;
     mov = true;
-    solve = false;
 }
 
 Estados::~Estados() {
@@ -33,77 +32,43 @@ string Estados::getStateName() {
 }
 
 void Estados::resolveState(Pokemon *pokemon) {
-    Tipos first = pokemon->type.getPrimary();
-    Tipos second = pokemon->type.getSecondary();
+    srand(time(NULL));
     switch (estado) {
         case(NONE):
             break;
         case(PARALIZADO): // Caso de la parálisis completo
-            if (first!=ELECTRICO && second!=ELECTRICO){ // La paralisis no afecta a tipo electrico
-                turnos--;
-                srand(time(NULL));
-                if (rand() % 100 <= 25) { // El pokemon no se mueve
-                    mov = false;
-                }
-
-                if (!solve) {
-                    pokemon->estadisticas_actuales.speed = pokemon->estadisticas_actuales.speed/2;
-                    solve = true;
-                }
-
-                if (!turnos) { // Si se han acabado los turnos...
-                    turnos = -1;
-                    estado = NONE;
-                    pokemon->estadisticas_actuales.speed = pokemon->estadisticas_actuales.speed*2;
-                    solve = false;
-                }
-            }
-
-            break;
-        case(QUEMADO): // Quemado no afecta a tipo fuego
-            turnos = -1;
-
-            if (first!=FUEGO && second!=FUEGO) { // Hace daño cada turno
-                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
-            }else if (!solve) { // Las estadisticas solo se las baja una vez
-                pokemon->estadisticas_actuales.attack = pokemon->estadisticas_actuales.attack/2;
-                    solve = true;
-                }
-
-            break;
-        case(ENVENENADO): // No afecta a tipo veneno y acero, solo hace daño por turno
-            turnos = -1;
-
-            if (first!=VENENO && second!=VENENO && first!=ACERO && second!=ACERO) {
-                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
-            }
-
-            break;
-        case(DORMIDO):
-            turnos--;
-            mov = false;
-
             if (!turnos) { // Si se han acabado los turnos...
-                turnos = -1;
-                estado = NONE;
+                changeState(NONE, pokemon);
+            }
+            if (rand() % 100 <= 25) { // El pokemon no se mueve
+                mov = false;
+            }else {
                 mov = true;
             }
-
+            turnos--;
+            break;
+        case(QUEMADO): // Hace daño cada turno y no afecta a tipo fuego
+                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
+            break;
+        case(ENVENENADO): // No afecta a tipo veneno y acero, solo hace daño por turno
+                pokemon->setHP(pokemon->estadisticas_actuales.hp-pokemon->estadisticas.hp/16);
+            break;
+        case(DORMIDO):
+            mov = false;
+            if (!turnos) { // Si se han acabado los turnos...
+                changeState(NONE, pokemon);
+            }
+            turnos--;
             break;
         case(CONGELADO):
-            if (first!=HIELO && second!=HIELO) {
-                turnos = -1;
-                srand(time(NULL));
-
-                if(rand() % 100 <= 80) { // El pokemon tiene un 20% de posibilidades de librarse del estado
-                    mov = false;
-                }else {
-                    mov = true;
-                    estado = NONE;
-                }
+            if(rand() % 100 <= 80) { // El pokemon tiene un 20% de posibilidades de librarse del estado
+                mov = false;
+            }else {
+                changeState(NONE, pokemon);
             }
-
             break;
+        default:
+            changeState(NONE,pokemon);
     }
 }
 
@@ -130,27 +95,50 @@ Estado Estados::getStateByName(std::string _state) {
 }
 
 void Estados::changeState(Estado _state, Pokemon* pokemon) {
+    srand(time(NULL));
+    Tipos first = pokemon->type.getPrimary();
+    Tipos second = pokemon->type.getSecondary();
     /* Se restablecen las características que eran modificadas por el estado que tenían */
-    if (estado == PARALIZADO && solve == true) {
+    if (estado == PARALIZADO) {
         pokemon->estadisticas_actuales.speed = pokemon->estadisticas_actuales.speed*2;
-        mov = true;
-        solve = false;
-    }else if (estado == QUEMADO && solve == true) {
+    }else if (estado == QUEMADO) {
         pokemon->estadisticas_actuales.attack = pokemon->estadisticas_actuales.attack*2;
-        solve = false;
-    }else { // El caso congelado y dormido se contemplan aqui ya que esos impedían moverse al pokemon
-        mov = true;
-        solve = false;
     }
-
-    if (mov == true && solve == false) { // Compruebo que se han vuelto a la normalidad las características
-        pokemon->state->estado = _state; // Cambia el estado del pokemon
-        if (_state == PARALIZADO) {
-            pokemon->state->turnos = 3;
-        }else if (_state == DORMIDO) {
-            pokemon->state->turnos = round(1+rand()%3);
-        }else {
-            pokemon->state->turnos = -1;
+    /* Se cambia de estado al pokemon aplicando los efectos del estado desde el momento en el que se
+       ve afectado por el estado */
+    if (_state == PARALIZADO && first != ELECTRICO && second != ELECTRICO) { // No afecta a tipo electrico
+        turnos = round(1+rand()%5);
+        if (rand() % 100 <= 25) { // El pokemon no se mueve
+            mov = false;
+        } else {
+            mov = true;
         }
+        pokemon->estadisticas_actuales.speed = pokemon->estadisticas_actuales.speed/2;
+        estado = _state;
+    }else if (_state == QUEMADO && first != FUEGO && second != FUEGO) { // No afecta a tipo fuego
+        turnos = -1;
+        pokemon->estadisticas_actuales.attack = pokemon->estadisticas_actuales.attack/2; // Baja las estadisticas
+        estado = _state;
+        mov = true;
+    }else if (_state == ENVENENADO && first != ACERO && second != ACERO && first != VENENO && second != VENENO) { // No afecta a tipo acero ni a veneno
+        turnos = -1;
+        estado = _state;
+        mov = true;
+    }else if (_state == DORMIDO) {
+        turnos = round(1+rand()%3);
+        mov = false;
+        estado = _state;
+    }else if (_state == CONGELADO && first != HIELO && second != HIELO) { // No afecta a tipo hielo
+        turnos = -1;
+        mov = false;
+        estado = _state;
+    }else if (_state == NONE) {
+        estado = _state;
+        turnos = -1;
+        mov = true;
+    }else {
+        estado = NONE;
+        turnos = -1;
+        mov = true;
     }
 }
