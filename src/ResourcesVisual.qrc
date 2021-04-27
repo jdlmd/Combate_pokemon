@@ -63,6 +63,9 @@
         <file>res/fondocambiopok.png</file>
         <file>res/poknoselec.png</file>
         <file>res/pokselec.png</file>
+        <file>res/amarillo.png</file>
+        <file>res/rojo.png</file>
+        <file>res/verde.png</file>
     </qresource>
     <qresource prefix="/pokNerea">
         <file>res/vs.png</file>
@@ -85,5 +88,24 @@
         <file>res/envenenado.png</file>
         <file>res/paralizado.png</file>
         <file>res/quemado.png</file>
+    </qresource>
+    <qresource prefix="/tipos">
+        <file>res/acero.png</file>
+        <file>res/agua.png</file>
+        <file>res/bicho.png</file>
+        <file>res/dragon.png</file>
+        <file>res/electrico.png</file>
+        <file>res/fantasma.png</file>
+        <file>res/fuego.png</file>
+        <file>res/hielo.png</file>
+        <file>res/lucha.png</file>
+        <file>res/normal.png</file>
+        <file>res/planta.png</file>
+        <file>res/psiquico.png</file>
+        <file>res/roca.png</file>
+        <file>res/siniestro.png</file>
+        <file>res/tierra.png</file>
+        <file>res/veneno.png</file>
+        <file>res/volador.png</file>
     </qresource>
 </RCC>
