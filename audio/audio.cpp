@@ -7,7 +7,7 @@ Audio audio; // Variable externa audio (audio/extern.h)
 Audio::Audio() {
     SDL_Init(SDL_INIT_EVERYTHING); // Se inicia SDL
 
-    if (Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,4096) < 0) {
+    if (Mix_OpenAudio(44100,AUDIO_S16,1,4096) < 0) {
         std::cout << "No se ha podido inicializar el mixer.\n";
     }
 }
