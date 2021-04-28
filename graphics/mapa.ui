@@ -1,82 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Mapa</class>
+ <widget class="QMainWindow" name="Mapa">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>798</width>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="fondo">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>-10</y>
-      <width>811</width>
-      <height>361</height>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/files/fondos/mapa.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="b4">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>390</y>
+      <width>93</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/res/inicio2.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>LISTO!</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="start">
+   <widget class="QPushButton" name="b3">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>370</y>
-      <width>141</width>
-      <height>51</height>
+      <x>240</x>
+      <y>0</y>
+      <width>93</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>START</string>
+     <string>LISTO!</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="personaje">
+   <widget class="QPushButton" name="b2">
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>370</y>
-      <width>141</width>
-      <height>51</height>
+      <y>130</y>
+      <width>93</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>CREAR PERSONAJE</string>
+     <string>LISTO!</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QPushButton" name="b1">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>440</y>
-      <width>81</width>
-      <height>16</height>
+      <x>120</x>
+      <y>390</y>
+      <width>93</width>
+      <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>440</y>
-      <width>72</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CheckBox</string>
+     <string>LISTO!</string>
     </property>
    </widget>
   </widget>
@@ -85,8 +88,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>20</height>
+     <width>798</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

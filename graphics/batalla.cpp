@@ -20,12 +20,12 @@ Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     sname=name;
     if (sgenre)
     {
-       ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/fbatalla.png);");
+       ui->avatar->setStyleSheet("background:transparent;border-image: url(:/files/personajes/fbatalla.png);");
 
     }
     else
     {
-        ui->avatar->setStyleSheet("background:transparent;border-image: url(:/combate/res/mbatalla.png);");
+        ui->avatar->setStyleSheet("background:transparent;border-image: url(:/files/personajes/mbatalla.png);");
     }
     ui->texto->setText("   Ahora te voy a explicar como funcionan las batallas pokemon.\n"
 "   Estas batallas van por turnos, durante tu turno puedes:\n   atacar una vez,"

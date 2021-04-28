@@ -18,7 +18,7 @@ class Movimientos {
         std::string getName();
         uint getPPtotal();
         uint getPPremaining();
-        Tipos getType();
+        std::string getType();
     protected:
         std::string nombre; // Nombre del movimiento
         Tipos type; // Tipo del movimiento

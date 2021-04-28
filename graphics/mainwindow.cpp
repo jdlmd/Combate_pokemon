@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "pers.h"
 #include "batalla.h"
+#include <QFontDatabase>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

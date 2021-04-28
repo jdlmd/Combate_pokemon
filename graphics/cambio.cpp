@@ -1,5 +1,6 @@
 #include "cambio.h"
 #include "ui_cambio.h"
+#include "src/definiciones.h"
 
 cambio::cambio(QWidget *parent) :
     QDialog(parent),

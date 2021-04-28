@@ -28,7 +28,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background:transparent;
-border-image: url(:/personaje/res/m2.png);</string>
+border-image: url(:/files/personajes/m2.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -45,7 +45,7 @@ border-image: url(:/personaje/res/m2.png);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background:transparent;
-border-image: url(:/personaje/res/f.png);</string>
+border-image: url(:/files/personajes/f.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -61,7 +61,7 @@ border-image: url(:/personaje/res/f.png);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/res/back.png);</string>
+     <string notr="true">border-image: url(:/files/fondos/back.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -90,7 +90,7 @@ border-image: url(:/personaje/res/f.png);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/personaje/res/profebivli.png);
+     <string notr="true">border-image: url(:/files/personajes/profebivli.png);
 background:transparent;</string>
     </property>
     <property name="text">
@@ -126,7 +126,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/res/frame.png);
+     <string notr="true">border-image: url(:/files/frame.png);
 background:transparent;</string>
     </property>
     <property name="text">
@@ -147,7 +147,7 @@ background:transparent;</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -157,7 +157,7 @@ background:transparent;</string>
   <customwidget>
    <class>CustomLabel</class>
    <extends>QLabel</extends>
-   <header location="global">src/personaje.h</header>
+   <header location="global">graphics/personaje.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

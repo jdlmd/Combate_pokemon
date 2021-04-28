@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/personaje/res/bibli.png);</string>
+     <string notr="true">border-image: url(:/files/fondos/bibli.png);</string>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -43,7 +43,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/personaje/res/profebivli.png);
+     <string notr="true">border-image: url(:/files/personajes/profebivli.png);
 background:transparent;
 </string>
     </property>
@@ -118,7 +118,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/res/frame.png);
+     <string notr="true">border-image: url(:/files/frame.png);
 background:transparent;</string>
     </property>
     <property name="text">
@@ -145,7 +145,7 @@ background:transparent;</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

@@ -35,7 +35,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/combate/res/b1.jpg);</string>
+     <string notr="true">border-image: url(:/files/fondos/b1.jpg);</string>
     </property>
     <property name="text">
      <string/>
@@ -82,7 +82,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/combate/res/text_box.png);
+     <string notr="true">border-image: url(:/files/text_box.png);
 background: transparent;</string>
     </property>
     <property name="text">
@@ -145,7 +145,7 @@ background: transparent;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">
-border-image: url(:/combate/res/agua_abajo.png);</string>
+border-image: url(:/files/fondos/agua_abajo.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -161,7 +161,7 @@ border-image: url(:/combate/res/agua_abajo.png);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/combate/res/agua_arriba.png);</string>
+     <string notr="true">border-image: url(:/files/fondos/agua_arriba.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -177,7 +177,7 @@ border-image: url(:/combate/res/agua_abajo.png);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/res/Jesus.png);</string>
+     <string notr="true">border-image: url(:/files/personajes/Jesus.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -193,7 +193,7 @@ border-image: url(:/combate/res/agua_abajo.png);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/combate/res/f2.png);</string>
+     <string notr="true">border-image: url(:/files/personajes/f2.png);</string>
     </property>
     <property name="text">
      <string/>

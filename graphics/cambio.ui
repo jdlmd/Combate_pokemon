@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Cambio/res/fondocambiopok.png);</string>
+    <string notr="true">border-image: url(:/files/fondos/fondocambiopok.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Cambio/res/poknoselec.png);
+    <string notr="true">border-image: url(:/files/combate/poknoselec.png);
 background: transparent;</string>
    </property>
    <property name="text">
@@ -56,7 +56,7 @@ background: transparent;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Cambio/res/poknoselec.png);
+    <string notr="true">border-image: url(:/files/combate/poknoselec.png);
 background: transparent;</string>
    </property>
    <property name="text">
@@ -74,7 +74,7 @@ background: transparent;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
-border-image: url(:/Cambio/res/poknoselec.png);
+border-image: url(:/files/combate/poknoselec.png);
 </string>
    </property>
    <property name="text">
@@ -93,7 +93,7 @@ border-image: url(:/Cambio/res/poknoselec.png);
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/pokAvatar/res/vs.png);</string>
+border-image: url(:/files/combate/vs.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -111,7 +111,7 @@ border-image: url(:/pokAvatar/res/vs.png);</string>
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/pokAvatar/res/vs.png);</string>
+border-image: url(:/files/combate/vs.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -129,7 +129,7 @@ border-image: url(:/pokAvatar/res/vs.png);</string>
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/pokAvatar/res/vs.png);</string>
+border-image: url(:/files/combate/vs.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -147,7 +147,7 @@ border-image: url(:/pokAvatar/res/vs.png);</string>
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/estados/res/congelado.png);</string>
+border-image: url(:/files/estados/CONGELADO.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -165,7 +165,8 @@ border-image: url(:/estados/res/congelado.png);</string>
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/estados/res/congelado.png);</string>
+
+border-image: url(:/files/estados/CONGELADO.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -183,7 +184,8 @@ border-image: url(:/estados/res/congelado.png);</string>
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/estados/res/congelado.png);</string>
+
+border-image: url(:/files/estados/CONGELADO.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -295,7 +297,7 @@ border-image: url(:/estados/res/congelado.png);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Cambio/res/poknoselec.png);
+    <string notr="true">border-image: url(:/files/combate/poknoselec.png);
 background: transparent;</string>
    </property>
    <property name="text">
@@ -391,7 +393,8 @@ background: transparent;</string>
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/estados/res/congelado.png);</string>
+
+border-image: url(:/files/estados/CONGELADO.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -489,7 +492,7 @@ border-image: url(:/estados/res/congelado.png);</string>
    <property name="styleSheet">
     <string notr="true">background: transparent;
 
-border-image: url(:/pokAvatar/res/vs.png);</string>
+border-image: url(:/files/combate/vs.png);</string>
    </property>
    <property name="text">
     <string/>

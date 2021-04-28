@@ -1,7 +1,7 @@
 #ifndef DEFINICIONES_H
 #define DEFINICIONES_H
 
-typedef unsigned short int uint;
+#include <QtGlobal>
 
 enum Tipos : uint {
     NINGUNO = 0,

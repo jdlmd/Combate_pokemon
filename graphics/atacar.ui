@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Atacar/res/fondomov.png);</string>
+    <string notr="true">border-image: url(:/files/fondos/fondomov.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -39,7 +39,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Atacar/res/movimientos.png);
+    <string notr="true">border-image: url(:/files/combate/movimientos.png);
 bakground: transparent;
 </string>
    </property>
@@ -69,6 +69,11 @@ bakground: transparent;
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
    </property>
@@ -87,7 +92,7 @@ bakground: transparent;
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
-border-image: url(:/tipos/res/bicho.png);</string>
+border-image: url(:/files/tipos/BICHO.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -103,7 +108,7 @@ border-image: url(:/tipos/res/bicho.png);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Atacar/res/movimientos.png);
+    <string notr="true">border-image: url(:/files/combate/movimientos.png);
 bakground: transparent;
 </string>
    </property>
@@ -121,7 +126,7 @@ bakground: transparent;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Atacar/res/movimientos.png);
+    <string notr="true">border-image: url(:/files/combate/movimientos.png);
 bakground: transparent;
 </string>
    </property>
@@ -139,7 +144,7 @@ bakground: transparent;
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/Atacar/res/movimientos.png);
+    <string notr="true">border-image: url(:/files/combate/movimientos.png);
 bakground: transparent;
 </string>
    </property>
@@ -195,6 +200,11 @@ bakground: transparent;
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
    </property>
@@ -211,6 +221,11 @@ bakground: transparent;
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
    </property>
@@ -226,6 +241,13 @@ bakground: transparent;
      <width>31</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>19</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
@@ -245,7 +267,7 @@ bakground: transparent;
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
-border-image: url(:/tipos/res/dragon.png);</string>
+border-image: url(:/files/tipos/BICHO.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -262,7 +284,7 @@ border-image: url(:/tipos/res/dragon.png);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
-border-image: url(:/tipos/res/lucha.png);</string>
+border-image: url(:/files/tipos/BICHO.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -279,7 +301,7 @@ border-image: url(:/tipos/res/lucha.png);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;
-border-image: url(:/tipos/res/electrico.png);</string>
+border-image: url(:/files/tipos/BICHO.png);</string>
    </property>
    <property name="text">
     <string/>

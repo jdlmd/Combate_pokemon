@@ -65,3 +65,10 @@ void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
         }
     }
 }
+
+std::string Movimientos::getType(){
+
+}
+std::string Movimientos::getName(){
+    return nombre;
+}
