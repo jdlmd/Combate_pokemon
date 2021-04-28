@@ -1,5 +1,6 @@
 #include "movimientos.h"
 #include "pokemon.h"
+#include "tipo.h"
 
 Movimientos::Movimientos() {
 
@@ -67,8 +68,14 @@ void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
 }
 
 std::string Movimientos::getType(){
-
+    return Tipo::getNamebyType(type);
 }
 std::string Movimientos::getName(){
     return nombre;
+}
+uint Movimientos::getPPremaining(){
+    return ppRemaining;
+}
+uint Movimientos::getPPtotal(){
+    return ppTotal;
 }
