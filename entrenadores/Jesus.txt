@@ -18,7 +18,6 @@ FUEGO
 1
 QUEMADO
 100
--1
 FlareBlitz
 FUEGO
 1
@@ -29,7 +28,6 @@ FUEGO
 0
 QUEMADO
 10
--1
 Acrobatics
 VOLADOR
 0
@@ -63,7 +61,6 @@ HIELO
 1
 CONGELADO
 10
--1
 HydroPump
 AGUA
 0
@@ -90,7 +87,6 @@ HIELO
 1
 CONGELADO
 10
--1
 Venusaur
 PLANTA VENENO
 85
@@ -108,7 +104,6 @@ PLANTA
 0
 DORMIDO
 75
-3
 PetalBlizzard
 PLANTA
 0
@@ -158,7 +153,6 @@ HIELO
 1
 CONGELADO
 10
--1
 BrickBreak
 LUCHA
 0

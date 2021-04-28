@@ -21,6 +21,7 @@ class Entrenador {
     public:
         Entrenador(); // Constructor por defecto
         Entrenador(std::string filename); // Cargar desde archivo
+        Entrenador(std::string _name, Genero _genre, std::string filename);
         ~Entrenador(); // Destructor
         void setNombre(std::string name); // Cargar nombre al entrenador
         std::string getNombre(); // Recibir el nombre del entrenador

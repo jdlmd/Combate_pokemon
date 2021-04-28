@@ -4,7 +4,7 @@ MovimientoEstado::MovimientoEstado() {
 
 }
 
-MovimientoEstado::MovimientoEstado(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp, std::string _estado, uint _turnos, uint _porcentaje, uint _defOR) {
+MovimientoEstado::MovimientoEstado(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp, std::string _estado, uint _porcentaje, uint _defOR) {
     nombre = _name;
     type = Tipo::getTypeByName(_type);
     atckORsp = _atckORsp;
@@ -13,7 +13,7 @@ MovimientoEstado::MovimientoEstado(std::string _name, std::string _type, uint _a
     ppTotal = _pp;
     ppRemaining = _pp;
     estado = Estados::getStateByName(_estado);
-    turnos = _turnos;
+    turnos = -1;
     porcentaje = _porcentaje;
     defORspdef = _defOR;
 }

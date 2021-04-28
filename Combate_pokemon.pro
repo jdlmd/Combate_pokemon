@@ -69,8 +69,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-        README.md \
-        audio/files/door2.wav
+        README.md
 
 RESOURCES += \
     graphics/ResourcesVisual.qrc
