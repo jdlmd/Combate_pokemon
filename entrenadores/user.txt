@@ -1,0 +1,161 @@
+4
+Charizard
+FUEGO VOLADOR
+87
+21 25 16 31 25 31
+120 60 50 140 30 110
+78 84 78 109 85 100
+4
+Inferno
+FUEGO
+1
+50
+100
+5
+1
+1
+QUEMADO
+100
+FlareBlitz
+FUEGO
+1
+100
+120
+15
+0
+0
+QUEMADO
+10
+Acrobatics
+VOLADOR
+0
+100
+55
+15
+0
+0
+MetalClaw
+ACERO
+0
+95
+50
+35
+0
+0
+Empoleon
+AGUA ACERO
+89
+31 25 25 31 31 15
+85 85 85 85 85 85
+84 86 88 111 101 70
+4
+Blizzard
+HIELO
+1
+70
+110
+8
+1
+1
+CONGELADO
+10
+HydroPump
+AGUA
+0
+90
+130
+8
+1
+1
+DrillPeck
+VOLADOR
+0
+100
+80
+32
+0
+0
+IceBeam
+HIELO
+1
+100
+90
+16
+1
+1
+CONGELADO
+10
+Venusaur
+PLANTA VENENO
+85
+31 5 25 31 31 15
+4 0 0 252 252 0
+80 82 83 100 100 80
+4
+SleepPowder
+PLANTA
+1
+75
+0
+24
+0
+0
+DORMIDO
+75
+PetalBlizzard
+PLANTA
+0
+100
+90
+24
+0
+0
+PowerWhip
+PLANTA
+0
+85
+120
+24
+0
+0
+SeedBomb
+PLANTA
+0
+100
+80
+24
+0
+0
+Feraligatr
+AGUA NINGUNO
+83
+25 31 31 0 5 15
+4 255 255 0 0 0
+85 105 100 79 83 78
+3
+AquaTail
+AGUA
+0
+90
+90
+16
+0
+0
+Blizzard
+HIELO
+1
+70
+110
+8
+1
+1
+CONGELADO
+10
+BrickBreak
+LUCHA
+0
+100
+75
+24
+0
+0

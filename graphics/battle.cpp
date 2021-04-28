@@ -3,13 +3,23 @@
 #include "atacar.h"
 #include "cambio.h"
 #include "QMessageBox"
-Battle::Battle(QWidget *parent, int snumbat,bool sgenre, QString snombre) :
+Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenre, QString snombre) :
     QMainWindow(parent),
     ui(new Ui::Battle)
 {
     ui->setupUi(this);
     this->centralWidget()->hide();
-    numbat=snumbat;
+
+    if (_trainer->getNombre() == "Nerea") {
+        numbat = 1;
+    } else if (_trainer->getNombre() == "Jesus") {
+        numbat = 2;
+    } else if (_trainer->getNombre() == "Maria") {
+        numbat = 3;
+    } else if (_trainer->getNombre() == "Chus") {
+        numbat = 4;
+    }
+
     genre=sgenre;
     nombre=snombre;
     ui->atacar->hide();

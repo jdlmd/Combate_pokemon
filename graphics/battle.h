@@ -14,6 +14,7 @@
 
 #include "audio/extern.h"
 #include "iostream"
+#include "src/entrenador.h"
 
 namespace Ui {
     class Battle;
@@ -46,17 +47,15 @@ class Battle : public QMainWindow {
     QStringList list5={"A1","A2","A3","A4"};
     QVector<QString> pokAvatar= QVector<QString>::fromList(list5);
 
-        explicit Battle(QWidget *parent = nullptr,int numbat=1,bool genre=0,QString nombre="");
-        ~Battle();
+    explicit Battle(QWidget *parent = nullptr,Entrenador* _trainer = nullptr,Entrenador* user = nullptr,bool genre=0,QString nombre="");
+    ~Battle();
 
     private slots:
         void launchAnimation();
-
         void on_atacar_clicked();
-
         void on_cambio_clicked();
 
-private:
+    private:
         int ancho;
         int alto;
         Ui::Battle *ui;

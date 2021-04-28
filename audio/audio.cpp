@@ -26,10 +26,8 @@ void Audio::launchAudio(std::string filename) {
     std::ifstream f(fullPath+"./Combate_pokemon/audio/files/" + filename);
     if(f.good()){
         fullPath.append("./Combate_pokemon/audio/files/" + filename);
-        std::cout<<"Con un solo punto\n";
     }else{
         fullPath.append("../Combate_pokemon/audio/files/" + filename);
-        std::cout<<"Con dos puntos\n";
     }
 //        fullPath.append("./Combate_pokemon/audio/files/" + filename);
 
