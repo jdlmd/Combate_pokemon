@@ -7,10 +7,10 @@ Personaje::Personaje(QWidget *parent) :
     ui(new Ui::Personaje)
 {
     ui->setupUi(this);
-    ui->label->changeFileInf("background:transparent;\nborder-image: url(:/res/m2.png);");
-    ui->label->changeFileSup("background:transparent;\nborder-image: url(:/res/m.png);");
-    ui->label_3->changeFileInf("background:transparent;\nborder-image: url(:/res/f.png);");
-    ui->label_3->changeFileSup("background:transparent;\nborder-image: url(:/res/f2.png);");
+    ui->label->changeFileInf("background:transparent;\nborder-image: url(:/files/personajes/m2.png);");
+    ui->label->changeFileSup("background:transparent;\nborder-image: url(:/files/personajes/m.png);");
+    ui->label_3->changeFileInf("background:transparent;\nborder-image: url(:/files/personajes/f.png);");
+    ui->label_3->changeFileSup("background:transparent;\nborder-image: url(:/files/personajes/f2.png);");
 
     CustomLabel::connect(ui->label,SIGNAL(changeImage()),ui->label_3,SLOT(lowImage()));
     CustomLabel::connect(ui->label_3,SIGNAL(changeImage()),ui->label,SLOT(lowImage()));
