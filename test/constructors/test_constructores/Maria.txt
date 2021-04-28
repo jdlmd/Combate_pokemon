@@ -1,0 +1,169 @@
+Maria
+F
+4
+Flareon
+FUEGO NINGUNO
+80
+15 31 25 31 15 31
+0 252 0 252 0 4
+65 130 60 95 110 65
+4
+Lanzallamas
+FUEGO
+1
+100
+90
+15
+1
+1
+QUEMADO
+10
+GiroFuego
+FUEGO
+0
+85
+35
+15
+1
+1
+Furia
+NORMAL
+0
+100
+20
+20
+0
+0
+EviteIgneo
+FUEGO
+1
+100
+120
+15
+0
+0
+QUEMADO
+10
+Ninetales
+FUEGO NINGUNO
+80
+21 25 20 31 21 31
+0 60 50 140 110 30
+73 76 75 81 100 100
+4
+CabezazoZen
+PSÍQUICO
+0
+90
+80
+15
+0
+0
+OndaIgnea
+FUEGO
+1
+90
+95
+10
+1
+1
+QUEMADO
+10
+JuegoSucio
+SINIESTRO
+0
+100
+95
+15
+0
+0
+ColaFerrea
+ACERO
+0
+75
+100
+15
+0
+0
+Arcanine
+FUEGO NINGUNO
+80
+21 25 16 30 21 31
+0 4 0 252 0 252
+90 110 80 100 80 95
+4
+PulsoDragon
+Dragón
+0
+100
+85
+10
+1
+1
+Enfado
+DRAGÓN
+0
+100
+120
+10
+0
+0
+Lanzallamas
+FUEGO
+1
+100
+90
+15
+1
+1
+QUEMADO
+10
+CabezaDeHierro
+ACERO
+0
+100
+80
+15
+0
+0
+Rapidash
+FUEGO NINGUNO
+80
+21 25 16 30 21 30
+0 252 0 252 0 4
+65 100 70 80 80 252
+4
+Cabezazo
+NORMAL
+0
+100
+130
+10
+0
+0
+Taladradora
+TIERRA
+0
+95
+80
+10
+0
+0
+Lanzallamas
+FUEGO
+1
+100
+90
+15
+1
+1
+QUEMADO
+10
+GolpeMordaza
+SINIESTRO
+0
+100
+80
+15
+0
+0
