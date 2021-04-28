@@ -90,14 +90,13 @@ trainerFiles.path = $$OUT_PWD/Combate_pokemon # Path destino
 
 # Instalación de las librería SDL
 INCLUDEPATH += ./lib/SDL2-2.0.14/include/
-INCLUDEPATH += ./lib/SDL2_mixer-2.0.4/include/
 
 unix|win32: LIBS += -L$$PWD/lib/SDL2-2.0.14/lib/x64/ -lSDL2
 
 INCLUDEPATH += $$PWD/lib/SDL2-2.0.14/lib/x64
 DEPENDPATH += $$PWD/lib/SDL2-2.0.14/lib/x64
 
-unix|win32: LIBS += -L$$PWD/lib/SDL2_mixer-2.0.4/lib/x64/ -lSDL2_mixer
+unix|win32: LIBS += -L$$PWD/lib/SDL2_mixer-2.0.4/x86_64-w64-mingw32/lib/ -lSDL2_mixer
 
-INCLUDEPATH += $$PWD/lib/SDL2_mixer-2.0.4/lib/x64
-DEPENDPATH += $$PWD/lib/SDL2_mixer-2.0.4/lib/x64
+INCLUDEPATH += $$PWD/lib/SDL2_mixer-2.0.4/x86_64-w64-mingw32/include/
+DEPENDPATH += $$PWD/lib/SDL2_mixer-2.0.4/x86_64-w64-mingw32/include/
