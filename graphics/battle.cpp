@@ -22,6 +22,8 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
 
     user=_user;
     cpu=_trainer;
+    user_poke = user->getPokemon(0);
+    cpu_poke = cpu->getPokemon(0);
 
     genre=sgenre;
     nombre=snombre;
@@ -252,16 +254,6 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         ui->cuadro_texto->setText(" \n \n Vamos a ver que es lo que puedes hacer.");
         this->repaint();
         QThread::msleep(2500);
-        QMessageBox::information(this,tr("Maestra Nerea"),tr("¡La Maestra Nerea saca a %1!").arg(pok));
-        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
-        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        ui->cuadro_texto->setText(" \n \n Haz tu movimiento.");
-        this->repaint();
         break;
     }
     case(2):{
@@ -270,20 +262,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         QThread::msleep(3000);
         ui->cuadro_texto->setText(" \n \n Ah... solo eres tú.");
         this->repaint();
-        QThread::msleep(2500);
-        QMessageBox::information(this,tr("Maestro Jesus"),tr("¡El Maestro Jesus saca a %1!").arg(pok));
-        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
-        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        ui->cuadro_texto->setText(" \n \n Haz tu movimiento.");
-        this->repaint();
-        this->repaint();
-
-
+        QThread::msleep(2500);       
         break;
     }
     case(3):{
@@ -293,40 +272,30 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         ui->cuadro_texto->setText(" \n \n ¡Veremos si puedes hacerlo!");
         this->repaint();
         QThread::msleep(2500);
-        QMessageBox::information(this,tr("Maestra Maria"),tr("¡La Maestra Maria saca a %1!").arg(pok));
-        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
-        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        ui->cuadro_texto->setText(" \n \n Haz tu movimiento.");
-        this->repaint();
-        this->repaint();
         break;
     }
     case(4):{
-        ui->cuadro_texto->setText(" \n \n ¿Por qué tanto alboroto?");
+        ui->cuadro_texto->setText(" \n \n !SKEREEEEE¡");
         this->repaint();
         QThread::msleep(3000);
-        ui->cuadro_texto->setText(" \n \n ¿Quieres un chicle""?");
+        ui->cuadro_texto->setText(" \n \n Te voy a dejar como en Control");
         this->repaint();
         QThread::msleep(2500);
-        QMessageBox::information(this,tr("Maestro Chus"),tr("¡El Maestro Chus saca a %1!").arg(pok));
-        ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        QMessageBox::information(this,tr("Aprendiz %1").arg(nombre),tr("¡Adelante %1!").arg(pok));
-        ui->avatar->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
-        this->repaint();
-        QThread::msleep(500);
-        ui->cuadro_texto->setText(" \n \n Haz tu movimiento.");
-        this->repaint();
-        this->repaint();
         break;
     }
     }
+
+    QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro Jesus saca a %1!").arg(QString::fromStdString((cpu_poke->getName()))));
+    ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
+    this->repaint();
+    QThread::msleep(500);
+    QMessageBox::information(this,tr("Aprendiz %1").arg(QString::fromStdString(user->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((user_poke->getName()))));
+    ui->avatar->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
+    this->repaint();
+    QThread::msleep(500);
+    ui->cuadro_texto->setText(" \n \n Haz tu movimiento.");
+    this->repaint();
+    this->repaint();
 
 }
 
@@ -339,7 +308,7 @@ void Battle::closeEvent(QCloseEvent *event) {
 
 void Battle::on_atacar_clicked()
 {
-    Atacar *v_ataque=new Atacar(this,nullptr);
+    Atacar *v_ataque=new Atacar(this,user->getPokemon(0));
     v_ataque->show();
 }
 
