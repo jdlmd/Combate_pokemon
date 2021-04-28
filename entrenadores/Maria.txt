@@ -15,14 +15,16 @@ FUEGO
 90
 15
 1
+1
 QUEMADO
 10
-Giro Fuego
+GiroFuego
 FUEGO
-1
+0
 85
 35
 15
+1
 1
 Furia
 NORMAL
@@ -31,12 +33,14 @@ NORMAL
 20
 20
 0
-Evite ígneo
+0
+EviteIgneo
 FUEGO
 1
 100
 120
 15
+0
 0
 QUEMADO
 10
@@ -47,35 +51,39 @@ FUEGO NINGUNO
 0 60 50 140 110 30
 73 76 75 81 100 100
 4
-Cabezazo zen
+CabezazoZen
 PSÍQUICO
 0
 90
 80
 15
 0
-Onda ígnea
+0
+OndaIgnea
 FUEGO
 1
 90
 95
 10
 1
+1
 QUEMADO
 10
-Juego sucio
+JuegoSucio
 SINIESTRO
 0
 100
 95
 15
 0
-Cola férrea
+0
+ColaFerrea
 ACERO
 0
 75
 100
 15
+0
 0
 Arcanine
 FUEGO NINGUNO
@@ -84,12 +92,13 @@ FUEGO NINGUNO
 0 4 0 252 0 252
 90 110 80 100 80 95
 4
-Pulso dragón
+PulsoDragon
 Dragón
 0
 100
 85
 10
+1
 1
 Enfado
 DRAGÓN
@@ -98,6 +107,7 @@ DRAGÓN
 120
 10
 0
+0
 Lanzallamas
 FUEGO
 1
@@ -105,14 +115,16 @@ FUEGO
 90
 15
 1
+1
 QUEMADO
 10
-Cabeza de hierro
+CabezaDeHierro
 ACERO
 0
 100
 80
 15
+0
 0
 Rapidash
 FUEGO NINGUNO
@@ -128,12 +140,14 @@ NORMAL
 130
 10
 0
+0
 Taladradora
 TIERRA
 0
 95
 80
 10
+0
 0
 Lanzallamas
 FUEGO
@@ -142,12 +156,14 @@ FUEGO
 90
 15
 1
+1
 QUEMADO
 10
-Golpe mordaza
+GolpeMordaza
 SINIESTRO
 0
 100
 80
 15
+0
 0
