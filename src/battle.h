@@ -40,7 +40,7 @@ class Battle : public QMainWindow {
     QStringList list3={"C1","C2","C3","C4"};
     QVector<QString> pokChus= QVector<QString>::fromList(list3);
 
-    QStringList list4={"M1","M2","M3","M4"};
+    QStringList list4={"Flareon","Ninetales","Arcanine","Rapidash"};
     QVector<QString> pokMaria= QVector<QString>::fromList(list4);
 
     QStringList list5={"A1","A2","A3","A4"};

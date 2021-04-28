@@ -29,7 +29,7 @@ Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     }
     ui->texto->setText("   Ahora te voy a explicar como funcionan las batallas pokemon.\n"
 "   Estas batallas van por turnos, durante tu turno puedes:\n   atacar una vez,"
-"usar objetos, cambiar tu pokémon.\n   Si haces un cambio, ¡pierdes el turno!");
+" usar objetos, cambiar tu pokémon.\n   Si haces un cambio, ¡pierdes el turno!");
 }
 
 Batalla::~Batalla()
