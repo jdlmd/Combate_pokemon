@@ -26,26 +26,11 @@ class Battle : public QMainWindow {
 
     public:
 
-    int numbat;
-    int numpok=1;
-    bool genre;
-    QString nombre;
-    QString pok;
-
-    QStringList list1={"N1","N2","N3","N4"};
-    QVector<QString> pokNerea= QVector<QString>::fromList(list1);
-
-    QStringList list2={"J1","J2","J3","J4"};
-    QVector<QString> pokJesus= QVector<QString>::fromList(list2);
-
-    QStringList list3={"C1","C2","C3","C4"};
-    QVector<QString> pokChus= QVector<QString>::fromList(list3);
-
-    QStringList list4={"Flareon","Ninetales","Arcanine","Rapidash"};
-    QVector<QString> pokMaria= QVector<QString>::fromList(list4);
-
-    QStringList list5={"A1","A2","A3","A4"};
-    QVector<QString> pokAvatar= QVector<QString>::fromList(list5);
+        int numbat;
+        int numpok=1;
+        bool genre;
+        QString nombre;
+        QString pok;
 
     explicit Battle(QWidget *parent = nullptr,Entrenador* _trainer = nullptr,Entrenador* user = nullptr,bool genre=0,QString nombre="");
     ~Battle();
@@ -62,6 +47,10 @@ class Battle : public QMainWindow {
         QLabel* vsAnimation();
         void battleStartAnimation(QLabel* fondo);
         void closeEvent(QCloseEvent *event) override;
+        Entrenador* user;
+        Entrenador* cpu;
+        Pokemon* user_poke;
+        Pokemon* cpu_poke;
 };
 
 #endif // BATTLE_H

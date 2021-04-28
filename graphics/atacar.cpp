@@ -25,11 +25,15 @@ Atacar::Atacar(QWidget *parent,Pokemon* pokemon) :
     ui->inf1->setStyleSheet((stylesheet+mov[1]->getType()+formato).c_str());
     ui->inf1->setStyleSheet((stylesheet+mov[2]->getType()+formato).c_str());
     ui->inf1->setStyleSheet((stylesheet+mov[3]->getType()+formato).c_str());
-    ui->pp1->setText("15");
-    ui->pp2->setText("15");
-    ui->pp3->setText("20");
-    ui->pp4->setText("15");
+    ui->pp1->setText(QString::number(mov[0]->getPPtotal()));
+    ui->pp2->setText(QString::number(mov[1]->getPPtotal()));
+    ui->pp3->setText(QString::number(mov[3]->getPPtotal()));
+    ui->pp4->setText(QString::number(mov[4]->getPPtotal()));
 
+    ui->pp11->setText(QString::number(mov[0]->getPPtotal()));
+    ui->pp22->setText(QString::number(mov[1]->getPPtotal()));
+    ui->pp33->setText(QString::number(mov[3]->getPPtotal()));
+    ui->pp44->setText(QString::number(mov[4]->getPPtotal()));
 
 
 }
