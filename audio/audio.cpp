@@ -1,5 +1,7 @@
 #include "audio.h"
 #include "iostream"
+//#include "filesystem"
+#include "fstream"
 
 Audio audio; // Variable externa audio (audio/extern.h)
 
@@ -21,7 +23,16 @@ Audio::~Audio() {
 void Audio::launchAudio(std::string filename) {
 
     std::string fullPath = SDL_GetBasePath();
-    fullPath.append("../Combate_pokemon/audio/files/" + filename);
+    std::ifstream f(fullPath+"./Combate_pokemon/audio/files/" + filename);
+    if(f.good()){
+        fullPath.append("./Combate_pokemon/audio/files/" + filename);
+        std::cout<<"Con un solo punto\n";
+    }else{
+        fullPath.append("../Combate_pokemon/audio/files/" + filename);
+        std::cout<<"Con dos puntos\n";
+    }
+//        fullPath.append("./Combate_pokemon/audio/files/" + filename);
+
     std::cout << "Lanzado audio\n";
     std::cout<<fullPath.c_str()<<std::endl;
     bgm = Mix_LoadMUS(fullPath.c_str());
