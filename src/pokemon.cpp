@@ -17,6 +17,7 @@ Pokemon::Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level
     state = new Estados();
     // Calculo de las estadisticas.
     calculateStatsFromBase( _ivs, _evs,_base);
+    estadisticas_actuales=estadisticas;
 }
 void Pokemon::calculateStatsFromBase(struct stats _ivs, struct stats _evs, struct stats _base){
     estadisticas.hp=(uint)(0.01*(2*_base.hp+_ivs.hp+(int)(0.25*_evs.hp))*level)+level+10;

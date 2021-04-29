@@ -70,5 +70,27 @@
         <file>files/frame.png</file>
         <file>files/PKMNRSEU.FON</file>
         <file>files/text_box.png</file>
+        <file>files/pokemon/abomasnow.png</file>
+        <file>files/pokemon/arcanine.png</file>
+        <file>files/pokemon/blastoise.png</file>
+        <file>files/pokemon/charizard.png</file>
+        <file>files/pokemon/charizard2.png</file>
+        <file>files/pokemon/dragonair.png</file>
+        <file>files/pokemon/empoleon.png</file>
+        <file>files/pokemon/feraligatr.png</file>
+        <file>files/pokemon/ferrothorn.png</file>
+        <file>files/pokemon/flareon.png</file>
+        <file>files/pokemon/gengar.png</file>
+        <file>files/pokemon/gyarados.png</file>
+        <file>files/pokemon/komala.png</file>
+        <file>files/pokemon/lucario.png</file>
+        <file>files/pokemon/ludicolo.png</file>
+        <file>files/pokemon/ninetales.png</file>
+        <file>files/pokemon/pikachu.png</file>
+        <file>files/pokemon/piplup.png</file>
+        <file>files/pokemon/rapidash.png</file>
+        <file>files/pokemon/sceptile.png</file>
+        <file>files/pokemon/venusaur.png</file>
+        <file>files/pokemon/venusaur2.png</file>
     </qresource>
 </RCC>

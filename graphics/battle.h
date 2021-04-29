@@ -39,6 +39,7 @@ class Battle : public QMainWindow {
         void launchAnimation();
         void on_atacar_clicked();
         void on_cambio_clicked();
+        void setMove(Movimientos* _move);
 
     private:
         int ancho;

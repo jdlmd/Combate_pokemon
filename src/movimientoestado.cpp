@@ -1,4 +1,5 @@
 #include "movimientoestado.h"
+#include "qdebug.h"
 
 MovimientoEstado::MovimientoEstado() {
 
@@ -23,6 +24,7 @@ MovimientoEstado::~MovimientoEstado() {
 }
 
 void MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
+    ppRemaining--;
     if(potencia>0){
         uint atk_stat= atacante->estadisticas_actuales.attack;
         uint def_stat=defensor->estadisticas_actuales.defense;
@@ -69,7 +71,8 @@ void MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
     }
     if ((rand() % 100+1)<porcentaje){
         // Cuando se unan esta rama y la de nerea se descomenta esta parte
-//        changeState(estado,defensor);
+        defensor->state->changeState(estado,defensor);
+        qDebug() << "Hola caracola";
         // Añadir comentario del tipo el pokemon ha sido envenado
     }
 }

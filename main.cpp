@@ -1,11 +1,10 @@
 #include "graphics/mainwindow.h"
-#include "audio/audio.h"
+#include "audio/extern.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[]) {
-    Audio snk;
-    snk.launchAudio("theme.wav");
+    audio.launchAudio("theme.wav");
     QApplication a(argc, argv);
     MainWindow* w = new MainWindow();
     w->show();
