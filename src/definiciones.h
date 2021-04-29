@@ -41,7 +41,7 @@ enum Estado : uint {
 };
 
 struct stats {
-    uint hp;
+    int hp;
     uint attack;
     uint defense;
     uint sp_attack;
