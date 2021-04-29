@@ -39,6 +39,18 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     ui->enemigo->hide();
     ui->pokemon_inf->hide();
     ui->pokemon_sup->hide();
+    ui->hp_inf->hide();
+    ui->vida_act->hide();
+    ui->vida_total->hide();
+    ui->vida_inf->hide();
+    ui->vida_inf_fondo->hide();
+    ui->level_inf->hide();
+    ui->pok_inf->hide();
+    ui->hp_sup->hide();
+    ui->vida_sup->hide();
+    ui->vida_sup_fondo->hide();
+    ui->level_sup->hide();
+    ui->pok_sup->hide();
     ui->cuadro_texto->setFont(pokefont);
     // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
@@ -300,6 +312,11 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     ui->pokemon_sup->show();
     ui->enemigo->hide();
     this->repaint();
+    ui->hp_sup->show();
+    ui->vida_sup->show();
+    ui->vida_sup_fondo->show();
+    ui->level_sup->show();
+    ui->pok_sup->show();
     QThread::msleep(500);
     QMessageBox::information(this,tr("Aprendiz %1").arg(QString::fromStdString(user->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((user_poke->getName()))));
     ui->pokemon_inf->setPixmap(path + QString::fromStdString(user_poke->getName()).toLower()+"2"+formato);
@@ -307,11 +324,17 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     ui->pokemon_inf->show();
     ui->avatar->hide();
     this->repaint();
+    ui->hp_inf->show();
+    ui->vida_act->show();
+    ui->vida_total->show();
+    ui->vida_inf->show();
+    ui->vida_inf_fondo->show();
+    ui->level_inf->show();
+    ui->pok_inf->show();
     QThread::msleep(500);
     ui->cuadro_texto->setText("Haz tu movimiento.");
     this->repaint();
     this->repaint();
-
 }
 
 // Método para manejar el cierre de la ventana de forma correcta
@@ -339,4 +362,34 @@ void Battle::setMove(Movimientos* _move){
     _move->getDamage(user_poke,cpu_poke);
     QThread::msleep(500);
     audio.launchSound("attack.wav");
+}
+
+// Animaciones de ataque para los pokemons inferiores
+void Battle::attackAnimationInf(){
+    audio.launchSound("attack.wav");
+    for (int i = 0 ; i <= 15 ; i++){
+        ui->pokemon_inf->setGeometry(40+(170/15)*i,360,381,321);
+        QThread::msleep(25);
+        this->repaint();
+    }
+    for (int i = 15 ; i >= 0 ; i--){
+        ui->pokemon_inf->setGeometry(40+(170/15)*i,360,381,321);
+        QThread::msleep(25);
+        this->repaint();
+    }
+}
+
+// Animaciones de ataque para los pokemons superiores
+void Battle::attackAnimationSup(){
+    audio.launchSound("attack.wav");
+    for (int i = 0 ; i <= 15 ; i++){
+        ui->pokemon_sup->setGeometry(610-(140/15)*i,60+(120/15)*i,321,321);
+        QThread::msleep(25);
+        this->repaint();
+    }
+    for (int i = 15 ; i >= 0 ; i--){
+        ui->pokemon_sup->setGeometry(610-(140/15)*i,60+(120/15)*i,321,321);
+        QThread::msleep(25);
+        this->repaint();
+    }
 }
