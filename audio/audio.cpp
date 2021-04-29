@@ -69,7 +69,7 @@ void Audio::killAudio() {
 
 void Audio::launchSound(std::string filename){
     std::string fullPath = SDL_GetBasePath();
-    std::ifstream f (fullPath+"./Combate_pokemon/audio/files/");
+    std::ifstream f(fullPath+"./Combate_pokemon/audio/files/" + filename);
     if(f.good()){
         fullPath.append("./Combate_pokemon/audio/files/" + filename);
     }else{

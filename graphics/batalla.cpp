@@ -10,6 +10,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "mapa.h"
+#include <QFontDatabase>
 
 Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     QMainWindow(parent),
@@ -18,6 +19,8 @@ Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     ui->setupUi(this);
     sgenre=genre;
     sname=name;
+    QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
+    QFont pokefont = QFont("Pokemon Pinball RS",8,1);
     if (sgenre)
     {
        ui->avatar->setStyleSheet("background:transparent;border-image: url(:/files/personajes/fbatalla.png);");
@@ -27,6 +30,7 @@ Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     {
         ui->avatar->setStyleSheet("background:transparent;border-image: url(:/files/personajes/mbatalla.png);");
     }
+    ui->texto->setFont(pokefont);
     ui->texto->setText("   Ahora te voy a explicar como funcionan las batallas pokemon.\n"
 "   Estas batallas van por turnos, durante tu turno puedes:\n   atacar una vez,"
 " usar objetos, cambiar tu pokémon.\n   Si haces un cambio, ¡pierdes el turno!");

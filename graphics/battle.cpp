@@ -3,12 +3,16 @@
 #include "atacar.h"
 #include "cambio.h"
 #include "QMessageBox"
+#include <QFontDatabase>
 Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenre, QString snombre) :
     QMainWindow(parent),
     ui(new Ui::Battle)
 {
     ui->setupUi(this);
     this->centralWidget()->hide();
+
+    QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
+    QFont pokefont = QFont("Pokemon Pinball RS",12,1);
 
     if (_trainer->getNombre() == "Nerea") {
         numbat = 1;
@@ -33,6 +37,7 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     ui->plat_inf->hide();
     ui->avatar->hide();
     ui->enemigo->hide();
+    ui->cuadro_texto->setFont(pokefont);
     // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
     ancho = this->geometry().width();
@@ -144,7 +149,7 @@ QLabel* Battle::vsAnimation() {
         this->repaint();
     }
 
-    ui->cuadro_texto->setText(" \n \n ¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
+    ui->cuadro_texto->setText("¡EL COMBATE ESTÁ A PUNTO DE COMENZAR!");
     this->repaint();
     QThread::msleep(3500);
     fondo->setGeometry(0,0,ancho,alto);
@@ -246,37 +251,37 @@ void Battle::battleStartAnimation(QLabel *fondo) {
 
     switch (numbat) {
     case(1):{
-        ui->cuadro_texto->setText(" \n \n Parece que hoy tengo visita.");
+        ui->cuadro_texto->setText("Parece que hoy tengo visita.");
         this->repaint();
         QThread::msleep(3000);
-        ui->cuadro_texto->setText(" \n \n Vamos a ver que es lo que puedes hacer.");
+        ui->cuadro_texto->setText("Vamos a ver que es lo que puedes hacer.");
         this->repaint();
         QThread::msleep(2500);
         break;
     }
     case(2):{
-        ui->cuadro_texto->setText(" \n \n ¿Quién me molesta a estas horas?");
+        ui->cuadro_texto->setText("¿Quién me molesta a estas horas?");
         this->repaint();
         QThread::msleep(3000);
-        ui->cuadro_texto->setText(" \n \n Ah... solo eres tú.");
+        ui->cuadro_texto->setText("Ah... solo eres tú.");
         this->repaint();
         QThread::msleep(2500);
         break;
     }
     case(3):{
-        ui->cuadro_texto->setText(" \n \n ¿Quieres ganarme?");
+        ui->cuadro_texto->setText("¿Quieres ganarme?");
         this->repaint();
         QThread::msleep(3000);
-        ui->cuadro_texto->setText(" \n \n ¡Veremos si puedes hacerlo!");
+        ui->cuadro_texto->setText("¡Veremos si puedes hacerlo!");
         this->repaint();
         QThread::msleep(2500);
         break;
     }
     case(4):{
-        ui->cuadro_texto->setText(" \n \n !SKEREEEEE¡");
+        ui->cuadro_texto->setText("!SKEREEEEE¡");
         this->repaint();
         QThread::msleep(3000);
-        ui->cuadro_texto->setText(" \n \n Te voy a dejar como en Control");
+        ui->cuadro_texto->setText("Te voy a dejar como en Control");
         this->repaint();
         QThread::msleep(2500);
         break;
@@ -294,7 +299,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     ui->avatar->setStyleSheet(stylesheet+QString::fromStdString(user_poke->getName()).toLower()+"2"+formato);
     this->repaint();
     QThread::msleep(500);
-    ui->cuadro_texto->setText(" \n \n Haz tu movimiento.");
+    ui->cuadro_texto->setText("Haz tu movimiento.");
     this->repaint();
     this->repaint();
 
@@ -309,6 +314,7 @@ void Battle::closeEvent(QCloseEvent *event) {
 
 void Battle::on_atacar_clicked()
 {
+    audio.launchSound("attack.wav");
     Atacar *v_ataque=new Atacar(this,user_poke,cpu_poke);
     v_ataque->show();
     connect(v_ataque,SIGNAL(selectedMove(Movimientos*)),this,SLOT(setMove(Movimientos*)));

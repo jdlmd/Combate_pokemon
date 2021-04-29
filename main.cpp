@@ -2,6 +2,8 @@
 #include "audio/extern.h"
 
 #include <QApplication>
+#include <QFile>
+#include <QFontDatabase>
 
 int main(int argc, char *argv[]) {
     audio.launchAudio("theme.wav");
