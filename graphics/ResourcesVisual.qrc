@@ -95,5 +95,9 @@
         <file>files/pokemon/venusaur2.png</file>
         <file>files/combate/hp_inf.png</file>
         <file>files/combate/hp_sup.png</file>
+        <file>files/pokemon/blastoise2.png</file>
+        <file>files/pokemon/gengar2.png</file>
+        <file>files/pokemon/gyarados2.png</file>
+        <file>files/pokemon/pikachu2.png</file>
     </qresource>
 </RCC>

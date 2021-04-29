@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>452</width>
-    <height>371</height>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">border-image: url(:/files/combate/movimientos.png);
-bakground: transparent;
+background: transparent;
 </string>
    </property>
    <property name="text">
@@ -109,7 +109,8 @@ border-image: url(:/files/tipos/BICHO.png);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">border-image: url(:/files/combate/movimientos.png);
-bakground: transparent;
+background: transparent;
+
 </string>
    </property>
    <property name="text">
@@ -127,7 +128,8 @@ bakground: transparent;
    </property>
    <property name="styleSheet">
     <string notr="true">border-image: url(:/files/combate/movimientos.png);
-bakground: transparent;
+background: transparent;
+
 </string>
    </property>
    <property name="text">
@@ -145,7 +147,8 @@ bakground: transparent;
    </property>
    <property name="styleSheet">
     <string notr="true">border-image: url(:/files/combate/movimientos.png);
-bakground: transparent;
+background: transparent;
+
 </string>
    </property>
    <property name="text">

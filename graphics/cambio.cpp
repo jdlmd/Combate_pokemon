@@ -2,12 +2,15 @@
 #include "ui_cambio.h"
 #include "src/definiciones.h"
 
-cambio::cambio(QWidget *parent, Entrenador* _user) :
+cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke) :
     QDialog(parent),
     ui(new Ui::cambio)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->size()); // Evita que se haga resize
+
     user = _user;
+
     QString stylesheet = "background: transparent; border-image: url(:/files/estados/";
     QString stylesheet2 = "background: transparent; border-image: url(:/files/pokemon/";
     QString stylesheet3 = "background: transparent; border-image: url(:/files/combate/";
@@ -67,6 +70,12 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
     ui->v44->hide();
     ui->v55->hide();
     ui->v66->hide();
+    ui->btn1->setEnabled(false);
+    ui->btn2->setEnabled(false);
+    ui->btn3->setEnabled(false);
+    ui->btn4->setEnabled(false);
+    ui->btn5->setEnabled(false);
+    ui->btn6->setEnabled(false);
 
     for (uint i = 0 ; i < n ; i++) {
         pok[i] = user->getPokemon(i);
@@ -85,12 +94,16 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
             ui->v11->setText(QString::number(pok[i]->getHP()));
             ui->vida1->setGeometry(137,70,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min1->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
+            ui->n1->setText(QString::number(pok[i]->getLevel()));
             if (115*pok[i]->getHP()/pok[i]->getHPtotal() > 63) {
                 ui->vida1->setStyleSheet(stylesheet3 + "verde" + formato);
             } else if (115*pok[i]->getHP()/pok[i]->getHPtotal() < 63 && 115*pok[i]->getHP()/pok[i]->getHPtotal() > 28) {
                 ui->vida1->setStyleSheet(stylesheet3 + "amarillo" + formato);
             } else {
                 ui->vida1->setStyleSheet(stylesheet3 + "verde" + formato);
+            }
+            if (pok[i] != _poke && pok[i]->getHP() > 0) {
+                ui->btn1->setEnabled(true);
             }
         } else if (i == 1) {
             ui->min2->show();
@@ -107,12 +120,16 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
             ui->v22->setText(QString::number(pok[i]->getHP()));
             ui->vida2->setGeometry(425,90,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min2->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
+            ui->n2->setText(QString::number(pok[i]->getLevel()));
             if (115*pok[i]->getHP()/pok[i]->getHPtotal() > 63) {
                 ui->vida2->setStyleSheet(stylesheet3 + "verde" + formato);
             } else if (115*pok[i]->getHP()/pok[i]->getHPtotal() < 63 && 115*pok[i]->getHP()/pok[i]->getHPtotal() > 28) {
                 ui->vida2->setStyleSheet(stylesheet3 + "amarillo" + formato);
             } else {
                 ui->vida2->setStyleSheet(stylesheet3 + "verde" + formato);
+            }
+            if (pok[i] != _poke && pok[i]->getHP() > 0) {
+                ui->btn2->setEnabled(true);
             }
         } else if (i == 2) {
             ui->min3->show();
@@ -129,12 +146,16 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
             ui->v33->setText(QString::number(pok[i]->getHP()));
             ui->vida3->setGeometry(137,220,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min3->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
+            ui->n3->setText(QString::number(pok[i]->getLevel()));
             if (115*pok[i]->getHP()/pok[i]->getHPtotal() > 63) {
                 ui->vida3->setStyleSheet(stylesheet3 + "verde" + formato);
             } else if (115*pok[i]->getHP()/pok[i]->getHPtotal() < 63 && 115*pok[i]->getHP()/pok[i]->getHPtotal() > 28) {
                 ui->vida3->setStyleSheet(stylesheet3 + "amarillo" + formato);
             } else {
                 ui->vida3->setStyleSheet(stylesheet3 + "verde" + formato);
+            }
+            if (pok[i] != _poke && pok[i]->getHP() > 0) {
+                ui->btn3->setEnabled(true);
             }
         } else if (i == 3) {
             ui->min4->show();
@@ -151,12 +172,16 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
             ui->v44->setText(QString::number(pok[i]->getHP()));
             ui->vida4->setGeometry(425,240,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min4->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
+            ui->n4->setText(QString::number(pok[i]->getLevel()));
             if (115*pok[i]->getHP()/pok[i]->getHPtotal() > 63) {
                 ui->vida4->setStyleSheet(stylesheet3 + "verde" + formato);
             } else if (115*pok[i]->getHP()/pok[i]->getHPtotal() < 63 && 115*pok[i]->getHP()/pok[i]->getHPtotal() > 28) {
                 ui->vida4->setStyleSheet(stylesheet3 + "amarillo" + formato);
             } else {
                 ui->vida4->setStyleSheet(stylesheet3 + "verde" + formato);
+            }
+            if (pok[i] != _poke && pok[i]->getHP() > 0) {
+                ui->btn4->setEnabled(true);
             }
         } else if (i == 4) {
             ui->min5->show();
@@ -173,12 +198,16 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
             ui->v55->setText(QString::number(pok[i]->getHP()));
             ui->vida5->setGeometry(137,370,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min5->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
+            ui->n5->setText(QString::number(pok[i]->getLevel()));
             if (115*pok[i]->getHP()/pok[i]->getHPtotal() > 63) {
                 ui->vida5->setStyleSheet(stylesheet3 + "verde" + formato);
             } else if (115*pok[i]->getHP()/pok[i]->getHPtotal() < 63 && 115*pok[i]->getHP()/pok[i]->getHPtotal() > 28) {
                 ui->vida5->setStyleSheet(stylesheet3 + "amarillo" + formato);
             } else {
                 ui->vida5->setStyleSheet(stylesheet3 + "verde" + formato);
+            }
+            if (pok[i] != _poke && pok[i]->getHP() > 0) {
+                ui->btn5->setEnabled(true);
             }
         } else if (i == 5) {
             ui->min6->show();
@@ -195,12 +224,16 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
             ui->v66->setText(QString::number(pok[i]->getHP()));
             ui->vida6->setGeometry(425,390,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min6->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
+            ui->n6->setText(QString::number(pok[i]->getLevel()));
             if (115*pok[i]->getHP()/pok[i]->getHPtotal() > 63) {
                 ui->vida6->setStyleSheet(stylesheet3 + "verde" + formato);
             } else if (115*pok[i]->getHP()/pok[i]->getHPtotal() < 63 && 115*pok[i]->getHP()/pok[i]->getHPtotal() > 28) {
                 ui->vida6->setStyleSheet(stylesheet3 + "amarillo" + formato);
             } else {
                 ui->vida6->setStyleSheet(stylesheet3 + "verde" + formato);
+            }
+            if (pok[i] != _poke && pok[i]->getHP() > 0) {
+                ui->btn6->setEnabled(true);
             }
         }
     }
@@ -209,4 +242,40 @@ cambio::cambio(QWidget *parent, Entrenador* _user) :
 cambio::~cambio()
 {
     delete ui;
+}
+
+void cambio::on_btn1_clicked() {
+    close();
+    emit selectedPoke(user->getPokemon(0));
+    delete this;
+}
+
+void cambio::on_btn2_clicked() {
+    close();
+    emit selectedPoke(user->getPokemon(1));
+    delete this;
+}
+
+void cambio::on_btn3_clicked() {
+    close();
+    emit selectedPoke(user->getPokemon(2));
+    delete this;
+}
+
+void cambio::on_btn4_clicked() {
+    close();
+    emit selectedPoke(user->getPokemon(3));
+    delete this;
+}
+
+void cambio::on_btn5_clicked() {
+    close();
+    emit selectedPoke(user->getPokemon(4));
+    delete this;
+}
+
+void cambio::on_btn6_clicked() {
+    close();
+    emit selectedPoke(user->getPokemon(5));
+    delete this;
 }

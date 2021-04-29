@@ -40,6 +40,7 @@ class Battle : public QMainWindow {
         void on_atacar_clicked();
         void on_cambio_clicked();
         void setMove(Movimientos* _move);
+        void setPoke(Pokemon* _poke);
 
     private:
         int ancho;

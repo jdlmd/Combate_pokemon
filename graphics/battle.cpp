@@ -353,8 +353,9 @@ void Battle::on_atacar_clicked()
 }
 
 void Battle::on_cambio_clicked() {
-    cambio *v_cambio=new cambio(this,user);
+    cambio *v_cambio=new cambio(this,user,user_poke);
     v_cambio->show();
+    connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
 }
 
 void Battle::setMove(Movimientos* _move){
@@ -468,3 +469,17 @@ void Battle::attackAnimationSup(){
     }
 }
 
+void Battle::setPoke(Pokemon* _poke) {
+    user_poke = _poke;
+    QThread::msleep(300);
+    QString stylesheet = "background: transparent;";
+    QString path = ":/files/pokemon/";
+    QString formato = ".png";
+
+    QMessageBox::information(this,tr("Aprendiz %1").arg(QString::fromStdString(user->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((user_poke->getName()))));
+    ui->pokemon_inf->setPixmap(path + QString::fromStdString(user_poke->getName()).toLower()+"2"+formato);
+    ui->pokemon_inf->setStyleSheet(stylesheet);
+    ui->pokemon_inf->show();
+    ui->avatar->hide();
+    this->repaint();
+}
