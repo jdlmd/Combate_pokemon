@@ -294,8 +294,6 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     QString path = ":/files/pokemon/";
     QString formato = ".png";
 
-    qDebug() << path + QString::fromStdString(user_poke->getName()).toLower()+formato;
-
     QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro %1 saca a %2!").arg(QString::fromStdString(cpu->getNombre()),QString::fromStdString((cpu_poke->getName()))));
     ui->pokemon_sup->setPixmap(path + QString::fromStdString(cpu_poke->getName()).toLower()+formato);
     ui->pokemon_sup->setStyleSheet(stylesheet);
