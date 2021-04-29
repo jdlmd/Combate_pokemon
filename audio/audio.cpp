@@ -31,8 +31,6 @@ void Audio::launchAudio(std::string filename) {
     }
 //        fullPath.append("./Combate_pokemon/audio/files/" + filename);
 
-    std::cout << "Lanzado audio\n";
-    std::cout<<fullPath.c_str()<<std::endl;
     bgm = Mix_LoadMUS(fullPath.c_str());
     Mix_PlayMusic(bgm,-1);
 

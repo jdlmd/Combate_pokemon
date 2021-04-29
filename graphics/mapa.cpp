@@ -13,9 +13,9 @@ Mapa::Mapa(QWidget *parent, bool sgenre, QString snombre) :
     std::string fullPath = SDL_GetBasePath();
     Genero _genre;
 
-    std::ifstream f(fullPath+"./Combate_pokemon/");
+    std::ifstream f(fullPath+"./Combate_pokemon/entrenadores/Jesus.txt");
     if(f.good()){
-        fullPath.append("./Combate_pokemon/");
+        fullPath.append("./Combate_pokemon/entrenadores/");
     }else
         fullPath.append("../Combate_pokemon/");
     jesus = new Entrenador(fullPath + "Jesus.txt");

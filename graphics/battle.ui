@@ -170,9 +170,9 @@ border-image: url(:/files/fondos/agua_abajo.png);</string>
    <widget class="QLabel" name="enemigo">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>680</x>
       <y>70</y>
-      <width>211</width>
+      <width>161</width>
       <height>291</height>
      </rect>
     </property>
@@ -181,6 +181,9 @@ border-image: url(:/files/fondos/agua_abajo.png);</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="avatar">
@@ -199,6 +202,44 @@ border-image: url(:/files/fondos/agua_abajo.png);</string>
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="pokemon_sup">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>60</y>
+      <width>321</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ResourcesVisual.qrc">:/files/pokemon/charizard.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pokemon_inf">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>360</y>
+      <width>381</width>
+      <height>311</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="ResourcesVisual.qrc">:/files/pokemon/charizard2.png</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    </property>
+   </widget>
    <zorder>cuadro111</zorder>
    <zorder>fondobat</zorder>
    <zorder>cuadro_texto</zorder>
@@ -209,8 +250,12 @@ border-image: url(:/files/fondos/agua_abajo.png);</string>
    <zorder>plat_sup</zorder>
    <zorder>enemigo</zorder>
    <zorder>avatar</zorder>
+   <zorder>pokemon_sup</zorder>
+   <zorder>pokemon_inf</zorder>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="ResourcesVisual.qrc"/>
+ </resources>
  <connections/>
 </ui>

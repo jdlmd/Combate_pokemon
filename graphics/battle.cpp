@@ -37,6 +37,8 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     ui->plat_inf->hide();
     ui->avatar->hide();
     ui->enemigo->hide();
+    ui->pokemon_inf->hide();
+    ui->pokemon_sup->hide();
     ui->cuadro_texto->setFont(pokefont);
     // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
@@ -288,15 +290,24 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     }
     }
 
-    QString stylesheet = "background: transparent; border-image: url(:/files/pokemon/";
-    QString formato = ".png);";
-    qDebug() << stylesheet+QString::fromStdString(user_poke->getName()).toLower()+"2"+formato;
+    QString stylesheet = "background: transparent;";
+    QString path = ":/files/pokemon/";
+    QString formato = ".png";
+
+    qDebug() << path + QString::fromStdString(user_poke->getName()).toLower()+formato;
+
     QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro %1 saca a %2!").arg(QString::fromStdString(cpu->getNombre()),QString::fromStdString((cpu_poke->getName()))));
-    ui->enemigo->setStyleSheet(stylesheet+QString::fromStdString(cpu_poke->getName()).toLower()+formato);
+    ui->pokemon_sup->setPixmap(path + QString::fromStdString(cpu_poke->getName()).toLower()+formato);
+    ui->pokemon_sup->setStyleSheet(stylesheet);
+    ui->pokemon_sup->show();
+    ui->enemigo->hide();
     this->repaint();
     QThread::msleep(500);
     QMessageBox::information(this,tr("Aprendiz %1").arg(QString::fromStdString(user->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((user_poke->getName()))));
-    ui->avatar->setStyleSheet(stylesheet+QString::fromStdString(user_poke->getName()).toLower()+"2"+formato);
+    ui->pokemon_inf->setPixmap(path + QString::fromStdString(user_poke->getName()).toLower()+"2"+formato);
+    ui->pokemon_inf->setStyleSheet(stylesheet);
+    ui->pokemon_inf->show();
+    ui->avatar->hide();
     this->repaint();
     QThread::msleep(500);
     ui->cuadro_texto->setText("Haz tu movimiento.");
