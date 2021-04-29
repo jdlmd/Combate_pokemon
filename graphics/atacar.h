@@ -20,10 +20,19 @@ public:
 private slots:
     void on_a1_clicked();
 
+    void on_a2_clicked();
+
+    void on_a3_clicked();
+
+    void on_a4_clicked();
+
 private:
     Ui::Atacar *ui;
     Pokemon* user_poke;
     Pokemon* cpu_poke;
+
+signals:
+    void selectedMove(Movimientos* _move);
 };
 
 #endif // ATACAR_H

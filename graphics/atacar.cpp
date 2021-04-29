@@ -24,22 +24,30 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
             ui->a1->setText(QString::fromStdString(mov[0]->getName()));
             ui->inf1->setStyleSheet((stylesheet+QString::fromStdString(mov[0]->getType())+formato));
             ui->pp1->setText(QString::number(mov[0]->getPPtotal()));
-            ui->pp11->setText(QString::number(mov[0]->getPPtotal()));
+            ui->pp11->setText(QString::number(mov[0]->getPPremaining()));
+            if(mov[0]->getPPremaining()==0)
+                ui->a1->disconnect();
         }else if (i==1){
             ui->a2->setText(QString::fromStdString(mov[1]->getName()));
             ui->inf2->setStyleSheet((stylesheet+QString::fromStdString(mov[1]->getType())+formato));
             ui->pp2->setText(QString::number(mov[1]->getPPtotal()));
-            ui->pp22->setText(QString::number(mov[1]->getPPtotal()));
+            ui->pp22->setText(QString::number(mov[1]->getPPremaining()));
+            if(mov[1]->getPPremaining()==0)
+                ui->a2->disconnect();
         }else if (i==2){
             ui->a3->setText(QString::fromStdString(mov[2]->getName()));
             ui->inf3->setStyleSheet((stylesheet+QString::fromStdString(mov[2]->getType())+formato));
             ui->pp3->setText(QString::number(mov[2]->getPPtotal()));
-            ui->pp33->setText(QString::number(mov[2]->getPPtotal()));
+            ui->pp33->setText(QString::number(mov[2]->getPPremaining()));
+            if(mov[2]->getPPremaining()==0)
+                ui->a3->disconnect();
         }else if (i==3){
             ui->a4->setText(QString::fromStdString(mov[3]->getName()));
             ui->inf4->setStyleSheet((stylesheet+QString::fromStdString(mov[3]->getType())+formato));
             ui->pp4->setText(QString::number(mov[3]->getPPtotal()));
-            ui->pp44->setText(QString::number(mov[3]->getPPtotal()));
+            ui->pp44->setText(QString::number(mov[3]->getPPremaining()));
+            if(mov[3]->getPPremaining()==0)
+                ui->a4->disconnect();
         }
     }
 }
@@ -51,6 +59,28 @@ Atacar::~Atacar()
 
 void Atacar::on_a1_clicked()
 {
-    user_poke->getMove(0)->getDamage(user_poke,cpu_poke);
-    std::cout<<"Calculo daños";
+    emit selectedMove(user_poke->getMove(0));
+    qDebug() <<"Calculo daños";
+    close();
+}
+
+void Atacar::on_a2_clicked()
+{
+    emit selectedMove(user_poke->getMove(1));
+    qDebug() <<"Calculo daños";
+    close();
+}
+
+void Atacar::on_a3_clicked()
+{
+    emit selectedMove(user_poke->getMove(2));
+    qDebug() <<"Calculo daños";
+    close();
+}
+
+void Atacar::on_a4_clicked()
+{
+    emit selectedMove(user_poke->getMove(3));
+    qDebug() <<"Calculo daños";
+    close();
 }

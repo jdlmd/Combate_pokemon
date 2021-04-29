@@ -66,8 +66,6 @@ Genera la animación de vs y devuelve un puntero al fondo en blanco superpuesto,
 
 QLabel* Battle::vsAnimation() {
 
-    audio.launchAudio("theme.wav");
-
     QThread::msleep(200);
     // Variables de altura y posición para los elementos de la animación
     int width = 0.8*ancho/2;
@@ -290,12 +288,15 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     }
     }
 
+    QString stylesheet = "background: transparent; border-image: url(:/files/pokemon/";
+    QString formato = ".png);";
+    qDebug() << stylesheet+QString::fromStdString(user_poke->getName()).toLower()+"2"+formato;
     QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro %1 saca a %2!").arg(QString::fromStdString(cpu->getNombre()),QString::fromStdString((cpu_poke->getName()))));
-    ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
+    ui->enemigo->setStyleSheet(stylesheet+QString::fromStdString(user_poke->getName()).toLower()+formato);
     this->repaint();
     QThread::msleep(500);
     QMessageBox::information(this,tr("Aprendiz %1").arg(QString::fromStdString(user->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((user_poke->getName()))));
-    ui->avatar->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
+    ui->avatar->setStyleSheet(stylesheet+QString::fromStdString(user_poke->getName()).toLower()+"2"+formato);
     this->repaint();
     QThread::msleep(500);
     ui->cuadro_texto->setText("Haz tu movimiento.");
@@ -316,10 +317,18 @@ void Battle::on_atacar_clicked()
     audio.launchSound("attack.wav");
     Atacar *v_ataque=new Atacar(this,user_poke,cpu_poke);
     v_ataque->show();
+    connect(v_ataque,SIGNAL(selectedMove(Movimientos*)),this,SLOT(setMove(Movimientos*)));
 }
 
 void Battle::on_cambio_clicked()
 {
     cambio *v_cambio=new cambio(this);
     v_cambio->show();
+}
+
+void Battle::setMove(Movimientos* _move){
+    QThread::msleep(100);
+    _move->getDamage(user_poke,cpu_poke);
+    QThread::msleep(500);
+    audio.launchSound("attack.wav");
 }

@@ -18,11 +18,11 @@ class Estados {
         ~Estados();
         std::string getStateName();
         bool getMov();
+        void changeState(Estado _state, Pokemon* receiver); // Cambiar el estado
     protected:
         Estado estado;
         uint turnos; // -1 = Infinito
-        bool mov;
-        void changeState(Estado _state, Pokemon* receiver); // Cambiar el estado
+        bool mov;      
         void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
         static Estado getStateByName(std::string _state);
  };

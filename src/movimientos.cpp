@@ -22,7 +22,7 @@ Movimientos::~Movimientos() {
 }
 
 void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
-
+    ppRemaining--;
     if(potencia>0){
         uint atk_stat= atacante->estadisticas_actuales.attack;
         uint def_stat=defensor->estadisticas_actuales.defense;
@@ -53,7 +53,7 @@ void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
 
 //          Este precision_mod se usará cuando se añada la evasion y la precision como estadisticas de los pokemon.
 //        int precision_mod=precision*atacante->estadisticas_actuales.precision/defensor->estadisticas_actuales.evasion;
-        if ((rand() % 100+1)>precision){
+        if ((rand() % 100+1)<=precision){
             float stab=atacante->type.getStab(type);
             float effectiveness=defensor->type.multiplicador(type);
             uint variacion=rand()%16+85;
