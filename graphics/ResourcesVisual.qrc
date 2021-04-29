@@ -70,5 +70,6 @@
         <file>files/frame.png</file>
         <file>files/PKMNRSEU.FON</file>
         <file>files/text_box.png</file>
+        <file>files/Pokemon_Pinball_RS.ttf</file>
     </qresource>
 </RCC>

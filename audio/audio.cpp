@@ -69,7 +69,12 @@ void Audio::killAudio() {
 
 void Audio::launchSound(std::string filename){
     std::string fullPath = SDL_GetBasePath();
-    fullPath.append("./Combate_pokemon/audio/files/" + filename);
+    std::ifstream f(fullPath+"./Combate_pokemon/audio/files/" + filename);
+    if(f.good()){
+        fullPath.append("./Combate_pokemon/audio/files/" + filename);
+    }else{
+        fullPath.append("../Combate_pokemon/audio/files/" + filename);
+    }
     effect = Mix_LoadWAV(fullPath.c_str());
     Mix_PlayChannel(2,effect,0);
 }
