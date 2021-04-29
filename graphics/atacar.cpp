@@ -52,35 +52,26 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     }
 }
 
-Atacar::~Atacar()
-{
+Atacar::~Atacar() {
     delete ui;
 }
 
-void Atacar::on_a1_clicked()
-{
+void Atacar::on_a1_clicked() {
     emit selectedMove(user_poke->getMove(0));
-    qDebug() <<"Calculo daños";
     close();
 }
 
-void Atacar::on_a2_clicked()
-{
+void Atacar::on_a2_clicked() {
     emit selectedMove(user_poke->getMove(1));
-    qDebug() <<"Calculo daños";
     close();
 }
 
-void Atacar::on_a3_clicked()
-{
+void Atacar::on_a3_clicked() {
     emit selectedMove(user_poke->getMove(2));
-    qDebug() <<"Calculo daños";
     close();
 }
 
-void Atacar::on_a4_clicked()
-{
+void Atacar::on_a4_clicked() {
     emit selectedMove(user_poke->getMove(3));
-    qDebug() <<"Calculo daños";
     close();
 }
