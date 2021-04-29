@@ -292,7 +292,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     QString formato = ".png);";
     qDebug() << stylesheet+QString::fromStdString(user_poke->getName()).toLower()+"2"+formato;
     QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro %1 saca a %2!").arg(QString::fromStdString(cpu->getNombre()),QString::fromStdString((cpu_poke->getName()))));
-    ui->enemigo->setStyleSheet(stylesheet+QString::fromStdString(user_poke->getName()).toLower()+formato);
+    ui->enemigo->setStyleSheet(stylesheet+QString::fromStdString(cpu_poke->getName()).toLower()+formato);
     this->repaint();
     QThread::msleep(500);
     QMessageBox::information(this,tr("Aprendiz %1").arg(QString::fromStdString(user->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((user_poke->getName()))));
