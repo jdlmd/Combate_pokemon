@@ -358,10 +358,84 @@ void Battle::on_cambio_clicked() {
 }
 
 void Battle::setMove(Movimientos* _move){
+//    QThread::msleep(100);
+//    uint acertado=_move->getDamage(user_poke,cpu_poke);
+//    if(acertado==0)
+//        qDebug()<<"Ha fallao";
+//    else if(acertado==1)
+//        qDebug()<<"Ha acertado";
+//    else if (acertado==2)
+//        qDebug()<<"Ha acertado y ha metido estao";
+//    QThread::msleep(500);
+//    audio.launchSound("attack.wav");
+    uint acertado;
     QThread::msleep(100);
-    _move->getDamage(user_poke,cpu_poke);
+    if(user_poke->getSpeed()>cpu_poke->getSpeed()){
+        if (user_poke->getStatePtr()->getMov()){
+            qDebug()<<"El mas rapido del oeste";
+            acertado=_move->getDamage(user_poke,cpu_poke);
+            if(cpu_poke->getHP()<=0){
+                qDebug() << "Dejalo, ya esta muerto";
+            //Añadir funcion de cambio del rival.
+            }
+        }else{
+            qDebug()<<"No se ha movido por pringado";
+            //Añadir cambio de texto
+        }
+        if (cpu_poke->getStatePtr()->getMov()){
+            acertado=cpu_poke->getMove(rand()%4)->getDamage(cpu_poke,user_poke);
+            if(user_poke->getHP()<=0){
+                qDebug() << "Dejalo, ya se me mato el pollo de fuego";
+            //Añadir funcion de cambio del personaje.
+            }
+        }else{
+            qDebug()<<"No se ha movido por pringado";
+            //Añadir cambio de texto
+        }
+        cpu_poke->getStatePtr()->resolveState(cpu_poke);
+        if(cpu_poke->getHP()<=0){
+            qDebug() << "Dejalo, ya esta muerto";
+        //Añadir funcion de cambio del rival.
+        }
+        user_poke->getStatePtr()->resolveState(user_poke);
+        if(user_poke->getHP()<=0){
+            qDebug() << "Dejalo, ya se me mato el pollo de fuego";
+        //Añadir funcion de cambio del personaje.
+        }
+    }else{
+        qDebug()<<"El mas rapido del oeste es el pollo de agua";
+        if (cpu_poke->getStatePtr()->getMov()){
+            acertado=cpu_poke->getMove(rand()%4)->getDamage(cpu_poke,user_poke);
+            if(user_poke->getHP()<=0){
+                qDebug() << "Dejalo, ya se me mato el pollo de fuego";
+            //Añadir funcion de cambio del personaje.
+            }
+        }else{
+            qDebug()<<"No se ha movido por pringado";
+            //Añadir cambio de texto
+        }
+        if (user_poke->getStatePtr()->getMov()){
+            acertado=_move->getDamage(user_poke,cpu_poke);
+            if(cpu_poke->getHP()<=0){
+                qDebug() << "Dejalo, ya esta muerto";
+            //Añadir funcion de cambio del rival.
+            }
+        }else{
+            qDebug()<<"No se ha movido por pringado";
+            //Añadir cambio de texto
+        }
+        cpu_poke->getStatePtr()->resolveState(cpu_poke);
+        if(cpu_poke->getHP()<=0){
+            qDebug() << "Dejalo, ya esta muerto";
+        //Añadir funcion de cambio del rival.
+        }
+        user_poke->getStatePtr()->resolveState(user_poke);
+        if(user_poke->getHP()<=0){
+            qDebug() << "Dejalo, ya se me mato el pollo de fuego";
+        //Añadir funcion de cambio del personaje.
+        }
+    }
     QThread::msleep(500);
-    audio.launchSound("attack.wav");
 }
 
 // Animaciones de ataque para los pokemons inferiores
@@ -393,3 +467,4 @@ void Battle::attackAnimationSup(){
         this->repaint();
     }
 }
+

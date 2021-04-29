@@ -22,11 +22,13 @@ class Estados {
         void changeState(Estado _state, Pokemon* receiver); // Cambiar el estado
         static Estado getStateByName(std::string _state);
         static std::string getNameByState(Estado _state);
+        void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
+
     protected:
         Estado estado;
         uint turnos; // -1 = Infinito
         bool mov;      
-        void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
+
  };
 
 #endif // ESTADOS_H

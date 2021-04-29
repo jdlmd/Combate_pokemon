@@ -134,7 +134,7 @@ void Estados::changeState(Estado _state, Pokemon* pokemon) {
         estado = _state;
     }else if (_state == NONE) {
         estado = _state;
-
+        mov = true;
         turnos = -1;
         mov = true;
     }else {

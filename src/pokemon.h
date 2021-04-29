@@ -35,6 +35,7 @@ class Pokemon {
         Estados* getStatePtr();
         Estado getState();
         uint getSpeed();
+        uint getLevel();
 
     private:
         std::string name;
