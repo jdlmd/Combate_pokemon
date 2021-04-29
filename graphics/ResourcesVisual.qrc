@@ -93,5 +93,7 @@
         <file>files/pokemon/sceptile.png</file>
         <file>files/pokemon/venusaur.png</file>
         <file>files/pokemon/venusaur2.png</file>
+        <file>files/combate/hp_inf.png</file>
+        <file>files/combate/hp_sup.png</file>
     </qresource>
 </RCC>
