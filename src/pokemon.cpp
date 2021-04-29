@@ -88,3 +88,7 @@ Tipos Pokemon::getPrimary(){
 Tipos Pokemon::getSecondary(){
     return type.getSecondary();
 }
+
+uint Pokemon::getLevel(){
+    return level;
+}
