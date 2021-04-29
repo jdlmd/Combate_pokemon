@@ -323,7 +323,7 @@ void Battle::closeEvent(QCloseEvent *event) {
 
 void Battle::on_atacar_clicked()
 {
-    audio.launchSound("attack.wav");
+//    audio.launchSound("attack.wav");
     Atacar *v_ataque=new Atacar(this,user_poke,cpu_poke);
     v_ataque->show();
     connect(v_ataque,SIGNAL(selectedMove(Movimientos*)),this,SLOT(setMove(Movimientos*)));
