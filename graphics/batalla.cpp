@@ -36,22 +36,11 @@ Batalla::Batalla(QWidget *parent,QString name,bool genre) :
 " usar objetos, cambiar tu pokémon.\n   Si haces un cambio, ¡pierdes el turno!");
 }
 
-Batalla::~Batalla()
-{
+Batalla::~Batalla() {
     delete ui;
 }
 
-void Batalla:: get_name()
-{
-
-}
-void Batalla:: get_genre()
-{
-
-}
-
-void Batalla::on_next_clicked()
-{
+void Batalla::on_next_clicked() {
         QMessageBox::information(this,tr("Misión"),tr("Derrota a los cuatro maestros de la ciudad.\n"
     "¡Buena suerte!"));
 
@@ -59,7 +48,5 @@ void Batalla::on_next_clicked()
         hide();
         Mapa *v_mapa=new Mapa(this,sgenre,sname);
         v_mapa->show();
-
-
 }
 

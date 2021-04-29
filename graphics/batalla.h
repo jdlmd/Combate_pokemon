@@ -18,10 +18,7 @@ public:
     ~Batalla();
 
 private slots:
-
     void on_next_clicked();
-    void get_name();
-    void get_genre();
 
 private:
     Ui::Batalla *ui;
