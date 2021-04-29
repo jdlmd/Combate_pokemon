@@ -3,19 +3,23 @@
 #include "../src/movimientos.h"
 #include "qdebug.h"
 
-Atacar::Atacar(QWidget *parent,Pokemon* pokemon) :
+Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     QDialog(parent),
     ui(new Ui::Atacar)
 {
-    uint n=pokemon->getNumberMoves();
+    user_poke=_user_poke;
+    cpu_poke=_cpu_poke;
+    uint n=user_poke->getNumberMoves();
     if (n > 4)
         n = 4;
     Movimientos* mov[n];
     QString stylesheet = "background: transparent; border-image: url(:/files/tipos/";
     QString formato = ".png);";
     ui->setupUi(this);
+    QString aux= QString::fromStdString(user_poke->getMove(0)->getType());
+    qDebug() <<stylesheet+aux+formato;
     for (uint i = 0 ; i < n ; i++) {
-        mov[i]=pokemon->getMove(i);
+        mov[i]=user_poke->getMove(i);
         if(i==0){
             ui->a1->setText(QString::fromStdString(mov[0]->getName()));
             ui->inf1->setStyleSheet((stylesheet+QString::fromStdString(mov[0]->getType())+formato));
@@ -47,5 +51,6 @@ Atacar::~Atacar()
 
 void Atacar::on_a1_clicked()
 {
-
+    user_poke->getMove(0)->getDamage(user_poke,cpu_poke);
+    std::cout<<"Calculo daños";
 }

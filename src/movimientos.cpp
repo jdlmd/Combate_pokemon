@@ -63,6 +63,7 @@ void Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
             // Bajar la barra de vida
 //            defensor->estadisticas_actuales.hp=defensor->estadisticas_actuales.hp-damage;
             defensor->setHP(defensor->estadisticas_actuales.hp-damage);
+            std::cout<<"Dañor:"<<damage<<"\nVida del otro"<<defensor->getHP()<<"de "<<defensor->getHPtotal()<<std::endl;
         }
     }
 }

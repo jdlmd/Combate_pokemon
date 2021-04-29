@@ -14,7 +14,7 @@ class Atacar : public QDialog
 
 public:
     int numpok;
-    explicit Atacar(QWidget *parent = nullptr,Pokemon* pokemon = nullptr);
+    explicit Atacar(QWidget *parent = nullptr,Pokemon* _user_poke = nullptr,Pokemon* _cpu_poke = nullptr);
     ~Atacar();
 
 private slots:
@@ -22,6 +22,8 @@ private slots:
 
 private:
     Ui::Atacar *ui;
+    Pokemon* user_poke;
+    Pokemon* cpu_poke;
 };
 
 #endif // ATACAR_H

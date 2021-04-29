@@ -262,7 +262,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         QThread::msleep(3000);
         ui->cuadro_texto->setText(" \n \n Ah... solo eres tú.");
         this->repaint();
-        QThread::msleep(2500);       
+        QThread::msleep(2500);
         break;
     }
     case(3):{
@@ -285,7 +285,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     }
     }
 
-    QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro Jesus saca a %1!").arg(QString::fromStdString((cpu_poke->getName()))));
+    QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro %1 saca a %2!").arg(QString::fromStdString(cpu->getNombre()),QString::fromStdString((cpu_poke->getName()))));
     ui->enemigo->setStyleSheet("background: transparent;border-image: url(:/files/combate/vs.png);");
     this->repaint();
     QThread::msleep(500);
@@ -308,7 +308,7 @@ void Battle::closeEvent(QCloseEvent *event) {
 
 void Battle::on_atacar_clicked()
 {
-    Atacar *v_ataque=new Atacar(this,user->getPokemon(0));
+    Atacar *v_ataque=new Atacar(this,user_poke,cpu_poke);
     v_ataque->show();
 }
 
