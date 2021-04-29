@@ -46,6 +46,8 @@ class Battle : public QMainWindow {
         int alto;
         Ui::Battle *ui;
         QLabel* vsAnimation();
+        void attackAnimationInf();
+        void attackAnimationSup();
         void battleStartAnimation(QLabel* fondo);
         void closeEvent(QCloseEvent *event) override;
         Entrenador* user;

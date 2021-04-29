@@ -33,6 +33,7 @@ class Pokemon {
         Tipos getSecondary();
 //        Estado getState();
         Estados* getStatePtr();
+        Estado getState();
         uint getSpeed();
         uint getLevel();
 

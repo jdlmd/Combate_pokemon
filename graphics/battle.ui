@@ -240,6 +240,218 @@ border-image: url(:/files/fondos/agua_abajo.png);</string>
      <set>Qt::AlignHCenter|Qt::AlignTop</set>
     </property>
    </widget>
+   <widget class="QLabel" name="hp_inf">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>500</y>
+      <width>401</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background : transparent;
+border-image: url(:/files/combate/hp_inf.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="hp_sup">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>60</y>
+      <width>391</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+border-image: url(:/files/combate/hp_sup.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vida_sup">
+    <property name="geometry">
+     <rect>
+      <x>155</x>
+      <y>115</y>
+      <width>170</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/files/combate/verde.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vida_inf">
+    <property name="geometry">
+     <rect>
+      <x>802</x>
+      <y>550</y>
+      <width>170</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/files/combate/verde.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vida_inf_fondo">
+    <property name="geometry">
+     <rect>
+      <x>802</x>
+      <y>550</y>
+      <width>170</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: black;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vida_sup_fondo">
+    <property name="geometry">
+     <rect>
+      <x>155</x>
+      <y>115</y>
+      <width>170</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: black;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="level_inf">
+    <property name="geometry">
+     <rect>
+      <x>935</x>
+      <y>519</y>
+      <width>55</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pokemon Pinball RS</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>80</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="level_sup">
+    <property name="geometry">
+     <rect>
+      <x>285</x>
+      <y>84</y>
+      <width>55</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pokemon Pinball RS</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>80</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pok_inf">
+    <property name="geometry">
+     <rect>
+      <x>675</x>
+      <y>518</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pokemon Pinball RS</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>CHARIZARD</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="pok_sup">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pokemon Pinball RS</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>CHARIZARD</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vida_act">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>580</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pokemon Pinball RS</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>150</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vida_total">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>580</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Pokemon Pinball RS</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>150</string>
+    </property>
+   </widget>
    <zorder>cuadro111</zorder>
    <zorder>fondobat</zorder>
    <zorder>cuadro_texto</zorder>
@@ -252,6 +464,18 @@ border-image: url(:/files/fondos/agua_abajo.png);</string>
    <zorder>avatar</zorder>
    <zorder>pokemon_sup</zorder>
    <zorder>pokemon_inf</zorder>
+   <zorder>vida_inf_fondo</zorder>
+   <zorder>vida_inf</zorder>
+   <zorder>hp_inf</zorder>
+   <zorder>vida_sup_fondo</zorder>
+   <zorder>vida_sup</zorder>
+   <zorder>hp_sup</zorder>
+   <zorder>level_inf</zorder>
+   <zorder>level_sup</zorder>
+   <zorder>pok_inf</zorder>
+   <zorder>pok_sup</zorder>
+   <zorder>vida_act</zorder>
+   <zorder>vida_total</zorder>
   </widget>
  </widget>
  <resources>

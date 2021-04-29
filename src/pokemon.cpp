@@ -89,6 +89,10 @@ Tipos Pokemon::getSecondary(){
     return type.getSecondary();
 }
 
+Estado Pokemon::getState() {
+    return state->getState();
+
 uint Pokemon::getLevel(){
     return level;
+
 }
