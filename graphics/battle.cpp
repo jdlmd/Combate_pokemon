@@ -329,9 +329,8 @@ void Battle::on_atacar_clicked()
     connect(v_ataque,SIGNAL(selectedMove(Movimientos*)),this,SLOT(setMove(Movimientos*)));
 }
 
-void Battle::on_cambio_clicked()
-{
-    cambio *v_cambio=new cambio(this);
+void Battle::on_cambio_clicked() {
+    cambio *v_cambio=new cambio(this,user);
     v_cambio->show();
 }
 

@@ -88,3 +88,7 @@ Tipos Pokemon::getPrimary(){
 Tipos Pokemon::getSecondary(){
     return type.getSecondary();
 }
+
+Estado Pokemon::getState() {
+    return state->getState();
+}

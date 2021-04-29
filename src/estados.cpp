@@ -144,3 +144,25 @@ void Estados::changeState(Estado _state, Pokemon* pokemon) {
     }
 }
 
+Estado Estados::getState(){
+    return estado;
+}
+
+std::string Estados::getNameByState(Estado _state) {
+    switch (_state) {
+        case(NONE):
+            return "NONE";
+        case(QUEMADO):
+            return "QUEMADO";
+        case(PARALIZADO):
+            return "PARALIZADO";
+        case(ENVENENADO):
+            return "ENVENENADO";
+        case(DORMIDO):
+            return "DORMIDO";
+        case(CONGELADO):
+            return "CONGELADO";
+        default:
+            return "NONE";
+    }
+}
