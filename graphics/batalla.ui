@@ -72,9 +72,9 @@ background: transparent;</string>
     <property name="geometry">
      <rect>
       <x>355</x>
-      <y>50</y>
+      <y>45</y>
       <width>371</width>
-      <height>91</height>
+      <height>147</height>
      </rect>
     </property>
    </widget>
@@ -82,9 +82,9 @@ background: transparent;</string>
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>50</y>
+      <y>38</y>
       <width>421</width>
-      <height>91</height>
+      <height>154</height>
      </rect>
     </property>
     <property name="styleSheet">
