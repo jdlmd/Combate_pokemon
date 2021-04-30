@@ -46,11 +46,13 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     ui->vida_inf_fondo->hide();
     ui->level_inf->hide();
     ui->pok_inf->hide();
+    ui->state_inf->hide();
     ui->hp_sup->hide();
     ui->vida_sup->hide();
     ui->vida_sup_fondo->hide();
     ui->level_sup->hide();
     ui->pok_sup->hide();
+    ui->state_sup->hide();
     ui->cuadro_texto->setFont(pokefont);
     // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
@@ -94,7 +96,7 @@ QLabel* Battle::vsAnimation() {
     ui->fondobat->lower();
 
     this->centralWidget()->show();
-    this->repaint(); 
+    this->repaint();
     QThread::msleep(100);
 
     // Se generan los elementos de la animación
@@ -317,6 +319,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     ui->vida_sup_fondo->show();
     ui->level_sup->show();
     ui->pok_sup->show();
+    ui->state_sup->show();
     QThread::msleep(500);
     QMessageBox::information(this,tr("Aprendiz %1").arg(QString::fromStdString(user->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((user_poke->getName()))));
     ui->pokemon_inf->setPixmap(path + QString::fromStdString(user_poke->getName()).toLower()+"2"+formato);
@@ -331,6 +334,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     ui->vida_inf_fondo->show();
     ui->level_inf->show();
     ui->pok_inf->show();
+    ui->state_inf->show();
     QThread::msleep(500);
     ui->cuadro_texto->setText("Haz tu movimiento.");
     this->repaint();
@@ -483,3 +487,18 @@ void Battle::setPoke(Pokemon* _poke) {
     ui->avatar->hide();
     this->repaint();
 }
+// Animacion de la barra de vida superior
+void Battle::hpBarAnimation(int antes, Pokemon* pokemon) {
+    float ant = antes;
+    float tot = pokemon->getHPtotal();
+    float des = pokemon->getHP();
+    if (des < 0) {
+        des = 0;
+    }
+    for (int i = 0 ; i <= 15 ; i++){
+        ui->vida_inf->setGeometry(802,550,170*(ant/tot-((ant-des)/(tot*15))*i),35);
+        QThread::msleep(50);
+        this->repaint();
+    }
+}
+

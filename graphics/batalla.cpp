@@ -33,7 +33,7 @@ Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     ui->texto->setFont(pokefont);
     ui->texto->setText("   Ahora te voy a explicar como funcionan las batallas pokemon.\n"
 "   Estas batallas van por turnos, durante tu turno puedes:\n   atacar una vez,"
-" usar objetos, cambiar tu pokémon.\n   Si haces un cambio, ¡pierdes el turno!");
+" o cambiar tu pokémon.\n   Si haces un cambio, ¡pierdes el turno!");
 }
 
 Batalla::~Batalla() {
@@ -41,7 +41,7 @@ Batalla::~Batalla() {
 }
 
 void Batalla::on_next_clicked() {
-        QMessageBox::information(this,tr("Misión"),tr("Derrota a los cuatro maestros de la ciudad.\n"
+        QMessageBox::information(this,tr("Misión"),tr("Derrota a los cuatro maestros de la región.\n"
     "¡Buena suerte!"));
 
         //Ver el mapa
