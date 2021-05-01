@@ -34,8 +34,8 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
 
     user=_user;
     cpu=_trainer;
-    user_poke = user->getPokemon(0);
-    cpu_poke = cpu->getPokemon(0);
+    user_poke = user->getPokemon();
+    cpu_poke = cpu->getPokemon();
 
     genre=sgenre;
     nombre=snombre;
@@ -322,9 +322,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     ui->pokemon_sup->show();
     ui->enemigo->hide();
     this->repaint();
-    ui->pok_sup->setText(QString::fromStdString(cpu_poke->getName()));
-    ui->level_sup->setText(QString::number(cpu_poke->getLevel()));
-    ui->state_sup->setStyleSheet(stylesheet + "border-image: url(:/files/estados/" + QString::fromStdString(cpu_poke->getStatePtr()->getNameByState(cpu_poke->getState()))+formato+ ")");
+    updateBars();
     ui->hp_sup->show();
     ui->vida_sup->show();
     ui->vida_sup_fondo->show();
@@ -338,11 +336,6 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     ui->pokemon_inf->show();
     ui->avatar->hide();
     this->repaint();
-    ui->vida_total->setText(QString::number(user_poke->getHPtotal()));
-    ui->vida_act->setText(QString::number(user_poke->getHP()));
-    ui->pok_inf->setText(QString::fromStdString(user_poke->getName()));
-    ui->level_inf->setText(QString::number(user_poke->getLevel()));
-    ui->state_inf->setStyleSheet(stylesheet + "border-image: url(:/files/estados/" + QString::fromStdString(user_poke->getStatePtr()->getNameByState(user_poke->getState()))+formato+")");
     ui->hp_inf->show();
     ui->vida_act->show();
     ui->vida_total->show();
@@ -453,7 +446,7 @@ void Battle::setPoke(Pokemon* _poke) {
     ui->pokemon_inf->setStyleSheet(stylesheet);
     ui->pokemon_inf->show();
     ui->avatar->hide();
-    this->repaint();
+    updateBars();
 }
 
 // Animacion de la barra de vida
@@ -511,7 +504,7 @@ void Battle::changeCpuPoke(){
     ui->pokemon_sup->setStyleSheet(stylesheet);
     ui->pokemon_sup->show();
     ui->avatar->hide();
-    this->repaint();
+    updateBars();
 }
 
 void Battle::checkCpuPokeHp(){
@@ -565,3 +558,43 @@ void Battle::CpuAttack(){
     }
 }
 
+void Battle::updateBars(){
+    QString stylesheet = "background: transparent;";
+    QString formato = ".png";
+
+    float userHP = user_poke->getHP();
+    float userHPtotal = user_poke->getHPtotal();
+    float cpuHP = cpu_poke->getHP();
+    float cpuHPtotal = cpu_poke->getHPtotal();
+
+    ui->vida_total->setText(QString::number(user_poke->getHPtotal()));
+    ui->vida_act->setText(QString::number(user_poke->getHP()));
+    ui->pok_inf->setText(QString::fromStdString(user_poke->getName()));
+    ui->level_inf->setText(QString::number(user_poke->getLevel()));
+    ui->state_inf->setStyleSheet(stylesheet + "border-image: url(:/files/estados/" + QString::fromStdString(user_poke->getStatePtr()->getNameByState(user_poke->getState()))+formato+")");
+
+
+    ui->pok_sup->setText(QString::fromStdString(cpu_poke->getName()));
+    ui->level_sup->setText(QString::number(cpu_poke->getLevel()));
+    ui->state_sup->setStyleSheet(stylesheet + "border-image: url(:/files/estados/" + QString::fromStdString(cpu_poke->getStatePtr()->getNameByState(cpu_poke->getState()))+formato+ ")");
+
+    ui->vida_inf->setGeometry(802,550,170*userHP/userHPtotal,35);
+    if (170*userHP/userHPtotal <= 94 && 170*userHP/userHPtotal > 43) { // rangos: 55% y 25% de 170
+        ui->vida_inf->setStyleSheet("background: transparent;border-image: url(:/files/combate/amarillo.png)");
+    }else if (170*userHP/userHPtotal < 43) {
+        ui->vida_inf->setStyleSheet("background: transparent;border-image: url(:/files/combate/rojo.png)");
+    }else {
+        ui->vida_inf->setStyleSheet("background: transparent;border-image: url(:/files/combate/verde.png)");
+    }
+
+    ui->vida_sup->setGeometry(155,115,170*cpuHP/cpuHPtotal,35);
+    if (170*cpuHP/cpuHPtotal <= 94 && 170*cpuHP/cpuHPtotal > 43) { // rangos: 55% y 25% de 170
+        ui->vida_sup->setStyleSheet("background: transparent;border-image: url(:/files/combate/amarillo.png)");
+    }else if (170*cpuHP/cpuHPtotal < 43) {
+        ui->vida_sup->setStyleSheet("background: transparent;border-image: url(:/files/combate/rojo.png)");
+    }else {
+        ui->vida_sup->setStyleSheet("background: transparent;border-image: url(:/files/combate/verde.png)");
+    }
+
+    this->repaint();
+}
