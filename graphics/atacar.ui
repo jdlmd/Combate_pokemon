@@ -452,7 +452,7 @@ border-image: url(:/files/tipos/NONE.png);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="attck4">
+  <widget class="QLabel" name="attck3">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -504,7 +504,7 @@ border-image: url(:/files/tipos/NONE.png);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="attck3">
+  <widget class="QLabel" name="attck4">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -548,9 +548,9 @@ border-image: url(:/files/tipos/NONE.png);</string>
   <zorder>pp33</zorder>
   <zorder>pp44</zorder>
   <zorder>attck2</zorder>
-  <zorder>attck4</zorder>
-  <zorder>attck1</zorder>
   <zorder>attck3</zorder>
+  <zorder>attck1</zorder>
+  <zorder>attck4</zorder>
   <zorder>a1</zorder>
   <zorder>a2</zorder>
   <zorder>a3</zorder>
