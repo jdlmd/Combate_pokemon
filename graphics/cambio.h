@@ -13,7 +13,7 @@ class cambio : public QDialog
     Q_OBJECT
 
     public:
-        explicit cambio(QWidget *parent = nullptr, Entrenador* _user = nullptr, Pokemon* poke = nullptr);
+        explicit cambio(QWidget *parent = nullptr, Entrenador* _user = nullptr, Pokemon* poke = nullptr,bool _cambio_forzado=false);
     ~cambio();
 
     private slots:
@@ -27,9 +27,10 @@ class cambio : public QDialog
     private:
         Ui::cambio *ui;
         Entrenador* user;
+        bool cambio_forzado;
 
     signals:
-        void selectedPoke(Pokemon* _poke);
+        void selectedPoke(Pokemon* _poke,bool cambio_forzado);
 };
 
 #endif // CAMBIO_H

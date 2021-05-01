@@ -59,12 +59,12 @@ uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
         float stab=atacante->type.getStab(type);
         float effectiveness=defensor->type.multiplicador(type);
         uint variacion=rand()%16+85;
-        uint N=atacante->level;
-
+        uint N=atacante->level;        
         int damage= (int)(0.01*stab*effectiveness*variacion*(((0.2*N+1)*atk_stat*potencia)/(25*def_stat)+2));
-        // Bajar la barra de vida
-        //            defensor->estadisticas_actuales.hp=defensor->estadisticas_actuales.hp-damage;
-        if(damage<1 && potencia>0)    //El golpe minimo es de 1 ps.
+
+        if(potencia==0){
+            damage=0;
+        }else if(damage<1)    //El golpe minimo es de 1 ps.
             damage=1;
         defensor->setHP(defensor->estadisticas_actuales.hp-damage);
         std::cout<<"Dañor:"<<damage<<"\nVida del otro"<<defensor->getHP()<<"de "<<defensor->getHPtotal()<<std::endl;

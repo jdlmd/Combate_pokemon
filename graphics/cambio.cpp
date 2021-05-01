@@ -2,14 +2,16 @@
 #include "ui_cambio.h"
 #include "src/definiciones.h"
 
-cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke) :
+cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_forzado) :
     QDialog(parent),
     ui(new Ui::cambio)
 {
     ui->setupUi(this);
     this->setFixedSize(this->size()); // Evita que se haga resize
+//    setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
 
     user = _user;
+    cambio_forzado=_cambio_forzado;
 
     QString stylesheet = "background: transparent; border-image: url(:/files/estados/";
     QString stylesheet2 = "background: transparent; border-image: url(:/files/pokemon/";
@@ -246,36 +248,36 @@ cambio::~cambio()
 
 void cambio::on_btn1_clicked() {
     close();
-    emit selectedPoke(user->getPokemon(0));
+    emit selectedPoke(user->getPokemon(0),cambio_forzado);
     delete this;
 }
 
 void cambio::on_btn2_clicked() {
     close();
-    emit selectedPoke(user->getPokemon(1));
+    emit selectedPoke(user->getPokemon(1),cambio_forzado);
     delete this;
 }
 
 void cambio::on_btn3_clicked() {
     close();
-    emit selectedPoke(user->getPokemon(2));
+    emit selectedPoke(user->getPokemon(2),cambio_forzado);
     delete this;
 }
 
 void cambio::on_btn4_clicked() {
     close();
-    emit selectedPoke(user->getPokemon(3));
+    emit selectedPoke(user->getPokemon(3),cambio_forzado);
     delete this;
 }
 
 void cambio::on_btn5_clicked() {
     close();
-    emit selectedPoke(user->getPokemon(4));
+    emit selectedPoke(user->getPokemon(4),cambio_forzado);
     delete this;
 }
 
 void cambio::on_btn6_clicked() {
     close();
-    emit selectedPoke(user->getPokemon(5));
+    emit selectedPoke(user->getPokemon(5),cambio_forzado);
     delete this;
 }

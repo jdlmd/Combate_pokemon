@@ -63,22 +63,26 @@ uint MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
         uint N=atacante->level;
 
         int damage= (int)(0.01*stab*effectiveness*variacion*(((0.2*N+1)*atk_stat*potencia)/(25*def_stat)+2));
-        //            defensor->estadisticas_actuales.hp=defensor->estadisticas_actuales.hp-damage;
-        if(damage<1 && potencia>0)    //El golpe minimo es de 1 ps.
+
+        if(potencia==0){
+            damage=0;
+        }else if(damage<1)    //El golpe minimo es de 1 ps.
             damage=1;
-        // Bajar la barra de vida
+
         defensor->setHP(defensor->estadisticas_actuales.hp-damage);
 
         if ((rand() % 100+1)<=porcentaje){
-            // Cuando se unan esta rama y la de nerea se descomenta esta parte
             defensor->state->changeState(estado,defensor);
-//            qDebug() << "Hola caracola";
-            // Añadir comentario del tipo el pokemon ha sido envenado
-            if(critico)
-                return 4;
-            else
-                return 2;
+            if(potencia==0)
+                return 5;
+            else {
+                if(critico)
+                    return 4;
+                else
+                    return 2;
+            }
         }
+
         if(critico)
             return 3;
         else
