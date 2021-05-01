@@ -29,7 +29,6 @@
         <file>files/combate/vs.png</file>
         <file>files/estados/CONGELADO.png</file>
         <file>files/estados/DORMIDO.png</file>
-        <file>files/estados/ENVENADO.png</file>
         <file>files/estados/PARALIZADO.png</file>
         <file>files/estados/QUEMADO.png</file>
         <file>files/fondos/agua_abajo.png</file>
@@ -101,5 +100,6 @@
         <file>files/estados/NONE.png</file>
         <file>files/tipos/NONE.png</file>
         <file>files/personajes/Maria.png</file>
+        <file>files/estados/ENVENENADO.png</file>
     </qresource>
 </RCC>

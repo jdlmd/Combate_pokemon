@@ -654,7 +654,6 @@ bool Battle::CpuAttack(){
         ui->cuadro_texto->setText(QString("%1 esta %2.\nY no ha podido moverse").arg(QString::fromStdString(cpu_poke->getName())).arg(QString::fromStdString(cpu_poke->getStatePtr()->getStateName())));
         QThread::msleep(500);
 
-
     }
     return true;
 }
