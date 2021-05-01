@@ -1079,7 +1079,109 @@ border-image: url(:/files/estados/CONGELADO.png);</string>
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="vida6_fondo">
+   <property name="geometry">
+    <rect>
+     <x>418</x>
+     <y>393</y>
+     <width>130</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="vida3_fondo">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>220</y>
+     <width>130</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="vida4_fondo">
+   <property name="geometry">
+    <rect>
+     <x>418</x>
+     <y>244</y>
+     <width>130</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="vida5_fondo">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>374</y>
+     <width>130</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="vida2_fondo">
+   <property name="geometry">
+    <rect>
+     <x>418</x>
+     <y>91</y>
+     <width>130</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="vida1_fondo">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>70</y>
+     <width>130</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>fondo</zorder>
+  <zorder>vida5_fondo</zorder>
+  <zorder>vida1_fondo</zorder>
+  <zorder>vida6_fondo</zorder>
+  <zorder>vida4_fondo</zorder>
+  <zorder>vida3_fondo</zorder>
+  <zorder>vida2_fondo</zorder>
   <zorder>vida6</zorder>
   <zorder>vida5</zorder>
   <zorder>vida4</zorder>
@@ -1128,12 +1230,12 @@ border-image: url(:/files/estados/CONGELADO.png);</string>
   <zorder>nombre2</zorder>
   <zorder>nombre4</zorder>
   <zorder>nombre6</zorder>
+  <zorder>btn6</zorder>
   <zorder>btn1</zorder>
+  <zorder>btn5</zorder>
   <zorder>btn2</zorder>
   <zorder>btn3</zorder>
   <zorder>btn4</zorder>
-  <zorder>btn6</zorder>
-  <zorder>btn5</zorder>
  </widget>
  <resources/>
  <connections/>

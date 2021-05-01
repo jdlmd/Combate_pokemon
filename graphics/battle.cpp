@@ -16,12 +16,20 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
 
     if (_trainer->getNombre() == "Nerea") {
         numbat = 1;
+        audio.killAudio();
+        audio.launchAudio("nerea.wav");
     } else if (_trainer->getNombre() == "Jesus") {
         numbat = 2;
+        audio.killAudio();
+        audio.launchAudio("jesus.wav");
     } else if (_trainer->getNombre() == "Maria") {
         numbat = 3;
+        audio.killAudio();
+        audio.launchAudio("maria.wav");
     } else if (_trainer->getNombre() == "Chus") {
         numbat = 4;
+        audio.killAudio();
+        audio.launchAudio("chus.wav");
     }
 
     user=_user;
@@ -352,6 +360,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
 // Método para manejar el cierre de la ventana de forma correcta
 void Battle::closeEvent(QCloseEvent *event) {
     audio.killAudio(); // Libera el audio
+    audio.launchAudio("theme.wav");
     parentWidget()->show();
     QMainWindow::closeEvent(event); // Se cierra la ventana
 }
@@ -522,7 +531,7 @@ void Battle::setPoke(Pokemon* _poke) {
     this->repaint();
 }
 
-// Animacion de la barra de vida superior
+// Animacion de la barra de vida
 void Battle::hpBarAnimation(int antes, Pokemon* pokemon) {
     float ant = antes;
     float tot = pokemon->getHPtotal();

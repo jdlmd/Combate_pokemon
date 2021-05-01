@@ -99,5 +99,7 @@
         <file>files/pokemon/gengar2.png</file>
         <file>files/pokemon/gyarados2.png</file>
         <file>files/pokemon/pikachu2.png</file>
+        <file>files/estados/NONE.png</file>
+        <file>files/tipos/NONE.png</file>
     </qresource>
 </RCC>

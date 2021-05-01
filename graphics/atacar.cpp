@@ -17,38 +17,74 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     QString formato = ".png);";
     ui->setupUi(this);
     this->setFixedSize(this->size()); // Evita que se haga resize
-    QString aux= QString::fromStdString(user_poke->getMove(0)->getType());
-    qDebug() <<stylesheet+aux+formato;
+
+    ui->attck1->hide();
+    ui->attck2->hide();
+    ui->attck3->hide();
+    ui->attck4->hide();
+    ui->inf1->hide();
+    ui->inf2->hide();
+    ui->inf3->hide();
+    ui->inf4->hide();
+    ui->pp1->hide();
+    ui->pp2->hide();
+    ui->pp3->hide();
+    ui->pp4->hide();
+    ui->pp11->hide();
+    ui->pp22->hide();
+    ui->pp33->hide();
+    ui->pp44->hide();
+    ui->a1->setEnabled(false);
+    ui->a2->setEnabled(false);
+    ui->a3->setEnabled(false);
+    ui->a4->setEnabled(false);
+
     for (uint i = 0 ; i < n ; i++) {
         mov[i]=user_poke->getMove(i);
         if(i==0){
-            ui->a1->setText(QString::fromStdString(mov[0]->getName()));
+            ui->attck1->show();
+            ui->inf1->show();
+            ui->pp1->show();
+            ui->pp11->show();
+            ui->attck1->setText(QString::fromStdString(mov[0]->getName()));
             ui->inf1->setStyleSheet((stylesheet+QString::fromStdString(mov[0]->getType())+formato));
             ui->pp1->setText(QString::number(mov[0]->getPPtotal()));
             ui->pp11->setText(QString::number(mov[0]->getPPremaining()));
-            if(mov[0]->getPPremaining()==0)
-                ui->a1->setEnabled(false);
+            if(mov[0]->getPPremaining()!=0)
+                ui->a1->setEnabled(true);
         }else if (i==1){
-            ui->a2->setText(QString::fromStdString(mov[1]->getName()));
+            ui->attck2->show();
+            ui->inf2->show();
+            ui->pp2->show();
+            ui->pp22->show();
+            ui->attck2->setText(QString::fromStdString(mov[1]->getName()));
             ui->inf2->setStyleSheet((stylesheet+QString::fromStdString(mov[1]->getType())+formato));
             ui->pp2->setText(QString::number(mov[1]->getPPtotal()));
             ui->pp22->setText(QString::number(mov[1]->getPPremaining()));
-            if(mov[1]->getPPremaining()==0)
-                ui->a2->setEnabled(false);
+            if(mov[1]->getPPremaining()!=0)
+                ui->a2->setEnabled(true);
         }else if (i==2){
-            ui->a3->setText(QString::fromStdString(mov[2]->getName()));
+            ui->attck3->show();
+            ui->inf3->show();
+            ui->pp3->show();
+            ui->pp33->show();
+            ui->attck3->setText(QString::fromStdString(mov[2]->getName()));
             ui->inf3->setStyleSheet((stylesheet+QString::fromStdString(mov[2]->getType())+formato));
             ui->pp3->setText(QString::number(mov[2]->getPPtotal()));
             ui->pp33->setText(QString::number(mov[2]->getPPremaining()));
-            if(mov[2]->getPPremaining()==0)
-                ui->a3->setEnabled(false);
+            if(mov[2]->getPPremaining()!=0)
+                ui->a3->setEnabled(true);
         }else if (i==3){
-            ui->a4->setText(QString::fromStdString(mov[3]->getName()));
+            ui->attck4->show();
+            ui->inf4->show();
+            ui->pp4->show();
+            ui->pp44->show();
+            ui->attck4->setText(QString::fromStdString(mov[3]->getName()));
             ui->inf4->setStyleSheet((stylesheet+QString::fromStdString(mov[3]->getType())+formato));
             ui->pp4->setText(QString::number(mov[3]->getPPtotal()));
             ui->pp44->setText(QString::number(mov[3]->getPPremaining()));
-            if(mov[3]->getPPremaining()==0)
-                ui->a4->setEnabled(false);
+            if(mov[3]->getPPremaining()!=0)
+                ui->a4->setEnabled(true);
         }
     }
 }

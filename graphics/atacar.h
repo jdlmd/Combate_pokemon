@@ -19,11 +19,8 @@ public:
 
 private slots:
     void on_a1_clicked();
-
     void on_a2_clicked();
-
     void on_a3_clicked();
-
     void on_a4_clicked();
 
 private:
