@@ -162,7 +162,9 @@ Entrenador::Entrenador(std::string _name, Genero _genre, std::string filename) {
 
 /* Destructor */
 Entrenador::~Entrenador() {
-    /* Vacío */
+    for (uint i = 0 ; i < equipo.size() ; i++) {
+        delete equipo[i];
+    }
 }
 
 /* Cargar nombre al entrenador */

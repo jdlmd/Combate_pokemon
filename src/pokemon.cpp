@@ -7,6 +7,12 @@ Pokemon::Pokemon() {
     name = "MISSIGNO";
 }
 
+Pokemon::~Pokemon(){
+    for (uint i = 0 ; i < attck.size() ; i++) {
+        delete attck[i];
+    }
+}
+
 Pokemon::Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level, struct stats _ivs, struct stats _evs, struct stats _base) {
     name = _name;
     type.setPrimary(Tipo::getTypeByName(_t1));
