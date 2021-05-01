@@ -24,7 +24,9 @@ MovimientoEstado::~MovimientoEstado() {
 }
 
 uint MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
+    srand(time(NULL));
     ppRemaining--;
+    bool critico=false;
     uint atk_stat= atacante->estadisticas_actuales.attack;
     uint def_stat=defensor->estadisticas_actuales.defense;
 
@@ -49,7 +51,7 @@ uint MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
             if(defensor->estadisticas_actuales.sp_defense>defensor->estadisticas.sp_defense)
                 def_stat=defensor->estadisticas.sp_defense;
         }
-
+        critico=true;
     }
 
     //          Este precision_mod se usará cuando se añada la evasion y la precision como estadisticas de los pokemon.
@@ -72,9 +74,15 @@ uint MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
             defensor->state->changeState(estado,defensor);
 //            qDebug() << "Hola caracola";
             // Añadir comentario del tipo el pokemon ha sido envenado
-            return 2;
+            if(critico)
+                return 4;
+            else
+                return 2;
         }
-        return 1;
+        if(critico)
+            return 3;
+        else
+            return 1;
     }
     return 0;
 }

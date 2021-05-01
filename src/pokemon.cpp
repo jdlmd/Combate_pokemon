@@ -96,3 +96,7 @@ Estado Pokemon::getState() {
 uint Pokemon::getLevel(){
     return level;
 }
+
+Tipo Pokemon::getType(){
+    return type;
+}

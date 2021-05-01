@@ -19,6 +19,7 @@ class Movimientos {
         uint getPPtotal();
         uint getPPremaining();
         std::string getType();
+        Tipos getTipos();
         virtual uint getDamage(Pokemon* atacante,Pokemon* defensor); // Calcular el daño
     protected:
         std::string nombre; // Nombre del movimiento
