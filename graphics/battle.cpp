@@ -614,7 +614,10 @@ void Battle::updateBars(){
     float cpuHPtotal = cpu_poke->getHPtotal();
 
     ui->vida_total->setText(QString::number(user_poke->getHPtotal()));
-    ui->vida_act->setText(QString::number(user_poke->getHP()));
+    if(user_poke->getHP()>=0)
+        ui->vida_act->setText(QString::number(user_poke->getHP()));
+    else
+        ui->vida_act->setText("0");
     ui->pok_inf->setText(QString::fromStdString(user_poke->getName()));
     ui->level_inf->setText(QString::number(user_poke->getLevel()));
     ui->state_inf->setStyleSheet(stylesheet + "border-image: url(:/files/estados/" + QString::fromStdString(user_poke->getStatePtr()->getNameByState(user_poke->getState()))+formato+")");
