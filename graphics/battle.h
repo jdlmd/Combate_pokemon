@@ -53,6 +53,10 @@ class Battle : public QMainWindow {
         void battleStartAnimation(QLabel* fondo);
         void closeEvent(QCloseEvent *event) override;
         void changeCpuPoke();
+        void checkCpuPokeHp();
+        void checkUserPokeHp();
+        void UserAttack(Movimientos* _move);
+        void CpuAttack();
         Entrenador* user;
         Entrenador* cpu;
         Pokemon* user_poke;

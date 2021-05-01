@@ -380,110 +380,35 @@ void Battle::on_cambio_clicked() {
 }
 
 void Battle::setMove(Movimientos* _move){
-//    QThread::msleep(100);
-//    uint acertado=_move->getDamage(user_poke,cpu_poke);
-//    if(acertado==0)
-//        qDebug()<<"Ha fallao";
-//    else if(acertado==1)
-//        qDebug()<<"Ha acertado";
-//    else if (acertado==2)
-//        qDebug()<<"Ha acertado y ha metido estao";
-//    QThread::msleep(500);
-//    audio.launchSound("attack.wav");
-    uint acertado;
+    int vida_anterior;
     QThread::msleep(100);
     if(user_poke->getSpeed()>cpu_poke->getSpeed()){
-        if (user_poke->getStatePtr()->getMov()){
-            qDebug()<<"El mas rapido del oeste";
-            acertado=_move->getDamage(user_poke,cpu_poke);
-            if(cpu_poke->getHP()<=0){
-                qDebug() << "Dejalo, ya esta muerto";
-                cpu->updateStatus();
-                if(cpu->checkStatus()){
-                    qDebug() << "Le has ganado";
-                }else{
-                    changeCpuPoke();
-                }
-            }
-        }else{
-            qDebug()<<"No se ha movido por pringado";
-            //Añadir cambio de texto
-        }
-        if (cpu_poke->getStatePtr()->getMov()){
-            acertado=cpu_poke->getMove(rand()%4)->getDamage(cpu_poke,user_poke);
-            if(user_poke->getHP()<=0){
-                qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-            //Añadir funcion de cambio del personaje.
-            }
-        }else{
-            qDebug()<<"No se ha movido por pringado";
-            //Añadir cambio de texto
-        }
+        UserAttack(_move);
+        CpuAttack();
+
+        vida_anterior=cpu_poke->getHP();
         cpu_poke->getStatePtr()->resolveState(cpu_poke);
-        if(cpu_poke->getHP()<=0){
-            qDebug() << "Dejalo, ya esta muerto";
-            cpu->updateStatus();
-            if(cpu->checkStatus()){
-                qDebug() << "Le has ganado";
-            }else{
-                changeCpuPoke();
-            }
-        }
+        hpBarAnimation(vida_anterior,cpu_poke);
+        checkCpuPokeHp();
+
+        vida_anterior=user_poke->getHP();
         user_poke->getStatePtr()->resolveState(user_poke);
-        if(user_poke->getHP()<=0){
-            qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-            cambio *v_cambio=new cambio(this,user,user_poke);
-            v_cambio->show();
-            connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
-        }
+        hpBarAnimation(vida_anterior,user_poke);
+        checkUserPokeHp();
     }else{
-        qDebug()<<"El mas rapido del oeste es el pollo de agua";
-        if (cpu_poke->getStatePtr()->getMov()){
-            acertado=cpu_poke->getMove(rand()%4)->getDamage(cpu_poke,user_poke);
-            if(user_poke->getHP()<=0){
-                qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-                cambio *v_cambio=new cambio(this,user,user_poke);
-                v_cambio->show();
-                connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
-            }
-        }else{
-            qDebug()<<"No se ha movido por pringado";
-            //Añadir cambio de texto
-        }
-        if (user_poke->getStatePtr()->getMov()){
-            acertado=_move->getDamage(user_poke,cpu_poke);
-            if(cpu_poke->getHP()<=0){
-                qDebug() << "Dejalo, ya esta muerto";
-                cpu->updateStatus();
-                if(cpu->checkStatus()){
-                    qDebug() << "Le has ganado";
-                }else{
-                    changeCpuPoke();
-                }
-            }
-        }else{
-            qDebug()<<"No se ha movido por pringado";
-            //Añadir cambio de texto
-        }
+        CpuAttack();
+        UserAttack(_move);
+
+        vida_anterior=cpu_poke->getHP();
         cpu_poke->getStatePtr()->resolveState(cpu_poke);
-        if(cpu_poke->getHP()<=0){
-            qDebug() << "Dejalo, ya esta muerto";
-            cpu->updateStatus();
-            if(cpu->checkStatus()){
-                qDebug() << "Le has ganado";
-            }else{
-                changeCpuPoke();
-            }
-        }
+        hpBarAnimation(vida_anterior,cpu_poke);
+        checkCpuPokeHp();
+
+        vida_anterior=user_poke->getHP();
         user_poke->getStatePtr()->resolveState(user_poke);
-        if(user_poke->getHP()<=0){
-            qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-            cambio *v_cambio=new cambio(this,user,user_poke);
-            v_cambio->show();
-            connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
-        }
+        hpBarAnimation(vida_anterior,user_poke);
+        checkUserPokeHp();
     }
-    QThread::msleep(500);
 }
 
 // Animaciones de ataque para los pokemons inferiores
@@ -587,6 +512,54 @@ void Battle::changeCpuPoke(){
     ui->pokemon_sup->show();
     ui->avatar->hide();
     this->repaint();
-
 }
 
+void Battle::checkCpuPokeHp(){
+    if(cpu_poke->getHP()<=0){
+        qDebug() << "Dejalo, ya esta muerto";
+        cpu->updateStatus();
+        if(cpu->checkStatus()){
+            qDebug() << "Le has ganado";
+        }else{
+            changeCpuPoke();
+        }
+    }
+}
+
+void Battle::checkUserPokeHp(){
+    if(user_poke->getHP()<=0){
+        qDebug() << "Dejalo, ya se me mato el pollo de fuego";
+        cambio *v_cambio=new cambio(this,user,user_poke);
+        v_cambio->show();
+        connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
+    }
+}
+
+void Battle::UserAttack(Movimientos* _move){
+    uint acertado;
+    int vida_anterior;
+    if (user_poke->getStatePtr()->getMov()){
+        qDebug()<<"El mas rapido del oeste";
+        vida_anterior=cpu_poke->getHP();
+        acertado=_move->getDamage(user_poke,cpu_poke);
+        hpBarAnimation(vida_anterior,cpu_poke);
+        checkCpuPokeHp();
+    }else{
+        qDebug()<<"No se ha movido por pringado";
+        //Añadir cambio de texto
+    }
+}
+
+void Battle::CpuAttack(){
+    uint acertado;
+    int vida_anterior;
+    if (cpu_poke->getStatePtr()->getMov()){
+        vida_anterior=user_poke->getHP();
+        acertado=cpu_poke->getMove(rand()%4)->getDamage(cpu_poke,user_poke);
+        hpBarAnimation(vida_anterior,user_poke);
+        checkUserPokeHp();
+    }else{
+        qDebug()<<"No se ha movido por pringado";
+        //Añadir cambio de texto
+    }
+}
