@@ -389,7 +389,12 @@ void Battle::setMove(Movimientos* _move){
             acertado=_move->getDamage(user_poke,cpu_poke);
             if(cpu_poke->getHP()<=0){
                 qDebug() << "Dejalo, ya esta muerto";
-            //Añadir funcion de cambio del rival.
+                cpu->updateStatus();
+                if(cpu->checkStatus()){
+                    qDebug() << "Le has ganado";
+                }else{
+                    changeCpuPoke();
+                }
             }
         }else{
             qDebug()<<"No se ha movido por pringado";
@@ -408,12 +413,19 @@ void Battle::setMove(Movimientos* _move){
         cpu_poke->getStatePtr()->resolveState(cpu_poke);
         if(cpu_poke->getHP()<=0){
             qDebug() << "Dejalo, ya esta muerto";
-        //Añadir funcion de cambio del rival.
+            cpu->updateStatus();
+            if(cpu->checkStatus()){
+                qDebug() << "Le has ganado";
+            }else{
+                changeCpuPoke();
+            }
         }
         user_poke->getStatePtr()->resolveState(user_poke);
         if(user_poke->getHP()<=0){
             qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-        //Añadir funcion de cambio del personaje.
+            cambio *v_cambio=new cambio(this,user,user_poke);
+            v_cambio->show();
+            connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
         }
     }else{
         qDebug()<<"El mas rapido del oeste es el pollo de agua";
@@ -421,7 +433,9 @@ void Battle::setMove(Movimientos* _move){
             acertado=cpu_poke->getMove(rand()%4)->getDamage(cpu_poke,user_poke);
             if(user_poke->getHP()<=0){
                 qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-            //Añadir funcion de cambio del personaje.
+                cambio *v_cambio=new cambio(this,user,user_poke);
+                v_cambio->show();
+                connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
             }
         }else{
             qDebug()<<"No se ha movido por pringado";
@@ -431,7 +445,12 @@ void Battle::setMove(Movimientos* _move){
             acertado=_move->getDamage(user_poke,cpu_poke);
             if(cpu_poke->getHP()<=0){
                 qDebug() << "Dejalo, ya esta muerto";
-            //Añadir funcion de cambio del rival.
+                cpu->updateStatus();
+                if(cpu->checkStatus()){
+                    qDebug() << "Le has ganado";
+                }else{
+                    changeCpuPoke();
+                }
             }
         }else{
             qDebug()<<"No se ha movido por pringado";
@@ -440,12 +459,19 @@ void Battle::setMove(Movimientos* _move){
         cpu_poke->getStatePtr()->resolveState(cpu_poke);
         if(cpu_poke->getHP()<=0){
             qDebug() << "Dejalo, ya esta muerto";
-        //Añadir funcion de cambio del rival.
+            cpu->updateStatus();
+            if(cpu->checkStatus()){
+                qDebug() << "Le has ganado";
+            }else{
+                changeCpuPoke();
+            }
         }
         user_poke->getStatePtr()->resolveState(user_poke);
         if(user_poke->getHP()<=0){
             qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-        //Añadir funcion de cambio del personaje.
+            cambio *v_cambio=new cambio(this,user,user_poke);
+            v_cambio->show();
+            connect(v_cambio,SIGNAL(selectedPoke(Pokemon*)),this,SLOT(setPoke(Pokemon*)));
         }
     }
     QThread::msleep(500);
@@ -495,6 +521,7 @@ void Battle::setPoke(Pokemon* _poke) {
     ui->avatar->hide();
     this->repaint();
 }
+
 // Animacion de la barra de vida superior
 void Battle::hpBarAnimation(int antes, Pokemon* pokemon) {
     float ant = antes;
@@ -535,5 +562,22 @@ void Battle::hpBarAnimation(int antes, Pokemon* pokemon) {
     }else {
         // No pasa nada
     }
+}
+
+void Battle::changeCpuPoke(){
+    cpu_poke = cpu->getPokemon();
+
+    QThread::msleep(300);
+    QString stylesheet = "background: transparent;";
+    QString path = ":/files/pokemon/";
+    QString formato = ".png";
+
+    QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡Adelante %1!").arg(QString::fromStdString((cpu_poke->getName()))));
+    ui->pokemon_sup->setPixmap(path + QString::fromStdString(cpu_poke->getName()).toLower()+formato);
+    ui->pokemon_sup->setStyleSheet(stylesheet);
+    ui->pokemon_sup->show();
+    ui->avatar->hide();
+    this->repaint();
+
 }
 
