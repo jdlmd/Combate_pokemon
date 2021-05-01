@@ -1,6 +1,7 @@
 #include "movimientos.h"
 #include "pokemon.h"
 #include "tipo.h"
+#include "time.h"
 
 Movimientos::Movimientos() {
 
@@ -22,7 +23,9 @@ Movimientos::~Movimientos() {
 }
 
 uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
+    srand(time(NULL));
     ppRemaining--;
+    bool critico=false;
     uint atk_stat= atacante->estadisticas_actuales.attack;
     uint def_stat=defensor->estadisticas_actuales.defense;
 
@@ -47,7 +50,7 @@ uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
             if(defensor->estadisticas_actuales.sp_defense>defensor->estadisticas.sp_defense)
                 def_stat=defensor->estadisticas.sp_defense;
         }
-
+        critico=true;
     }
 
     //          Este precision_mod se usará cuando se añada la evasion y la precision como estadisticas de los pokemon.
@@ -61,9 +64,14 @@ uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
         int damage= (int)(0.01*stab*effectiveness*variacion*(((0.2*N+1)*atk_stat*potencia)/(25*def_stat)+2));
         // Bajar la barra de vida
         //            defensor->estadisticas_actuales.hp=defensor->estadisticas_actuales.hp-damage;
+        if(damage<1 && potencia>0)    //El golpe minimo es de 1 ps.
+            damage=1;
         defensor->setHP(defensor->estadisticas_actuales.hp-damage);
         std::cout<<"Dañor:"<<damage<<"\nVida del otro"<<defensor->getHP()<<"de "<<defensor->getHPtotal()<<std::endl;
-        return 1;
+        if(critico)
+            return 3;
+        else
+            return 1;
     }
     return 0;
 }
@@ -79,4 +87,8 @@ uint Movimientos::getPPremaining(){
 }
 uint Movimientos::getPPtotal(){
     return ppTotal;
+}
+
+Tipos Movimientos::getTipos(){
+    return type;
 }

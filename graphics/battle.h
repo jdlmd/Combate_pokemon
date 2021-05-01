@@ -56,7 +56,7 @@ class Battle : public QMainWindow {
         void checkCpuPokeHp();
         void checkUserPokeHp();
         void UserAttack(Movimientos* _move);
-        void BattleText(Movimientos* _move, Pokemon* Atacante, Pokemon* Defensor);
+        void BattleText(uint acertado,Movimientos* _move,int vida_anterior, Pokemon* Atacante, Pokemon* Defensor);
         void CpuAttack();
         Entrenador* user;
         Entrenador* cpu;

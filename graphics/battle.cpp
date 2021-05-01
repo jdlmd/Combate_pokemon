@@ -542,6 +542,7 @@ void Battle::UserAttack(Movimientos* _move){
         qDebug()<<"El mas rapido del oeste";
         vida_anterior=cpu_poke->getHP();
         acertado=_move->getDamage(user_poke,cpu_poke);
+        BattleText(acertado,_move,user_poke,cpu_poke);
         hpBarAnimation(vida_anterior,cpu_poke);
         checkCpuPokeHp();
     }else{
@@ -557,6 +558,7 @@ void Battle::CpuAttack(){
         vida_anterior=user_poke->getHP();
         Movimientos* move=cpu_poke->getMove(rand()%4);
         acertado=move->getDamage(cpu_poke,user_poke);
+        BattleText(acertado,move,vida_anterior,cpu_poke,user_poke);
         hpBarAnimation(vida_anterior,user_poke);
         checkUserPokeHp();
     }else{
@@ -565,3 +567,17 @@ void Battle::CpuAttack(){
     }
 }
 
+void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Pokemon* Atacante, Pokemon* Defensor){
+    switch (acertado) {
+        case 0:
+            ui->cuadro_texto->setText("Fallaste Gordo ijueputa");
+            break;
+        case 1:
+            QString texto= QString("%1").arg(QString::fromStdString(Atacante->getName()));
+            ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+            hpBarAnimation(vida_anterior,Defensor);
+            float multiplicador = Defensor->getType().multiplicador(_move->getTipos());
+            std::string efectividad=Defensor->getType().eficacia(multiplicador);
+            break;
+    }
+}
