@@ -60,7 +60,6 @@
         <file>files/personajes/lucho_sup.png</file>
         <file>files/personajes/m.png</file>
         <file>files/personajes/m2.png</file>
-        <file>files/personajes/Maria.png</file>
         <file>files/personajes/mbatalla.png</file>
         <file>files/personajes/Nerea.png</file>
         <file>files/personajes/profe2.png</file>
@@ -101,5 +100,6 @@
         <file>files/pokemon/pikachu2.png</file>
         <file>files/estados/NONE.png</file>
         <file>files/tipos/NONE.png</file>
+        <file>files/personajes/Maria.png</file>
     </qresource>
 </RCC>

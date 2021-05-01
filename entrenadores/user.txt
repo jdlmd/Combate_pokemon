@@ -1,12 +1,12 @@
 6
 Charizard
 FUEGO VOLADOR
-85
+99
 21 25 16 31 25 31
 120 60 50 140 30 110
 78 84 78 109 85 100
 4
-Inferno
+Infierno
 FUEGO
 1
 50
@@ -16,7 +16,7 @@ FUEGO
 1
 QUEMADO
 100
-FlareBlitz
+EnviteIgneo
 FUEGO
 1
 100
@@ -26,7 +26,7 @@ FUEGO
 0
 QUEMADO
 10
-Acrobatics
+Acrobata
 VOLADOR
 0
 100
@@ -34,7 +34,7 @@ VOLADOR
 15
 0
 0
-MetalClaw
+GarraMetal
 ACERO
 0
 95
@@ -44,12 +44,12 @@ ACERO
 0
 Venusaur
 PLANTA VENENO
-83
+99
 31 5 25 31 31 15
 4 0 0 252 252 0
 80 82 83 100 100 80
 4
-SleepPowder
+Somnifero
 PLANTA
 1
 75
@@ -59,7 +59,7 @@ PLANTA
 0
 DORMIDO
 75
-PetalBlizzard
+TormentaFloral
 PLANTA
 0
 100
@@ -67,7 +67,7 @@ PLANTA
 24
 0
 0
-PowerWhip
+Latigazo
 PLANTA
 0
 85
@@ -75,7 +75,7 @@ PLANTA
 24
 0
 0
-SeedBomb
+BombaGermen
 PLANTA
 0
 100
@@ -85,12 +85,12 @@ PLANTA
 0
 Blastoise
 AGUA NINGUNO
-89
+99
 31 25 31 5 31 15
 255 0 4 0 255 0
 79 83 100 85 105 78
 3
-AquaTail
+AcuaCola
 AGUA
 0
 90
@@ -98,7 +98,7 @@ AGUA
 16
 0
 0
-Blizzard
+Ventisca
 HIELO
 1
 70
@@ -108,7 +108,7 @@ HIELO
 1
 CONGELADO
 10
-BrickBreak
+Demolicion
 LUCHA
 0
 100
@@ -118,12 +118,12 @@ LUCHA
 0
 Pikachu
 ELECTRICO NINGUNO
-87
+99
 15 31 15 15 15 31
 4 252 0 0 0 252
 35 55 40 50 50 90
 3
-ThunderWave
+OndaTrueno
 ELECTRICO
 1
 90
@@ -133,7 +133,7 @@ ELECTRICO
 0
 PARALIZADO
 100
-Thunder
+Trueno
 ELECTRICO
 1
 70
@@ -143,7 +143,7 @@ ELECTRICO
 1
 PARALIZADO
 30
-ThunderBolt
+Rayo
 ELECTRICO
 1
 100
@@ -155,12 +155,12 @@ PARALIZADO
 10
 Gengar
 FANTASMA VENENO
-81
+99
 15 15 15 31 15 31
 4 0 0 252 0 252
 60 65 60 130 75 110
 4
-Toxic
+Toxico
 VENENO
 1
 100
@@ -170,7 +170,7 @@ VENENO
 0
 ENVENENADO
 100
-ThunderWave
+OndaTrueno
 ELECTRICO
 1
 90
@@ -180,7 +180,7 @@ ELECTRICO
 0
 PARALIZADO
 100
-Venoshock
+CargaToxica
 VENENO
 0
 100
@@ -188,7 +188,7 @@ VENENO
 16
 0
 0
-ShadowBall
+BolaSombra
 FANTASMA
 0
 100
@@ -198,12 +198,12 @@ FANTASMA
 1
 Gyarados
 AGUA VOLADOR
-88
+99
 31 31 15 10 20 25
 252 252 0 0 4 0
 95 125 79 60 100 81
 4
-AquaTail
+AcuaCola
 AGUA
 0
 90
@@ -211,7 +211,7 @@ AGUA
 16
 0
 0
-Blizzard
+Ventisca
 HIELO
 1
 70
@@ -221,7 +221,7 @@ HIELO
 1
 CONGELADO
 10
-DarkPulse
+PulsoUmbrio
 SINIESTRO
 0
 100
@@ -229,7 +229,7 @@ SINIESTRO
 24
 1
 1
-DragonPulse
+PulsoDragon
 DRAGON
 0
 100

@@ -3,6 +3,7 @@
 #include "src/definiciones.h"
 #include "QMessageBox"
 #include "QCloseEvent"
+#include <QThread>
 
 cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_forzado) :
     QDialog(parent),
@@ -253,6 +254,7 @@ void cambio::on_btn1_clicked() {
     AbrilCerral=false;
     close();
     emit selectedPoke(user->getPokemon(0),cambio_forzado);
+    QThread::msleep(50);
     delete this;
 }
 
@@ -260,6 +262,7 @@ void cambio::on_btn2_clicked() {
     AbrilCerral=false;
     close();
     emit selectedPoke(user->getPokemon(1),cambio_forzado);
+    QThread::msleep(50);
     delete this;
 }
 
@@ -267,6 +270,7 @@ void cambio::on_btn3_clicked() {
     AbrilCerral=false;
     close();
     emit selectedPoke(user->getPokemon(2),cambio_forzado);
+    QThread::msleep(50);
     delete this;
 }
 
@@ -274,6 +278,7 @@ void cambio::on_btn4_clicked() {
     AbrilCerral=false;
     close();
     emit selectedPoke(user->getPokemon(3),cambio_forzado);
+    QThread::msleep(50);
     delete this;
 }
 
@@ -281,6 +286,7 @@ void cambio::on_btn5_clicked() {
     AbrilCerral=false;
     close();
     emit selectedPoke(user->getPokemon(4),cambio_forzado);
+    QThread::msleep(50);
     delete this;
 }
 
@@ -288,14 +294,15 @@ void cambio::on_btn6_clicked() {
     AbrilCerral=false;
     close();
     emit selectedPoke(user->getPokemon(5),cambio_forzado);
+    QThread::msleep(50);
     delete this;
 }
 void cambio::closeEvent(QCloseEvent *event){
     if(AbrilCerral){
-       QMessageBox::information(this,"Alerta","Tu pokemon esta debilitado, necesitas escoger a otro");
-       event->ignore();
+        QMessageBox::information(this,"Alerta","Tu pokemon esta debilitado, necesitas escoger a otro");
+        event->ignore();
     }else{
         event->accept();
-       QDialog::closeEvent(event);
+        QDialog::closeEvent(event);
     }
 }
