@@ -64,6 +64,7 @@ class Battle : public QMainWindow {
         Entrenador* cpu;
         Pokemon* user_poke;
         Pokemon* cpu_poke;
+        bool perdido = false;
 };
 
 #endif // BATTLE_H

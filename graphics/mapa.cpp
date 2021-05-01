@@ -2,6 +2,7 @@
 #include "ui_mapa.h"
 #include "battle.h"
 #include "QMessageBox"
+#include <QCloseEvent>
 
 Mapa::Mapa(QWidget *parent, bool sgenre, QString snombre) :
     QMainWindow(parent),
@@ -74,6 +75,7 @@ void Mapa::on_b4_clicked() {
         hide();
         numbat=4;
         Battle *v_battle=new Battle(this,chus,user,genre,nombre);
+
         v_battle->show();
     }else{
         QMessageBox::information(this,"Abuson","Ya lo mataste wey");
@@ -85,6 +87,8 @@ void Mapa::closeEvent(QCloseEvent *event){
     delete chus;
     delete maria;
     delete nerea;
-    QMainWindow::closeEvent(event);
     parentWidget()->parentWidget()->show();
+    event->accept();
+    QMainWindow::closeEvent(event);
 }
+
