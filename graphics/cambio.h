@@ -28,6 +28,8 @@ class cambio : public QDialog
         Ui::cambio *ui;
         Entrenador* user;
         bool cambio_forzado;
+        bool AbrilCerral;
+        void closeEvent(QCloseEvent *event) override;
 
     signals:
         void selectedPoke(Pokemon* _poke,bool cambio_forzado);

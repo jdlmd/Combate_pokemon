@@ -4,6 +4,7 @@
 #include "cambio.h"
 #include "QMessageBox"
 #include <QFontDatabase>
+
 Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenre, QString snombre) :
     QMainWindow(parent),
     ui(new Ui::Battle)
@@ -410,14 +411,14 @@ void Battle::setMove(Movimientos* _move){
 // Animaciones de ataque para los pokemons inferiores
 void Battle::attackAnimationInf(){
     audio.launchSound("attack.wav");
-    for (int i = 0 ; i <= 15 ; i++){
-        ui->pokemon_inf->setGeometry(40+(170/15)*i,360,381,321);
-        QThread::msleep(25);
+    for (int i = 0 ; i <= 10 ; i++){
+        ui->pokemon_inf->setGeometry(40+(170/10)*i,360,381,321);
+        QThread::msleep(15);
         this->repaint();
     }
-    for (int i = 15 ; i >= 0 ; i--){
-        ui->pokemon_inf->setGeometry(40+(170/15)*i,360,381,321);
-        QThread::msleep(25);
+    for (int i = 10 ; i >= 0 ; i--){
+        ui->pokemon_inf->setGeometry(40+(170/10)*i,360,381,321);
+        QThread::msleep(15);
         this->repaint();
     }
 }
@@ -425,14 +426,14 @@ void Battle::attackAnimationInf(){
 // Animaciones de ataque para los pokemons superiores
 void Battle::attackAnimationSup(){
     audio.launchSound("attack.wav");
-    for (int i = 0 ; i <= 15 ; i++){
-        ui->pokemon_sup->setGeometry(610-(140/15)*i,60+(120/15)*i,321,321);
-        QThread::msleep(25);
+    for (int i = 0 ; i <= 10 ; i++){
+        ui->pokemon_sup->setGeometry(610-(140/10)*i,60+(120/10)*i,321,321);
+        QThread::msleep(15);
         this->repaint();
     }
-    for (int i = 15 ; i >= 0 ; i--){
-        ui->pokemon_sup->setGeometry(610-(140/15)*i,60+(120/15)*i,321,321);
-        QThread::msleep(25);
+    for (int i = 10 ; i >= 0 ; i--){
+        ui->pokemon_sup->setGeometry(610-(140/10)*i,60+(120/10)*i,321,321);
+        QThread::msleep(15);
         this->repaint();
     }
 }
@@ -656,10 +657,10 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
             {
                 texto = QString("%1").arg(QString::fromStdString(Atacante->getName()));
                 ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
-//                if(Defensor==user_poke)
-//                    attackAnimationSup();
-//                else
-//                    attackAnimationInf();
+                if(Defensor==user_poke)
+                    attackAnimationSup();
+                else
+                    attackAnimationInf();
                 hpBarAnimation(vida_anterior,Defensor);
                 multiplicador = Defensor->getType().multiplicador(_move->getTipos());
                 efectividad=Defensor->getType().eficacia(multiplicador);
@@ -670,10 +671,10 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
             {
                 texto= QString("%1").arg(QString::fromStdString(Atacante->getName()));
                 ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
-//                if(Defensor==user_poke)
-//                    attackAnimationSup();
-//                else
-//                    attackAnimationInf();
+                if(Defensor==user_poke)
+                    attackAnimationSup();
+                else
+                    attackAnimationInf();
                 hpBarAnimation(vida_anterior,Defensor);
                 ui->cuadro_texto->setText(QString::fromStdString(efectividad));
                 QThread::msleep(500);
@@ -685,10 +686,10 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
             {
                 texto = QString("%1").arg(QString::fromStdString(Atacante->getName()));
                 ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
-//                if(Defensor==user_poke )
-//                    attackAnimationSup();
-//                else
-//                    attackAnimationInf();
+                if(Defensor==user_poke )
+                    attackAnimationSup();
+                else
+                    attackAnimationInf();
                 hpBarAnimation(vida_anterior,Defensor);
                 multiplicador = Defensor->getType().multiplicador(_move->getTipos());
                 efectividad=Defensor->getType().eficacia(multiplicador);
@@ -701,10 +702,10 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
             {
                 texto= QString("%1").arg(QString::fromStdString(Atacante->getName()));
                 ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
-//                if(Defensor==user_poke)
-//                    attackAnimationSup();
-//                else
-//                    attackAnimationInf();
+                if(Defensor==user_poke)
+                    attackAnimationSup();
+                else
+                    attackAnimationInf();
                 hpBarAnimation(vida_anterior,Defensor);
                 ui->cuadro_texto->setText(QString::fromStdString(efectividad));
                 QThread::msleep(500);
@@ -718,10 +719,10 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
             {
                 texto= QString("%1").arg(QString::fromStdString(Atacante->getName()));
                 ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
-//                if(Defensor==user_poke)
-//                    attackAnimationSup();
-//                else
-//                    attackAnimationInf();
+                if(Defensor==user_poke)
+                    attackAnimationSup();
+                else
+                    attackAnimationInf();
                 hpBarAnimation(vida_anterior,Defensor);
                 QThread::msleep(500);
                 Defensor->getStatePtr()->getStateName();
