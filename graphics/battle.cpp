@@ -585,7 +585,6 @@ bool Battle::checkCpuPokeHp(){
                     break;
             }
             this->close();
-            delete this;
         }else{
             changeCpuPoke();
         }
