@@ -1,6 +1,7 @@
 #include "mapa.h"
 #include "ui_mapa.h"
 #include "battle.h"
+#include "QMessageBox"
 
 Mapa::Mapa(QWidget *parent, bool sgenre, QString snombre) :
     QMainWindow(parent),
@@ -36,31 +37,47 @@ Mapa::~Mapa() {
 }
 
 void Mapa::on_b3_clicked() {
-    hide();
-    numbat=3;
-    Battle *v_battle=new Battle(this,maria,user,genre,nombre);
-    v_battle->show();
+    if(!maria->checkStatus()){
+        hide();
+        numbat=3;
+        Battle *v_battle=new Battle(this,maria,user,genre,nombre);
+        v_battle->show();
+    }else{
+        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
+    }
 }
 
 void Mapa::on_b2_clicked() {
-    hide();
-    numbat=2;
-    Battle *v_battle=new Battle(this,jesus,user,genre,nombre);
-    v_battle->show();
+    if(!jesus->checkStatus()){
+        hide();
+        numbat=2;
+        Battle *v_battle=new Battle(this,jesus,user,genre,nombre);
+        v_battle->show();
+    }else{
+        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
+    }
 }
 
 void Mapa::on_b1_clicked() {
-    hide();
-    numbat=1;
-    Battle *v_battle=new Battle(this,nerea,user,genre,nombre);
-    v_battle->show();
+    if(!nerea->checkStatus()){
+        hide();
+        numbat=1;
+        Battle *v_battle=new Battle(this,nerea,user,genre,nombre);
+        v_battle->show();
+    }else{
+        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
+    }
 }
 
 void Mapa::on_b4_clicked() {
-    hide();
-    numbat=4;
-    Battle *v_battle=new Battle(this,chus,user,genre,nombre);
-    v_battle->show();
+    if(!chus->checkStatus()){
+        hide();
+        numbat=4;
+        Battle *v_battle=new Battle(this,chus,user,genre,nombre);
+        v_battle->show();
+    }else{
+        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
+    }
 }
 
 void Mapa::closeEvent(QCloseEvent *event){

@@ -522,9 +522,10 @@ void Battle::changeCpuPoke(){
 bool Battle::checkCpuPokeHp(){
     if(cpu_poke->getHP()<=0){
         qDebug() << "Dejalo, ya esta muerto";
-        cpu->updateStatus();        
+        cpu->updateStatus();
         if(cpu->checkStatus()){
             qDebug() << "Le has ganado";
+
         }else{
             changeCpuPoke();
         }
