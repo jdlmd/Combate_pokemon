@@ -276,42 +276,46 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         //Dialogo
 
     switch (numbat) {
-    case(1):{
-        ui->cuadro_texto->setText("Parece que hoy tengo visita.");
-        this->repaint();
-        QThread::msleep(3000);
-        ui->cuadro_texto->setText("Vamos a ver que es lo que puedes hacer.");
-        this->repaint();
-        QThread::msleep(2500);
-        break;
-    }
-    case(2):{
-        ui->cuadro_texto->setText("¿Quién me molesta a estas horas?");
-        this->repaint();
-        QThread::msleep(3000);
-        ui->cuadro_texto->setText("Ah... solo eres tú.");
-        this->repaint();
-        QThread::msleep(2500);
-        break;
-    }
-    case(3):{
-        ui->cuadro_texto->setText("¿Quieres ganarme?");
-        this->repaint();
-        QThread::msleep(3000);
-        ui->cuadro_texto->setText("¡Veremos si puedes hacerlo!");
-        this->repaint();
-        QThread::msleep(2500);
-        break;
-    }
-    case(4):{
-        ui->cuadro_texto->setText("!SKEREEEEE¡");
-        this->repaint();
-        QThread::msleep(3000);
-        ui->cuadro_texto->setText("Te voy a dejar como en Control");
-        this->repaint();
-        QThread::msleep(2500);
-        break;
-    }
+        case(1):
+            ui->cuadro_texto->setText("Parece que hoy tengo visita");
+            this->repaint();
+            QThread::msleep(3000);
+            ui->cuadro_texto->setText("Veamos qué puedes hacer");
+            this->repaint();
+            QThread::msleep(2500);
+            break;
+
+        case(2):
+            ui->cuadro_texto->setText("¡BARA BARA!");
+            this->repaint();
+            QThread::msleep(3000);
+            ui->cuadro_texto->setText("¿Tienes un pollo de fuego, o de agua?");
+            this->repaint();
+            QThread::msleep(2500);
+            break;
+
+        case(3):
+            ui->cuadro_texto->setText("¿Quieres ganarme?");
+            this->repaint();
+            QThread::msleep(3000);
+            ui->cuadro_texto->setText("¡Veremos si puedes hacerlo!");
+            this->repaint();
+            QThread::msleep(2500);
+            break;
+
+        case(4):
+            ui->cuadro_texto->setText("¡SKEREEEEE!");
+            this->repaint();
+            QThread::msleep(3000);
+            ui->cuadro_texto->setText("Te voy a dejar como en Control");
+            this->repaint();
+            QThread::msleep(2500);
+            break;
+
+        default:
+            this->repaint();
+            QThread::msleep(2000);
+            break;
     }
 
     QString stylesheet = "background: transparent;";
@@ -539,6 +543,49 @@ bool Battle::checkCpuPokeHp(){
         if(cpu->checkStatus()){
             qDebug() << "Le has ganado";
 
+            for (int i = 0; i <= 15; i++) {
+                ui->pokemon_sup->setGeometry(610+(390/15)*i, 60, 321, 321);
+                QThread::msleep(25);
+                this->repaint();
+            }
+            ui->enemigo->show();
+            for (int i = 0; i <= 15; i++) {
+                ui->enemigo->setGeometry(1000-(320/15)*i, 60, 161, 301);
+                QThread::msleep(25);
+                this->repaint();
+            }
+            switch (numbat) {
+                case(1):
+                    ui->cuadro_texto->setText("Parece que en el sótano de mi fracaso siempre hay una planta más...");
+                    this->repaint();
+                    QThread::msleep(3000);
+                    break;
+
+                case(2):
+                    ui->cuadro_texto->setText("Pues ale, a casa calentito...");
+                    this->repaint();
+                    QThread::msleep(3000);
+                    break;
+
+                case(3):
+                    ui->cuadro_texto->setText("Hoy toca chill y netflix...");
+                    this->repaint();
+                    QThread::msleep(3000);
+                    break;
+
+                case(4):
+                    ui->cuadro_texto->setText("Si es que soy un bocas...");
+                    this->repaint();
+                    QThread::msleep(3000);
+                    break;
+
+                default:
+                    this->repaint();
+                    QThread::msleep(2000);
+                    break;
+            }
+            this->close();
+            delete this;
         }else{
             changeCpuPoke();
         }
@@ -755,6 +802,21 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
                 ui->cuadro_texto->setText(QString("%1 ha sido %2.").arg(QString::fromStdString(Defensor->getName())).arg(QString::fromStdString(Defensor->getStatePtr()->getStateName())));
                 break;
             }
+    default:
+            {
+            texto = QString("%1").arg(QString::fromStdString(Atacante->getName()));
+            ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+            if(Defensor==user_poke)
+                attackAnimationSup();
+            else
+                attackAnimationInf();
+            hpBarAnimation(vida_anterior,Defensor);
+            multiplicador = Defensor->getType().multiplicador(_move->getTipos());
+            efectividad=Defensor->getType().eficacia(multiplicador);
+            ui->cuadro_texto->setText(QString::fromStdString(efectividad));
+            break;
+            }
+
     }
 //    QThread::msleep(500);
 }

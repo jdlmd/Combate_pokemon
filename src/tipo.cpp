@@ -216,8 +216,6 @@ float Tipo::multiplicador(Tipos tipo) {
                 value /= 2;
             if (primario == VOLADOR || secundario == VOLADOR)
                 value /= 2;
-            if (primario == FANTASMA || secundario == FANTASMA)
-                value = 0;
             break;
         case(ELECTRICO):
             if (primario == AGUA || secundario == AGUA)

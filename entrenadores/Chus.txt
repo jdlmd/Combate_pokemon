@@ -8,7 +8,7 @@ NORMAL NINGUNO
 252 252 4 0 0 0
 65 115 65 75 95 65
 4
-WoodHammer
+Mazazo
 PLANTA
 0
 100
@@ -16,7 +16,7 @@ PLANTA
 24
 0
 0
-BrickBreak
+Demolicion
 LUCHA
 0
 100
@@ -24,7 +24,7 @@ LUCHA
 24
 0
 0
-ZenHeadbutt
+CabezazoZen
 PSIQUICO
 0
 90
@@ -32,7 +32,7 @@ PSIQUICO
 24
 0
 0
-ZenHeadbutt
+CabezazoZen
 PSIQUICO
 0
 90
@@ -47,7 +47,7 @@ AGUA PLANTA
 0 0 0 252 4 252
 80 70 70 90 100 70
 4
-Scald
+Escaldar
 AGUA
 1
 100
@@ -57,7 +57,7 @@ AGUA
 1
 QUEMADO
 30
-IceBeam
+RayoHielo
 HIELO
 1
 100
@@ -67,7 +67,7 @@ HIELO
 1
 CONGELADO
 10
-HyperVoice
+Vozarron
 NORMAL
 0
 100
@@ -75,7 +75,7 @@ NORMAL
 16
 1
 1
-EnergyBall
+Energibola
 PLANTA
 1
 100
@@ -92,7 +92,7 @@ PLANTA ACERO
 4 0 252 0 252 0
 74 94 131 54 116 20
 4
-Toxic
+Toxico
 VENENO
 1
 100
@@ -102,7 +102,7 @@ VENENO
 0
 ENVENENADO
 100
-ThunderWave
+OndaTrueno
 ELECTRICO
 1
 90
@@ -112,7 +112,7 @@ ELECTRICO
 0
 PARALIZADO
 100
-SeedBomb
+BombaGermen
 PLANTA
 0
 80
@@ -120,7 +120,7 @@ PLANTA
 24
 0
 0
-PoisonJab
+PuyaNociva
 VENENO
 1
 100
@@ -137,7 +137,7 @@ PLANTA NINGUNO
 0 0 4 252 0 252
 70 58 65 105 85 120
 3
-EnergyBall
+Energibola
 PLANTA
 1
 100
@@ -147,7 +147,7 @@ PLANTA
 1
 PARALIZADO
 10
-FocusBlast
+OndaCertera
 LUCHA
 0
 70
@@ -155,7 +155,7 @@ LUCHA
 8
 1
 1
-DragonBreath
+Dragoaliento
 DRAGON
 1
 100

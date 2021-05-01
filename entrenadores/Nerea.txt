@@ -8,7 +8,7 @@ AGUA NINGUNO
 255 160 120 175 155 130
 53 51 53 61 56 40
 4
-HydroPump
+Hidropulso
 AGUA
 0
 80
@@ -16,7 +16,7 @@ AGUA
 5
 1
 1
-DrillPeck
+PicoTaladro
 VOLADOR
 0
 100
@@ -24,7 +24,7 @@ VOLADOR
 20
 0
 0
-Yawn
+Bostezo
 NORMAL
 1
 100
@@ -34,7 +34,7 @@ NORMAL
 1
 DORMIDO
 100
-MetalClaw
+GarraMetal
 ACERO
 0
 95
@@ -49,7 +49,7 @@ PLANTA HIELO
 252 100 80 252 70 74
 90 92 75 92 85 60
 4
-ShadowBall
+BolaSombra
 FANTASMA
 0
 100
@@ -57,7 +57,7 @@ FANTASMA
 24
 1
 1
-EarthPower
+TierraViva
 TIERRA
 0
 100
@@ -65,7 +65,7 @@ TIERRA
 16
 1
 1
-EnergyBall
+Energibola
 PLANTA
 1
 100
@@ -75,7 +75,7 @@ PLANTA
 1
 PARALIZADO
 10
-IceBeam
+RayoHielo
 HIELO
 1
 100
@@ -92,7 +92,7 @@ LUCHA ACERO
 236 144 172 131 98 75
 70 110 70 115 70 90
 4
-AuraSphere
+EsferaAural
 LUCHA
 0
 100
@@ -100,7 +100,7 @@ LUCHA
 20
 1
 1
-DragonPulse
+PulsoDragon
 DRAGON
 0
 100
@@ -108,7 +108,7 @@ DRAGON
 10
 1
 1
-MetalSound
+EcoMetalico
 ACERO
 1
 85
@@ -118,7 +118,7 @@ ACERO
 1
 PARALIZADO
 100
-ShadowBall
+BolaSombra
 FANTASMA
 0
 100
@@ -133,7 +133,7 @@ DRAGON NINGUNO
 163 138 122 90 85 100
 61 84 65 70 70 70
 4
-DragonTail
+ColaDragon
 DRAGON
 0
 90
@@ -141,7 +141,7 @@ DRAGON
 10
 0
 0
-IceWind
+VientoHielo
 HIELO
 1
 95
@@ -151,7 +151,7 @@ HIELO
 1
 CONGELADO
 60
-ThunderWave
+OndaTrueno
 ELECTRICO
 1
 90
@@ -161,7 +161,7 @@ ELECTRICO
 1
 PARALIZADO
 100
-AquaTail
+AcuaCola
 AGUA
 0
 90
