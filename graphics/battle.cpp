@@ -555,13 +555,14 @@ bool Battle::UserAttack(Movimientos* _move){
         updateBars();
         return checkCpuPokeHp();
     }
-//        else{
+        else{
 //        qDebug()<<"No se ha movido por pringado";
-        ui->cuadro_texto->setText(QString("%1 esta %2.").arg(QString::fromStdString(user_poke->getName())).arg(QString::fromStdString(user_poke->getStatePtr()->getStateName())));
+        ui->cuadro_texto->setText(QString("%1 esta %2.\nY no ha podido moverse.").arg(QString::fromStdString(user_poke->getName())).arg(QString::fromStdString(user_poke->getStatePtr()->getStateName())));
+        this->repaint();
         QThread::msleep(500);
-        ui->cuadro_texto->setText("No se ha podido mover.");
-        QThread::msleep(500);
-//    }
+
+
+    }
     return true;
 }
 
@@ -579,9 +580,9 @@ bool Battle::CpuAttack(){
         return checkUserPokeHp();
     }else{
 //        qDebug()<<"No se ha movido por pringado";
-        ui->cuadro_texto->setText(QString("%1 esta %2.").arg(QString::fromStdString(cpu_poke->getName())).arg(QString::fromStdString(cpu_poke->getStatePtr()->getStateName())));
+        ui->cuadro_texto->setText(QString("%1 esta %2.\nY no ha podido moverse").arg(QString::fromStdString(cpu_poke->getName())).arg(QString::fromStdString(cpu_poke->getStatePtr()->getStateName())));
         QThread::msleep(500);
-        ui->cuadro_texto->setText("No se ha podido mover.");
+
 
     }
     return true;

@@ -34,6 +34,10 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     ui->pp22->hide();
     ui->pp33->hide();
     ui->pp44->hide();
+    ui->mov->hide();
+    ui->mov_2->hide();
+    ui->mov_3->hide();
+    ui->mov_4->hide();
     ui->a1->setEnabled(false);
     ui->a2->setEnabled(false);
     ui->a3->setEnabled(false);
@@ -46,6 +50,7 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
             ui->inf1->show();
             ui->pp1->show();
             ui->pp11->show();
+            ui->mov->show();
             ui->attck1->setText(QString::fromStdString(mov[0]->getName()));
             ui->inf1->setStyleSheet((stylesheet+QString::fromStdString(mov[0]->getType())+formato));
             ui->pp1->setText(QString::number(mov[0]->getPPtotal()));
@@ -57,6 +62,7 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
             ui->inf2->show();
             ui->pp2->show();
             ui->pp22->show();
+            ui->mov_2->show();
             ui->attck2->setText(QString::fromStdString(mov[1]->getName()));
             ui->inf2->setStyleSheet((stylesheet+QString::fromStdString(mov[1]->getType())+formato));
             ui->pp2->setText(QString::number(mov[1]->getPPtotal()));
@@ -68,6 +74,7 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
             ui->inf3->show();
             ui->pp3->show();
             ui->pp33->show();
+            ui->mov_3->show();
             ui->attck3->setText(QString::fromStdString(mov[2]->getName()));
             ui->inf3->setStyleSheet((stylesheet+QString::fromStdString(mov[2]->getType())+formato));
             ui->pp3->setText(QString::number(mov[2]->getPPtotal()));
@@ -79,6 +86,7 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
             ui->inf4->show();
             ui->pp4->show();
             ui->pp44->show();
+            ui->mov_4->show();
             ui->attck4->setText(QString::fromStdString(mov[3]->getName()));
             ui->inf4->setStyleSheet((stylesheet+QString::fromStdString(mov[3]->getType())+formato));
             ui->pp4->setText(QString::number(mov[3]->getPPtotal()));
