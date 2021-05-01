@@ -546,7 +546,8 @@ void Battle::CpuAttack(){
     int vida_anterior;
     if (cpu_poke->getStatePtr()->getMov()){
         vida_anterior=user_poke->getHP();
-        acertado=cpu_poke->getMove(rand()%4)->getDamage(cpu_poke,user_poke);
+        Movimientos* move=cpu_poke->getMove(rand()%4);
+        acertado=move->getDamage(cpu_poke,user_poke);
         hpBarAnimation(vida_anterior,user_poke);
         checkUserPokeHp();
     }else{
@@ -554,3 +555,4 @@ void Battle::CpuAttack(){
         //Añadir cambio de texto
     }
 }
+
