@@ -535,8 +535,8 @@ void Battle::UserAttack(Movimientos* _move){
         qDebug()<<"El mas rapido del oeste";
         vida_anterior=cpu_poke->getHP();
         acertado=_move->getDamage(user_poke,cpu_poke);
-        BattleText(acertado,_move,user_poke,cpu_poke);
-        hpBarAnimation(vida_anterior,cpu_poke);
+        BattleText(acertado,_move,vida_anterior,user_poke,cpu_poke);
+//        hpBarAnimation(vida_anterior,cpu_poke);
         checkCpuPokeHp();
     }else{
         qDebug()<<"No se ha movido por pringado";
@@ -552,7 +552,7 @@ void Battle::CpuAttack(){
         Movimientos* move=cpu_poke->getMove(rand()%4);
         acertado=move->getDamage(cpu_poke,user_poke);
         BattleText(acertado,move,vida_anterior,cpu_poke,user_poke);
-        hpBarAnimation(vida_anterior,user_poke);
+//        hpBarAnimation(vida_anterior,user_poke);
         checkUserPokeHp();
     }else{
         qDebug()<<"No se ha movido por pringado";
@@ -600,6 +600,7 @@ void Battle::updateBars(){
     }
 
     this->repaint();
+}
 
 void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Pokemon* Atacante, Pokemon* Defensor){
     switch (acertado) {
@@ -612,7 +613,7 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
             hpBarAnimation(vida_anterior,Defensor);
             float multiplicador = Defensor->getType().multiplicador(_move->getTipos());
             std::string efectividad=Defensor->getType().eficacia(multiplicador);
+            ui->cuadro_texto->setText(QString::fromStdString(efectividad));
             break;
     }
-
 }
