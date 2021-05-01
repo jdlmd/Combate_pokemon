@@ -69,4 +69,5 @@ void Mapa::closeEvent(QCloseEvent *event){
     delete maria;
     delete nerea;
     QMainWindow::closeEvent(event);
+    parentWidget()->parentWidget()->show();
 }
