@@ -27,8 +27,8 @@ class Pokemon {
         uint getNumberMoves();
         Movimientos* getMove(int i);
         std::string getName();
-        uint getHP();
-        uint getHPtotal();
+        int getHP();
+        int getHPtotal();
         Tipos getPrimary();
         Tipos getSecondary();
 //        Estado getState();

@@ -61,11 +61,11 @@ std::string Pokemon::getName() {
     return name;
 }
 
-uint Pokemon::getHP() {
+int Pokemon::getHP() {
     return estadisticas_actuales.hp;
 }
 
-uint Pokemon::getHPtotal() {
+int Pokemon::getHPtotal() {
     return estadisticas.hp;
 }
 

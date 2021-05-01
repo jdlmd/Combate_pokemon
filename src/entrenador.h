@@ -25,20 +25,18 @@ class Entrenador {
         ~Entrenador(); // Destructor
         void setNombre(std::string name); // Cargar nombre al entrenador
         std::string getNombre(); // Recibir el nombre del entrenador
-        uint getNumPoke(); // Comprueba la cantidad de pokemons vivos que tiene
-        void setNumPoke(uint _numPoke); // Fija la cantidad de pokemons vivos que tiene
         uint getNumber(); // Comprueba la cantida máximas de pokemons que tiene
         void setNumber(uint _number); // Fija la cantidad total de pokemons (max 6)
-        void updateStatus(); // Actualiza el status del entrenador
+        int updateStatus(); // Actualiza el status del entrenador
         bool checkStatus(); // Comprueba si el entrenador ha sido derrotado
         void addPokemon(Pokemon* _new); // Añade un pokemon
         void removePokemon(int i); // Quita un pokemon
         Pokemon* getPokemon(int i); // Devuelve un pokemon
+        Pokemon* getPokemon(); // Devuelve el siguiente pokemon vivo
 
     private:
         std::string nombre; // Nombre del entrenador
         Genero genre; // Género del entrenador
-        uint numPoke; // El número actual de pokemons que tiene vivos (max 6)
         uint number; // El número de pokemon totales que tiene (max 6)
         std::vector<Pokemon*> equipo; // El vector con sus pokemons
         bool derrotado; // Guarda si el entrenador ha sido derrotado

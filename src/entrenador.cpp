@@ -4,7 +4,6 @@
 Entrenador::Entrenador() {
     nombre = "N";
     genre = MALE;
-    numPoke = 1;
     number = 1;
     defaultPoke();
     derrotado = false;
@@ -28,7 +27,6 @@ Entrenador::Entrenador(std::string filename) {
         std::cout << "Archivo no encontrado o imposible de abrir.\n";
         nombre = "N";
         genre = MALE;
-        numPoke = 1;
         number = 1;
         defaultPoke();
         derrotado = false;
@@ -49,11 +47,9 @@ Entrenador::Entrenador(std::string filename) {
     } else if (number < 1) {
         std::cout << "No tienes ningun pokemon. Te daremos uno!\n";
         number = 1;
-        numPoke = 1;
         defaultPoke();
         return;
     }
-    numPoke = number;
     cont = number;
     // Se introducen los pokemones poco a poco
     while(!entrada.eof() && cont--) {
@@ -110,7 +106,6 @@ Entrenador::Entrenador(std::string _name, Genero _genre, std::string filename) {
         std::cout << "Archivo no encontrado o imposible de abrir.\n";
         nombre = _name;
         genre = _genre;
-        numPoke = 1;
         number = 1;
         defaultPoke();
         derrotado = false;
@@ -124,11 +119,9 @@ Entrenador::Entrenador(std::string _name, Genero _genre, std::string filename) {
     } else if (number < 1) {
         std::cout << "No tienes ningun pokemon. Te daremos uno!\n";
         number = 1;
-        numPoke = 1;
         defaultPoke();
         return;
     }
-    numPoke = number;
     cont = number;
     // Se introducen los pokemones poco a poco
     while(!entrada.eof() && cont--) {
@@ -182,16 +175,6 @@ std::string Entrenador::getNombre(){
     return nombre;
 }
 
-/* Devuelve el número de pokemons vivos */
-uint Entrenador::getNumPoke(){
-    return numPoke;
-}
-
-/* Establece el número de pokemons vivos */
-void Entrenador::setNumPoke(uint num) {
-    numPoke = num;
-}
-
 /* Devuelve el número total de pokemons del entrenador */
 uint Entrenador::getNumber() {
     return number;
@@ -204,7 +187,15 @@ void Entrenador::setNumber(uint _number) {
 
 /* Update del status (derrotado o no) del entrenador */
 void Entrenador::updateStatus() {
-    // Hacer la función de updateStatus
+    uint cuenta = 0;
+    for (uint i = 0 ; i < number ; i++) {
+        if(equipo[i]->getHP() > 0)
+            cuenta++;
+    }
+    if (cuenta == 0)
+        derrotado = true;
+    else
+        derrotado = false;
 }
 
 /* Devuelve el estado actual del entrenador */
@@ -227,13 +218,21 @@ void Entrenador::removePokemon(int i) {
     Pokemon* poke = equipo[i];
     equipo.erase(equipo.begin() + i); // Se elimina la posición del vector
     number--;
-    numPoke--;
     delete poke;
 }
 
 /* Devuelve un pokemon */
 Pokemon* Entrenador::getPokemon(int i) {
     return equipo[i];
+}
+
+/* Devuelve el siguiente pokemon vivo */
+Pokemon* Entrenador::getPokemon(){
+    for (uint i = 0 ; i < number ; i++) {
+        if(equipo[i]->getHP() > 0)
+            return equipo[i];
+    }
+    return nullptr;
 }
 
 /* Genera un pokemon por defecto dentro de entrenador*/
