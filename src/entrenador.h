@@ -27,7 +27,7 @@ class Entrenador {
         std::string getNombre(); // Recibir el nombre del entrenador
         uint getNumber(); // Comprueba la cantida máximas de pokemons que tiene
         void setNumber(uint _number); // Fija la cantidad total de pokemons (max 6)
-        int updateStatus(); // Actualiza el status del entrenador
+        void updateStatus(); // Actualiza el status del entrenador
         bool checkStatus(); // Comprueba si el entrenador ha sido derrotado
         void addPokemon(Pokemon* _new); // Añade un pokemon
         void removePokemon(int i); // Quita un pokemon
