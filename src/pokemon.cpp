@@ -7,6 +7,12 @@ Pokemon::Pokemon() {
     name = "MISSIGNO";
 }
 
+Pokemon::~Pokemon(){
+    for (uint i = 0 ; i < attck.size() ; i++) {
+        delete attck[i];
+    }
+}
+
 Pokemon::Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level, struct stats _ivs, struct stats _evs, struct stats _base) {
     name = _name;
     type.setPrimary(Tipo::getTypeByName(_t1));
@@ -17,6 +23,7 @@ Pokemon::Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level
     state = new Estados();
     // Calculo de las estadisticas.
     calculateStatsFromBase( _ivs, _evs,_base);
+    estadisticas_actuales=estadisticas;
 }
 void Pokemon::calculateStatsFromBase(struct stats _ivs, struct stats _evs, struct stats _base){
     estadisticas.hp=(uint)(0.01*(2*_base.hp+_ivs.hp+(int)(0.25*_evs.hp))*level)+level+10;
@@ -60,11 +67,11 @@ std::string Pokemon::getName() {
     return name;
 }
 
-uint Pokemon::getHP() {
+int Pokemon::getHP() {
     return estadisticas_actuales.hp;
 }
 
-uint Pokemon::getHPtotal() {
+int Pokemon::getHPtotal() {
     return estadisticas.hp;
 }
 
@@ -86,4 +93,16 @@ Tipos Pokemon::getPrimary(){
 
 Tipos Pokemon::getSecondary(){
     return type.getSecondary();
+}
+
+Estado Pokemon::getState() {
+    return state->getState();
+}
+
+uint Pokemon::getLevel(){
+    return level;
+}
+
+Tipo Pokemon::getType(){
+    return type;
 }

@@ -216,8 +216,6 @@ float Tipo::multiplicador(Tipos tipo) {
                 value /= 2;
             if (primario == VOLADOR || secundario == VOLADOR)
                 value /= 2;
-            if (primario == FANTASMA || secundario == FANTASMA)
-                value = 0;
             break;
         case(ELECTRICO):
             if (primario == AGUA || secundario == AGUA)
@@ -472,5 +470,50 @@ Tipos Tipo::getTypeByName(std::string _type) {
         return HADA;
     }else {
         return NINGUNO;
+    }
+}
+
+string Tipo::getNamebyType(Tipos _type) {
+    switch (_type) {
+        case(NINGUNO):
+            return "NINGUNO";
+        case(NORMAL):
+            return "NORMAL";
+        case(FUEGO):
+            return "FUEGO";
+        case(LUCHA):
+            return "LUCHA";
+        case(AGUA):
+            return "AGUA";
+        case(VOLADOR):
+            return "VOLADOR";
+        case(PLANTA):
+            return "PLANTA";
+        case(ELECTRICO):
+            return "ELECTRICO";
+        case(VENENO):
+            return "VENENO";
+        case(TIERRA):
+            return "TIERRA";
+        case(PSIQUICO):
+            return "PSIQUICO";
+        case(ROCA):
+            return "ROCA";
+        case(HIELO):
+            return "HIELO";
+        case(BICHO):
+            return "BICHO";
+        case(DRAGON):
+            return "DRAGON";
+        case(FANTASMA):
+            return "FANTASMA";
+        case(SINIESTRO):
+            return "SINIESTRO";
+        case(ACERO):
+            return "ACERO";
+        case(HADA):
+            return "HADA";
+        default:
+            return "NINGUNO";
     }
 }

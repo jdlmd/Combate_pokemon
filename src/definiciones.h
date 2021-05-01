@@ -1,7 +1,7 @@
 #ifndef DEFINICIONES_H
 #define DEFINICIONES_H
 
-typedef unsigned short int uint;
+#include <QtGlobal>
 
 enum Tipos : uint {
     NINGUNO = 0,
@@ -41,7 +41,7 @@ enum Estado : uint {
 };
 
 struct stats {
-    uint hp;
+    int hp;
     uint attack;
     uint defense;
     uint sp_attack;

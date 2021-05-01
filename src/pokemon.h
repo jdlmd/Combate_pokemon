@@ -19,6 +19,7 @@ class MovimientoEstado;
 class Pokemon {
     public:
         Pokemon();
+        ~Pokemon();
         Pokemon(std::string _name,std::string _t1, std::string _t2, uint _level, struct stats _ivs, struct stats _evs, struct stats _base); // Terminar constructor
         void setHP(uint newHP);
         void addMove(Movimientos* move);
@@ -27,13 +28,16 @@ class Pokemon {
         uint getNumberMoves();
         Movimientos* getMove(int i);
         std::string getName();
-        uint getHP();
-        uint getHPtotal();
+        int getHP();
+        int getHPtotal();
         Tipos getPrimary();
         Tipos getSecondary();
 //        Estado getState();
         Estados* getStatePtr();
+        Estado getState();
         uint getSpeed();
+        uint getLevel();
+        Tipo getType();
 
     private:
         std::string name;

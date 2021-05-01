@@ -28,7 +28,7 @@ class Tipo{
         float multiplicador(Tipos tipo); // Introduciendo un tipo, devuelve el multiplicador
         float getStab(Tipos tipo); // Calcula el stab (daño adicional por afinidad de tipos)
         std::string eficacia(float mult); // Indica si es supereficaz o poco eficaz
-
+        static std::string getNamebyType(Tipos _type);
 };
 
 #endif // TIPO_H
