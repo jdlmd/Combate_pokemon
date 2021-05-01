@@ -49,6 +49,7 @@ class Battle : public QMainWindow {
         QLabel* vsAnimation();
         void attackAnimationInf();
         void attackAnimationSup();
+        void hpBarAnimation(int antes, Pokemon* pokemon);
         void battleStartAnimation(QLabel* fondo);
         void closeEvent(QCloseEvent *event) override;
         void changeCpuPoke();

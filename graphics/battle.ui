@@ -353,6 +353,9 @@ border-image: url(:/files/combate/hp_sup.png);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
     <property name="text">
      <string>80</string>
     </property>
@@ -371,6 +374,9 @@ border-image: url(:/files/combate/hp_sup.png);</string>
       <family>Pokemon Pinball RS</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
     </property>
     <property name="text">
      <string>80</string>
@@ -391,6 +397,9 @@ border-image: url(:/files/combate/hp_sup.png);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
     <property name="text">
      <string>CHARIZARD</string>
     </property>
@@ -409,6 +418,9 @@ border-image: url(:/files/combate/hp_sup.png);</string>
       <family>Pokemon Pinball RS</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
     </property>
     <property name="text">
      <string>CHARIZARD</string>
@@ -429,6 +441,9 @@ border-image: url(:/files/combate/hp_sup.png);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
     <property name="text">
      <string>150</string>
     </property>
@@ -448,8 +463,45 @@ border-image: url(:/files/combate/hp_sup.png);</string>
       <pointsize>10</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
     <property name="text">
      <string>150</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="state_sup">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>115</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;
+border-image: url(:/files/estados/QUEMADO.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="state_inf">
+    <property name="geometry">
+     <rect>
+      <x>675</x>
+      <y>550</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;
+border-image: url(:/files/estados/QUEMADO.png);</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <zorder>cuadro111</zorder>
@@ -470,12 +522,14 @@ border-image: url(:/files/combate/hp_sup.png);</string>
    <zorder>vida_sup_fondo</zorder>
    <zorder>vida_sup</zorder>
    <zorder>hp_sup</zorder>
-   <zorder>level_inf</zorder>
    <zorder>level_sup</zorder>
+   <zorder>level_inf</zorder>
    <zorder>pok_inf</zorder>
-   <zorder>pok_sup</zorder>
-   <zorder>vida_act</zorder>
    <zorder>vida_total</zorder>
+   <zorder>vida_act</zorder>
+   <zorder>pok_sup</zorder>
+   <zorder>state_sup</zorder>
+   <zorder>state_inf</zorder>
   </widget>
  </widget>
  <resources>

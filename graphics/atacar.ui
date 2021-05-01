@@ -226,7 +226,7 @@ background: transparent;
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>15</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -247,9 +247,9 @@ background: transparent;
    </property>
    <property name="font">
     <font>
-     <pointsize>19</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -313,65 +313,97 @@ border-image: url(:/files/tipos/BICHO.png);</string>
   <widget class="QLabel" name="pp11">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>125</x>
      <y>110</y>
      <width>31</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="pp22">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>355</x>
      <y>110</y>
      <width>31</width>
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="pp33">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>125</x>
      <y>280</y>
      <width>31</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="pp44">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>355</x>
      <y>280</y>
      <width>31</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: transparent;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
