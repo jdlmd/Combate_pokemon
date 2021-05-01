@@ -97,7 +97,10 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
             ui->nombre1->setText(QString::fromStdString(pok[i]->getName()));
             ui->est1->setStyleSheet(stylesheet + QString::fromStdString(Estados::getNameByState(pok[i]->getState())) + formato);
             ui->v1->setText(QString::number(pok[i]->getHPtotal()));
-            ui->v11->setText(QString::number(pok[i]->getHP()));
+            if(pok[i]->getHP()>=0)
+                ui->v11->setText(QString::number(pok[i]->getHP()));
+            else
+                ui->v11->setText("0");
             ui->vida1->setGeometry(137,70,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min1->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
             ui->n1->setText(QString::number(pok[i]->getLevel()));
@@ -123,7 +126,10 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
             ui->nombre2->setText(QString::fromStdString(pok[i]->getName()));
             ui->est2->setStyleSheet(stylesheet + QString::fromStdString(Estados::getNameByState(pok[i]->getState())) + formato);
             ui->v2->setText(QString::number(pok[i]->getHPtotal()));
-            ui->v22->setText(QString::number(pok[i]->getHP()));
+            if(pok[i]->getHP()>=0)
+                ui->v22->setText(QString::number(pok[i]->getHP()));
+            else
+                ui->v22->setText("0");
             ui->vida2->setGeometry(425,90,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min2->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
             ui->n2->setText(QString::number(pok[i]->getLevel()));
@@ -149,7 +155,10 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
             ui->nombre3->setText(QString::fromStdString(pok[i]->getName()));
             ui->est3->setStyleSheet(stylesheet + QString::fromStdString(Estados::getNameByState(pok[i]->getState())) + formato);
             ui->v3->setText(QString::number(pok[i]->getHPtotal()));
-            ui->v33->setText(QString::number(pok[i]->getHP()));
+            if(pok[i]->getHP()>=0)
+                ui->v33->setText(QString::number(pok[i]->getHP()));
+            else
+                ui->v33->setText("0");
             ui->vida3->setGeometry(137,220,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min3->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
             ui->n3->setText(QString::number(pok[i]->getLevel()));
@@ -175,7 +184,10 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
             ui->nombre4->setText(QString::fromStdString(pok[i]->getName()));
             ui->est4->setStyleSheet(stylesheet + QString::fromStdString(Estados::getNameByState(pok[i]->getState())) + formato);
             ui->v4->setText(QString::number(pok[i]->getHPtotal()));
-            ui->v44->setText(QString::number(pok[i]->getHP()));
+            if(pok[i]->getHP()>=0)
+                ui->v44->setText(QString::number(pok[i]->getHP()));
+            else
+                ui->v44->setText("0");
             ui->vida4->setGeometry(425,240,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min4->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
             ui->n4->setText(QString::number(pok[i]->getLevel()));
@@ -201,7 +213,10 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
             ui->nombre5->setText(QString::fromStdString(pok[i]->getName()));
             ui->est5->setStyleSheet(stylesheet + QString::fromStdString(Estados::getNameByState(pok[i]->getState())) + formato);
             ui->v5->setText(QString::number(pok[i]->getHPtotal()));
-            ui->v55->setText(QString::number(pok[i]->getHP()));
+            if(pok[i]->getHP()>=0)
+                ui->v55->setText(QString::number(pok[i]->getHP()));
+            else
+                ui->v55->setText("0");
             ui->vida5->setGeometry(137,370,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min5->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
             ui->n5->setText(QString::number(pok[i]->getLevel()));
@@ -227,7 +242,10 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
             ui->nombre6->setText(QString::fromStdString(pok[i]->getName()));
             ui->est6->setStyleSheet(stylesheet + QString::fromStdString(Estados::getNameByState(pok[i]->getState())) + formato);
             ui->v6->setText(QString::number(pok[i]->getHPtotal()));
-            ui->v66->setText(QString::number(pok[i]->getHP()));
+            if(pok[i]->getHP()>=0)
+                ui->v66->setText(QString::number(pok[i]->getHP()));
+            else
+                ui->v66->setText("0");
             ui->vida6->setGeometry(425,390,115*pok[i]->getHP()/pok[i]->getHPtotal(),31);
             ui->min6->setStyleSheet(stylesheet2 + QString::fromStdString(pok[i]->getName()).toLower() + formato);
             ui->n6->setText(QString::number(pok[i]->getLevel()));

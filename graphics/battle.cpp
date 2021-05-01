@@ -4,6 +4,7 @@
 #include "cambio.h"
 #include "QMessageBox"
 #include <QFontDatabase>
+#include <QCloseEvent>
 
 Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenre, QString snombre) :
     QMainWindow(parent),
@@ -359,8 +360,18 @@ void Battle::battleStartAnimation(QLabel *fondo) {
 void Battle::closeEvent(QCloseEvent *event) {
     audio.killAudio(); // Libera el audio
     audio.launchAudio("theme.wav");
-    parentWidget()->show();
-    QMainWindow::closeEvent(event); // Se cierra la ventana
+     // Se cierra la ventana
+    if (perdido){
+        QMessageBox::information(this->parentWidget()->parentWidget(),"Game Over","Perdiste");
+        parentWidget()->parentWidget()->parentWidget()->show();
+        parentWidget()->close();
+        parentWidget()->parentWidget()->close();
+    }
+    else
+        parentWidget()->show();
+    QThread::msleep(50);
+    event->accept();
+    // Emitir señal para cerrar el mapa
 }
 
 void Battle::on_atacar_clicked()
@@ -410,6 +421,8 @@ void Battle::setMove(Movimientos* _move){
     }
     QThread::msleep(500);
     ui->cuadro_texto->setText("Haz tu movimiento.");
+    if (perdido)
+        close();
 }
 
 // Animaciones de ataque para los pokemons inferiores
@@ -526,9 +539,10 @@ void Battle::changeCpuPoke(){
 bool Battle::checkCpuPokeHp(){
     if(cpu_poke->getHP()<=0){
         qDebug() << "Dejalo, ya esta muerto";
-        cpu->updateStatus();        
+        cpu->updateStatus();
         if(cpu->checkStatus()){
             qDebug() << "Le has ganado";
+
             for (int i = 0; i <= 15; i++) {
                 ui->pokemon_sup->setGeometry(610+(390/15)*i, 60, 321, 321);
                 QThread::msleep(25);
@@ -575,6 +589,8 @@ bool Battle::checkCpuPokeHp(){
         }else{
             changeCpuPoke();
         }
+//            QMessageBox::information(this,"Game Over","Has perdido");
+        // Emitir señal para cerrar el mapa
         return false;
     }else
         return true;
@@ -582,11 +598,18 @@ bool Battle::checkCpuPokeHp(){
 
 bool Battle::checkUserPokeHp(){
     if(user_poke->getHP()<=0){
-        qDebug() << "Dejalo, ya se me mato el pollo de fuego";
-        cambio *v_cambio=new cambio(this,user,user_poke,true);
-        v_cambio->show();
-        connect(v_cambio,SIGNAL(selectedPoke(Pokemon*,bool)),this,SLOT(setPoke(Pokemon*,bool)));
-        return false;
+        user->updateStatus();
+        if(!user->checkStatus()){
+            qDebug() << "Dejalo, ya se me mato el pollo de fuego";
+            cambio *v_cambio=new cambio(this,user,user_poke,true);
+            v_cambio->show();
+            connect(v_cambio,SIGNAL(selectedPoke(Pokemon*,bool)),this,SLOT(setPoke(Pokemon*,bool)));
+            return false;
+        }else {
+            perdido = true;
+//            QMessageBox::information(this,"Game Over","Has perdido");
+            return true;
+        }
     }else
         return true;
 }
@@ -660,7 +683,10 @@ void Battle::updateBars(){
     float cpuHPtotal = cpu_poke->getHPtotal();
 
     ui->vida_total->setText(QString::number(user_poke->getHPtotal()));
-    ui->vida_act->setText(QString::number(user_poke->getHP()));
+    if(user_poke->getHP()>=0)
+        ui->vida_act->setText(QString::number(user_poke->getHP()));
+    else
+        ui->vida_act->setText("0");
     ui->pok_inf->setText(QString::fromStdString(user_poke->getName()));
     ui->level_inf->setText(QString::number(user_poke->getLevel()));
     ui->state_inf->setStyleSheet(stylesheet + "border-image: url(:/files/estados/" + QString::fromStdString(user_poke->getStatePtr()->getNameByState(user_poke->getState()))+formato+")");
