@@ -2,27 +2,33 @@
 
 using namespace std;
 
+/* Constructor por defecto: Pone los tipos primario y secundario a ninguno*/
 Tipo::Tipo() {
     primario = NINGUNO;
     secundario = NINGUNO;
 }
 
+/* Fija el tipo principal del pokemon al tipo que se le introduce */
 void Tipo::setPrimary(Tipos _prim) {
     primario = _prim;
 }
 
+/* Fija el tipo secundario del pokemon al tipo que se le introduce */
 void Tipo::setSecondary(Tipos _sec) {
     secundario = _sec;
 }
 
+/* Devuelve el tipo principal del pokemon */
 Tipos Tipo::getPrimary() {
     return primario;
 }
 
+/* Devuelve el tipo secundario del pokemon */
 Tipos Tipo::getSecondary() {
     return secundario;
 }
 
+/* Devuelve como cadena de caracteres el tipo principal del pokemon */
 string Tipo::getPrimaryName() {
     switch (primario) {
         case(NINGUNO):
@@ -68,6 +74,7 @@ string Tipo::getPrimaryName() {
     }
 }
 
+/* Devuelve como cadena de caracteres el tipo secundario del pokemon */
 string Tipo::getSecondaryName() {
     switch (secundario) {
         case(NINGUNO):
@@ -113,6 +120,9 @@ string Tipo::getSecondaryName() {
     }
 }
 
+/* Implementación de la tabla de tipos: Introduciendo el tipo del ataque devuelve el
+   valor por el que debe multiplicarse el daño según los tipos primario y secundario
+   del pokemon, pudiendo ser 0, 0.25, 0.5, 1, 2 y 4 */
 float Tipo::multiplicador(Tipos tipo) {
     float value = 1;
 
@@ -400,6 +410,8 @@ float Tipo::multiplicador(Tipos tipo) {
     return value;
 }
 
+/* Devuelve el valor del stab, siendo éste un multiplicador al daño que causará al rival
+   si uno de los tipos del pokemon es igual al tipo del ataque que vaya a realizar */
 float Tipo::getStab(Tipos tipo) {
     float stab = 1;
 
@@ -409,6 +421,8 @@ float Tipo::getStab(Tipos tipo) {
     return stab;
 }
 
+/* Según el valor obtenido en el método 'multiplicador' devuelve una cadena de caracteres
+   que indica la eficacia del ataque */
 string Tipo::eficacia(float mult) {
     string effective;
     if (mult == 0) {
@@ -429,6 +443,8 @@ string Tipo::eficacia(float mult) {
     return effective;
 }
 
+/* Introduciendo una cadena de caracteres con el tipo devuelve el valor que hace
+   referencia a ese tipo */
 Tipos Tipo::getTypeByName(std::string _type) {
     if (_type == "NINGUNO") {
         return NINGUNO;
@@ -473,6 +489,7 @@ Tipos Tipo::getTypeByName(std::string _type) {
     }
 }
 
+/* Introduciendo una variable 'tipo' devuelve una cadena de caracteres con nombre del tipo */
 string Tipo::getNamebyType(Tipos _type) {
     switch (_type) {
         case(NINGUNO):
