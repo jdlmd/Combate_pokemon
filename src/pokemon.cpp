@@ -66,7 +66,7 @@ uint Pokemon::getNumberMoves() {
 }
 
 /* Fija el tipo secundario del pokemon, ya que al evolucionar el pokemon sólo
-   cambiaría su tipo secundario */
+   cambiaría su tipo secundario, finalmente este caso no se ha contemplado en el ejercicio */
 void Pokemon::setSecondaryType(Tipos _second) {
     type.setSecondary(_second);
 }

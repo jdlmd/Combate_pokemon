@@ -3,10 +3,12 @@
 #include "tipo.h"
 #include "time.h"
 
+/* Constructor por defecto, vacío a propósito */
 Movimientos::Movimientos() {
 
 }
 
+/* Constructor del movimiento de un pokemon */
 Movimientos::Movimientos(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp, uint _defORspdef) {
     nombre = _name;
     type = Tipo::getTypeByName(_type);
@@ -18,10 +20,13 @@ Movimientos::Movimientos(std::string _name, std::string _type, uint _atckORsp, u
     defORspdef = _defORspdef;
 }
 
+/* Destructor, vacío a propósito */
 Movimientos::~Movimientos() {
 
 }
 
+/* Calcula el daño del movimiento del pokemon usando la potencia del movimiento, los tipos tanto del
+   movimiento como del pokemon y las estadísticas del pokemon */
 uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
     srand(time(NULL));
     ppRemaining--;
@@ -34,7 +39,7 @@ uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
     if(defORspdef==1)
         def_stat=defensor->estadisticas_actuales.sp_defense;
 
-    // El golpe critico evade las
+    // El golpe critico evade los cambios de características que bajen el daño del movimiento
     if((rand()%10000+1)/100<6.25){
         if(atckORsp==0){
             if(atacante->estadisticas_actuales.attack<atacante->estadisticas.attack)
@@ -69,26 +74,34 @@ uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
         defensor->setHP(defensor->estadisticas_actuales.hp-damage);
         std::cout<<"Dañor:"<<damage<<"\nVida del otro"<<defensor->getHP()<<"de "<<defensor->getHPtotal()<<std::endl;
         if(critico)
-            return 3;
+            return 3; // Devuelve 3 si el ataque acierta y es crítico pero no mete estado
         else
-            return 1;
+            return 1; // Devuelve 1 si el ataque acierta y no es ni crítico ni mete estado
     }
-    return 0;
+    return 0; // Si el ataque falla devuelve 0
 }
 
+/* Devuelve el nombre del tipo del movimiento */
 std::string Movimientos::getType(){
     return Tipo::getNamebyType(type);
 }
+
+/* Devuelve el nombre del movimiento */
 std::string Movimientos::getName(){
     return nombre;
 }
+
+/* Devuelve el numero de PP (Power Points) que le quedan al movimiento */
 uint Movimientos::getPPremaining(){
     return ppRemaining;
 }
+
+/* Devuelve el numero total de PP (Power Points) */
 uint Movimientos::getPPtotal(){
     return ppTotal;
 }
 
+/* Devuelve el tipo del movimiento */
 Tipos Movimientos::getTipos(){
     return type;
 }
