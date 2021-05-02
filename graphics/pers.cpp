@@ -5,6 +5,7 @@
 #include "personaje.h"
 #include "mainwindow.h"
 
+/* Constructor */
 pers::pers(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::pers)
@@ -13,10 +14,12 @@ pers::pers(QWidget *parent) :
     ui->listo->setVisible(false);
 }
 
+/* Destructor */
 pers::~pers() {
     delete ui;
 }
 
+/* Comprueba si se ha pulsado siguiente */
 void pers::on_siguiente_clicked() {
     QString nombre=ui->nombre->text();
     emit namePicked(nombre);
@@ -29,10 +32,7 @@ void pers::on_siguiente_clicked() {
 
 }
 
-void pers::on_listo_clicked() {
-    close();
-}
-
+/* Cierra la ventana de creación de personaje */
 void pers::closeEvent(QCloseEvent *event){
     parentWidget()->show();
     event->accept();

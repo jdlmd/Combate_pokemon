@@ -12,16 +12,15 @@ class pers : public QMainWindow {
         Q_OBJECT
 
     public:
-        explicit pers(QWidget *parent = nullptr);
-        ~pers();
+        explicit pers(QWidget *parent = nullptr); // Constructor
+        ~pers(); // Destructor
 
     private slots:
-        void on_siguiente_clicked();
-        void on_listo_clicked();
+        void on_siguiente_clicked(); // Comprueba si se pulsa siguiente
 
     private:
         Ui::pers *ui;
-        void closeEvent(QCloseEvent *event) override;
+        void closeEvent(QCloseEvent *event) override; // Cierra la ventana de creacion de personaje
 
     signals:
         void namePicked(QString nombre);
