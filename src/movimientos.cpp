@@ -74,7 +74,7 @@ uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
         defensor->setHP(defensor->estadisticas_actuales.hp-damage);
         std::cout<<"Dañor:"<<damage<<"\nVida del otro"<<defensor->getHP()<<"de "<<defensor->getHPtotal()<<std::endl;
         if(critico)
-            return 3; // Devuelve 3 si el ataque acierta y es crítico pero no mete estado
+            return 3; // Devuelve 3 si el ataque acierta y es crítico, pero no mete estado
         else
             return 1; // Devuelve 1 si el ataque acierta y no es ni crítico ni mete estado
     }

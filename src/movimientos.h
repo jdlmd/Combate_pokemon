@@ -20,7 +20,7 @@ class Movimientos {
         uint getPPremaining(); // Devuelve el numero de PP que le quedan al movimiento
         std::string getType(); // Devuelve el nombre del tipo del movimiento
         Tipos getTipos(); // Devuelve el tipo del movimiento
-        virtual uint getDamage(Pokemon* atacante,Pokemon* defensor); // Calcular el daño
+        virtual uint getDamage(Pokemon* atacante,Pokemon* defensor); // Calcula el daño
     protected:
         std::string nombre; // Nombre del movimiento
         Tipos type; // Tipo del movimiento

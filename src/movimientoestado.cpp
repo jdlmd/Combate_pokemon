@@ -1,10 +1,12 @@
 #include "movimientoestado.h"
 #include "qdebug.h"
 
+/* Constructor por defecto, vacío a propósito */
 MovimientoEstado::MovimientoEstado() {
 
 }
 
+/* Constructor de un movimiento que mete estado */
 MovimientoEstado::MovimientoEstado(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp, std::string _estado, uint _porcentaje, uint _defOR) {
     nombre = _name;
     type = Tipo::getTypeByName(_type);
@@ -19,10 +21,13 @@ MovimientoEstado::MovimientoEstado(std::string _name, std::string _type, uint _a
     defORspdef = _defOR;
 }
 
+/* Destructor, vacío a propósito */
 MovimientoEstado::~MovimientoEstado() {
 
 }
 
+/* Calcula el daño del movimiento del pokemon que mete estado usando la potencia del movimiento, los tipos tanto del
+   movimiento como del pokemon y las estadísticas del pokemon */
 uint MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
     srand(time(NULL));
     ppRemaining--;
@@ -35,7 +40,7 @@ uint MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
     if(defORspdef==1)
         def_stat=defensor->estadisticas_actuales.sp_defense;
 
-    // El golpe critico evade las
+    // El golpe critico evade los cambios de características que bajen el daño del movimiento
     if((rand()%10000+1)/100<6.25){
         if(atckORsp==0){
             if(atacante->estadisticas_actuales.attack<atacante->estadisticas.attack)
@@ -74,19 +79,19 @@ uint MovimientoEstado::getDamage(Pokemon *atacante,Pokemon *defensor) {
         if ((rand() % 100+1)<=porcentaje){
             defensor->state->changeState(estado,defensor);
             if(potencia==0)
-                return 5;
+                return 5; // Si mete estado y la potencia del movimiento es cero, es decir, solo mete estado
             else {
                 if(critico)
-                    return 4;
+                    return 4; // Si es critico y mete estado
                 else
-                    return 2;
+                    return 2; // Si no es critico pero mete estado
             }
         }
 
         if(critico)
-            return 3;
+            return 3; //Si el ataque acierta y es crítico, pero no mete estado
         else
-            return 1;
+            return 1; // Si el ataque acierta y no es ni crítico ni mete estado
     }
-    return 0;
+    return 0; // Si el ataque falla
 }

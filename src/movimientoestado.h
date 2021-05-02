@@ -10,7 +10,7 @@ class MovimientoEstado : public Movimientos , public Estados {
         MovimientoEstado();
         MovimientoEstado(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp, std::string _estado, uint _porcentaje, uint _defOR); // Constructor
         ~MovimientoEstado();
-        uint getDamage(Pokemon *atacante,Pokemon *defensor); // Se utiliza en lugar de la habitual
+        uint getDamage(Pokemon *atacante,Pokemon *defensor); // Calcula el daño del movimiento
     private:
 
         uint porcentaje;
