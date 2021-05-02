@@ -10,6 +10,7 @@ Mapa::Mapa(QWidget *parent, bool sgenre, QString snombre) :
     ui(new Ui::Mapa)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->size()); // Evita que se haga resize
     genre=sgenre;
     nombre=snombre;
 

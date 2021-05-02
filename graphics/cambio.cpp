@@ -1,9 +1,10 @@
 #include "cambio.h"
 #include "ui_cambio.h"
 #include "src/definiciones.h"
-#include "QMessageBox"
-#include "QCloseEvent"
+#include <QMessageBox>
+#include <QCloseEvent>
 #include <QThread>
+#include <QFontDatabase>
 
 /* Constructor */
 cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_forzado) :
@@ -29,6 +30,34 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
         n = 6;
 
     Pokemon* pok[n];
+
+    QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
+    QFont pokefont = QFont("Pokemon Pinball RS",12,1);
+
+    ui->nombre1->setFont(pokefont);
+    ui->nombre2->setFont(pokefont);
+    ui->nombre3->setFont(pokefont);
+    ui->nombre4->setFont(pokefont);
+    ui->nombre5->setFont(pokefont);
+    ui->nombre6->setFont(pokefont);
+    ui->v1->setFont(pokefont);
+    ui->v2->setFont(pokefont);
+    ui->v3->setFont(pokefont);
+    ui->v4->setFont(pokefont);
+    ui->v5->setFont(pokefont);
+    ui->v6->setFont(pokefont);
+    ui->v11->setFont(pokefont);
+    ui->v22->setFont(pokefont);
+    ui->v33->setFont(pokefont);
+    ui->v44->setFont(pokefont);
+    ui->v55->setFont(pokefont);
+    ui->v66->setFont(pokefont);
+    ui->n1->setFont(pokefont);
+    ui->n2->setFont(pokefont);
+    ui->n3->setFont(pokefont);
+    ui->n4->setFont(pokefont);
+    ui->n5->setFont(pokefont);
+    ui->n6->setFont(pokefont);
 
     // Se esconde la interfaz de cambio de pokemon
     ui->nombre1->hide();

@@ -1230,12 +1230,12 @@ border-image: url(:/files/estados/CONGELADO.png);</string>
   <zorder>nombre2</zorder>
   <zorder>nombre4</zorder>
   <zorder>nombre6</zorder>
-  <zorder>btn6</zorder>
+  <zorder>btn4</zorder>
   <zorder>btn1</zorder>
   <zorder>btn5</zorder>
   <zorder>btn2</zorder>
+  <zorder>btn6</zorder>
   <zorder>btn3</zorder>
-  <zorder>btn4</zorder>
  </widget>
  <resources/>
  <connections/>

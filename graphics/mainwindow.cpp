@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->label_2->hide();
     ui->checkBox->hide();
+    this->setFixedSize(this->size()); // Evita que se haga resize
 }
 
 /* Destructor */

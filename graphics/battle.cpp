@@ -17,6 +17,7 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     // Cambia la letra
     QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
     QFont pokefont = QFont("Pokemon Pinball RS",12,1);
+    QFont pokefont2 = QFont("Pokemon Pinball RS",10,1);
 
     // Según el rival lanza una canción diferente de combate
     if (_trainer->getNombre() == "Nerea") {
@@ -69,6 +70,12 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     ui->pok_sup->hide();
     ui->state_sup->hide();
     ui->cuadro_texto->setFont(pokefont);
+    ui->level_inf->setFont(pokefont2);
+    ui->level_sup->setFont(pokefont2);
+    ui->vida_act->setFont(pokefont2);
+    ui->vida_total->setFont(pokefont2);
+    ui->pok_inf->setFont(pokefont2);
+    ui->pok_sup->setFont(pokefont2);
     // Se obtienen los tamaños de la ventana. (Si todo
     // va normal, debería estar en (0,0),1000x800)
     ancho = this->geometry().width();
@@ -431,6 +438,7 @@ void Battle::setMove(Movimientos* _move){
     }
     QThread::msleep(500);
     ui->cuadro_texto->setText("Haz tu movimiento.");
+    this->repaint();
     if (perdido)
         close();
 }
@@ -487,6 +495,9 @@ void Battle::setPoke(Pokemon* _poke,bool cambio_forzado) {
         resolveStates(user_poke);
     }
     }
+    QThread::msleep(500);
+    ui->cuadro_texto->setText("Haz tu movimiento.");
+    this->repaint();
 }
 
 /* Animacion de la barra de vida */

@@ -551,10 +551,10 @@ border-image: url(:/files/tipos/NONE.png);</string>
   <zorder>attck3</zorder>
   <zorder>attck1</zorder>
   <zorder>attck4</zorder>
+  <zorder>a4</zorder>
   <zorder>a1</zorder>
   <zorder>a2</zorder>
   <zorder>a3</zorder>
-  <zorder>a4</zorder>
  </widget>
  <resources/>
  <connections/>

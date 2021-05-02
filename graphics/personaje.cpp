@@ -1,6 +1,7 @@
 #include "personaje.h"
 #include "ui_personaje.h"
 #include "pers.h"
+#include <QFontDatabase>
 
 /* Constructor */
 Personaje::Personaje(QWidget *parent) :
@@ -22,6 +23,10 @@ Personaje::Personaje(QWidget *parent) :
     ui->listo->setVisible(false);
 
     QObject::connect(this,SIGNAL(genrePicked(bool)),parentWidget()->parentWidget(),SLOT(set_genre(bool)));
+    this->setFixedSize(this->size()); // Evita que se haga resize
+    QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
+    QFont pokefont = QFont("Pokemon Pinball RS",12,1);
+    ui->textBrowser->setFont(pokefont);
 }
 
 /* Destructor */

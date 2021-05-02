@@ -2,6 +2,7 @@
 #include "ui_atacar.h"
 #include "../src/movimientos.h"
 #include "qdebug.h"
+#include "QFontDatabase"
 
 /* Constructor */
 Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
@@ -19,6 +20,23 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     QString formato = ".png);";
     ui->setupUi(this);
     this->setFixedSize(this->size()); // Evita que se haga resize
+
+    QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
+    QFont pokefont = QFont("Pokemon Pinball RS",12,1);
+    QFont pokefont2 = QFont("Pokemon Pinball RS",16,1);
+
+    ui->attck1->setFont(pokefont);
+    ui->attck2->setFont(pokefont);
+    ui->attck3->setFont(pokefont);
+    ui->attck4->setFont(pokefont);
+    ui->pp1->setFont(pokefont2);
+    ui->pp2->setFont(pokefont2);
+    ui->pp3->setFont(pokefont2);
+    ui->pp4->setFont(pokefont2);
+    ui->pp11->setFont(pokefont2);
+    ui->pp22->setFont(pokefont2);
+    ui->pp33->setFont(pokefont2);
+    ui->pp44->setFont(pokefont2);
 
     // Esconde la interfaz de ataque
     ui->attck1->hide();

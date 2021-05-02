@@ -1,9 +1,10 @@
 #include "pers.h"
 #include "ui_pers.h"
 #include <QString>
-#include "QMessageBox"
+#include <QMessageBox>
 #include "personaje.h"
 #include "mainwindow.h"
+#include <QFontDatabase>
 
 /* Constructor */
 pers::pers(QWidget *parent) :
@@ -11,6 +12,10 @@ pers::pers(QWidget *parent) :
     ui(new Ui::pers)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->size()); // Evita que se haga resize
+    QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
+    QFont pokefont = QFont("Pokemon Pinball RS",12,1);
+    ui->texto->setFont(pokefont);
 }
 
 /* Destructor */

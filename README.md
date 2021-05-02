@@ -1,5 +1,5 @@
 # Combate_pokemon
-Ejercicio final para Informática avanzada
+Ejercicio final para Informática avanzada. Compilar con Qt 6.0.3 MinGW.
 
 Nuestro ejercicio se basa en un Combate Pokémon. 
     Cada entrenador debe tener como máximo 6 pokémon 
