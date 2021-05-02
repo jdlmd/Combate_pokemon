@@ -4,6 +4,7 @@
 #include "batalla.h"
 #include <QFontDatabase>
 
+/* Constructor */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,12 +14,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->checkBox->hide();
 }
 
+/* Destructor */
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-
+/* Boton de Start pulsado */
 void MainWindow::on_start_clicked()
 {
      hide();
@@ -26,6 +28,7 @@ void MainWindow::on_start_clicked()
      v_batalla->show();
 }
 
+/* Boton de Crear personaje pulsado */
 void MainWindow::on_personaje_clicked()
 {
     hide();
@@ -34,12 +37,14 @@ void MainWindow::on_personaje_clicked()
     QObject::connect(v_personaje,SIGNAL(namePicked(QString)),this,SLOT(set_name(QString)));
 }
 
+/* Elección del nombre del personaje */
 void MainWindow::set_name(QString nombre)
 {
     name = nombre;
     ui->label_2->setText(name);
 }
 
+/* Elección del genero del personaje */
 void MainWindow::set_genre(bool genero)
 {
     genre = genero;
