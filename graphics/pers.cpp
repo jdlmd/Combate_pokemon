@@ -11,7 +11,6 @@ pers::pers(QWidget *parent) :
     ui(new Ui::pers)
 {
     ui->setupUi(this);
-    ui->listo->setVisible(false);
 }
 
 /* Destructor */
@@ -28,7 +27,6 @@ void pers::on_siguiente_clicked() {
     Personaje *v_per=new Personaje(this);
     v_per->show();
     hide();
-    ui->listo->setVisible(true);
 
 }
 
