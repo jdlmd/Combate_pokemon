@@ -16,18 +16,18 @@ class Estados {
     public:
         Estados();
         ~Estados();
-        std::string getStateName();
-        bool getMov();
-        Estado getState();
-        void changeState(Estado _state, Pokemon* receiver); // Cambiar el estado
-        static Estado getStateByName(std::string _state);
-        static std::string getNameByState(Estado _state);
+        std::string getStateName(); // Devuelve un cadena de caracteres con el nombre del estado que tiene el pokemon
+        bool getMov(); // Indica si el pokemon se puede mover o no
+        Estado getState(); // Devuelve el estado del pokemon
+        void changeState(Estado _state, Pokemon* receiver); // Cambia el estado
+        static Estado getStateByName(std::string _state); // Introduciendole una cadena de caracteres con el nombre del estado devuelve  el valor que le corresponde a ese estado
+        static std::string getNameByState(Estado _state); // Introduciendole un estado devuelve un cadena de caracteres con el nombre del estado
         void resolveState(Pokemon* receiver); // Resuelve el estado del pokemon
 
     protected:
         Estado estado;
-        uint turnos; // -1 = Infinito
-        bool mov;      
+        uint turnos; // Turnos que dura el estado, siendo -1 = Infinito
+        bool mov; // Indica si puede moverse o no el pokemon
 
  };
 
