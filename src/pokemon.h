@@ -36,7 +36,7 @@ class Pokemon {
         Estado getState(); // Devuelve el estado del pokemon
         uint getSpeed(); // Devuelve la velocidad del pokemon
         uint getLevel(); // Devuelve el nivel del pokemon
-        Tipo getType(); // Devuelve el tipo primario del pokemon
+        Tipo getType(); // Devuelve el tipo del pokemon
 
     private:
         std::string name;
