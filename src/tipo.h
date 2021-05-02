@@ -18,17 +18,18 @@ class Tipo{
 
     public:
         Tipo();
-        void setPrimary(Tipos _prim);
-        void setSecondary(Tipos _sec);
-        Tipos getPrimary();
-        Tipos getSecondary();
-        std::string getPrimaryName();
-        std::string getSecondaryName();
-        static Tipos getTypeByName(std::string _type); // Función estática
+        void setPrimary(Tipos _prim); // Fija el tipo primario del pokemon
+        void setSecondary(Tipos _sec); // Fija el tipo secundario del pokemon
+        Tipos getPrimary(); // Devuelve el tipo primario del pokemon
+        Tipos getSecondary(); // Devuelve el tipo secundario del pokemon
+        std::string getPrimaryName(); // Devuelve el nombre del tipo primario del pokemon
+        std::string getSecondaryName(); // Devuelve el nombre del tipo secundario del pokemon
+        static Tipos getTypeByName(std::string _type); // Introduciendo una cadena de caracteres con el nombre del tipo devuelve el valor que le corresponde a ese tipo
+        static std::string getNamebyType(Tipos _type); // Introduciendole el tipo devuelve una cadena de caracteres con el nombre del tipo
         float multiplicador(Tipos tipo); // Introduciendo un tipo, devuelve el multiplicador
         float getStab(Tipos tipo); // Calcula el stab (daño adicional por afinidad de tipos)
         std::string eficacia(float mult); // Indica si es supereficaz o poco eficaz
-        static std::string getNamebyType(Tipos _type);
+
 };
 
 #endif // TIPO_H
