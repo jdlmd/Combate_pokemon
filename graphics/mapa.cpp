@@ -4,6 +4,7 @@
 #include "QMessageBox"
 #include <QCloseEvent>
 
+/* Constructor */
 Mapa::Mapa(QWidget *parent, bool sgenre, QString snombre) :
     QMainWindow(parent),
     ui(new Ui::Mapa)
@@ -33,32 +34,12 @@ Mapa::Mapa(QWidget *parent, bool sgenre, QString snombre) :
     user = new Entrenador(snombre.toStdString(),_genre,fullPath + "user.txt");
 }
 
+/* Destructor */
 Mapa::~Mapa() {
     delete ui;
 }
 
-void Mapa::on_b3_clicked() {
-    if(!maria->checkStatus()){
-        hide();
-        numbat=3;
-        Battle *v_battle=new Battle(this,maria,user,genre,nombre);
-        v_battle->show();
-    }else{
-        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
-    }
-}
-
-void Mapa::on_b2_clicked() {
-    if(!jesus->checkStatus()){
-        hide();
-        numbat=2;
-        Battle *v_battle=new Battle(this,jesus,user,genre,nombre);
-        v_battle->show();
-    }else{
-        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
-    }
-}
-
+/* Comprueba que el botón 1 se ha pulsado */
 void Mapa::on_b1_clicked() {
     if(!nerea->checkStatus()){
         hide();
@@ -70,6 +51,31 @@ void Mapa::on_b1_clicked() {
     }
 }
 
+/* Comprueba que el botón 2 se ha pulsado */
+void Mapa::on_b2_clicked() {
+    if(!jesus->checkStatus()){
+        hide();
+        numbat=2;
+        Battle *v_battle=new Battle(this,jesus,user,genre,nombre);
+        v_battle->show();
+    }else{
+        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
+    }
+}
+
+/* Comprueba que el botón 3 se ha pulsado */
+void Mapa::on_b3_clicked() {
+    if(!maria->checkStatus()){
+        hide();
+        numbat=3;
+        Battle *v_battle=new Battle(this,maria,user,genre,nombre);
+        v_battle->show();
+    }else{
+        QMessageBox::information(this,"Abuson","Ya lo mataste wey");
+    }
+}
+
+/* Comprueba que el botón 4 se ha pulsado */
 void Mapa::on_b4_clicked() {
     if(!chus->checkStatus()){
         hide();
@@ -82,6 +88,7 @@ void Mapa::on_b4_clicked() {
     }
 }
 
+/* Cierra la ventana del mapa */
 void Mapa::closeEvent(QCloseEvent *event){
     delete jesus;
     delete chus;
