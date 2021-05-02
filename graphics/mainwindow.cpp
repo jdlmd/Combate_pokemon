@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->label_2->hide();
+    ui->checkBox->hide();
 }
 
 MainWindow::~MainWindow()

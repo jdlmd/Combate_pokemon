@@ -6,6 +6,7 @@
 #include <QFontDatabase>
 #include <QCloseEvent>
 
+/* Constructor */
 Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenre, QString snombre) :
     QMainWindow(parent),
     ui(new Ui::Battle)
@@ -13,9 +14,11 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     ui->setupUi(this);
     this->centralWidget()->hide();
 
+    // Cambia la letra
     QFontDatabase::addApplicationFont(":/files/Pokemon_Pinball_RS.ttf");
     QFont pokefont = QFont("Pokemon Pinball RS",12,1);
 
+    // Según el rival lanza una canción diferente de combate
     if (_trainer->getNombre() == "Nerea") {
         numbat = 1;
         audio.killAudio();
@@ -34,11 +37,13 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
         audio.launchAudio("chus.wav");
     }
 
+    // Inicializa las variables
     user=_user;
     cpu=_trainer;
     user_poke = user->getPokemon();
     cpu_poke = cpu->getPokemon();
 
+    // Oculta la interfaz de batalla
     genre=sgenre;
     nombre=snombre;
     ui->atacar->hide();
@@ -74,14 +79,14 @@ Battle::Battle(QWidget *parent,Entrenador* _trainer,Entrenador* _user,bool sgenr
     QTimer::singleShot(100,this,SLOT(launchAnimation())); // Al contar 100 ms, lanza launchAnimation()
 }
 
-
+/* Destructor */
 Battle::~Battle() {
     delete ui;
 }
 
-
+/* Se lanza la animación del versus */
 void Battle::launchAnimation() {
-    QLabel* fondo = vsAnimation(); // Se lanza la animación del versus
+    QLabel* fondo = vsAnimation();
     QThread::msleep(300);
     battleStartAnimation(fondo);
 }
@@ -237,6 +242,7 @@ QLabel* Battle::vsAnimation() {
 
 }
 
+/* Animación del comienzo de la batalla */
 void Battle::battleStartAnimation(QLabel *fondo) {
     // Se va disminuyendo la opacidad del fondo blanco
     for (int i = 15 ; i >= 0 ; i--){
@@ -273,7 +279,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
         ui->enemigo->setStyleSheet("border-image: url(:/files/personajes/chus.png);\nbackground: transparent;");
     break;}}
 
-        //Dialogo
+        //Dialogo en función del rival
 
     switch (numbat) {
         case(1):
@@ -322,6 +328,7 @@ void Battle::battleStartAnimation(QLabel *fondo) {
     QString path = ":/files/pokemon/";
     QString formato = ".png";
 
+    // Aparecen los pokemons y desaparecen los entrenadores
     QMessageBox::information(this,tr("Maestro %1").arg(QString::fromStdString(cpu->getNombre())),tr("¡El Maestro %1 saca a %2!").arg(QString::fromStdString(cpu->getNombre()),QString::fromStdString((cpu_poke->getName()))));
     ui->pokemon_sup->setPixmap(path + QString::fromStdString(cpu_poke->getName()).toLower()+formato);
     ui->pokemon_sup->setStyleSheet(stylesheet);
@@ -374,6 +381,7 @@ void Battle::closeEvent(QCloseEvent *event) {
     // Emitir señal para cerrar el mapa
 }
 
+/* Pulsa el boton de atacar y abre la ventana de los movimientos */
 void Battle::on_atacar_clicked()
 {
 //    audio.launchSound("attack.wav");
@@ -382,12 +390,14 @@ void Battle::on_atacar_clicked()
     connect(v_ataque,SIGNAL(selectedMove(Movimientos*)),this,SLOT(setMove(Movimientos*)));
 }
 
+/* Pulsa el boton de cambio y abre la ventana del equipo del usuario */
 void Battle::on_cambio_clicked() {
     cambio *v_cambio=new cambio(this,user,user_poke,false);
     v_cambio->show();
     connect(v_cambio,SIGNAL(selectedPoke(Pokemon*,bool)),this,SLOT(setPoke(Pokemon*,bool)));
 }
 
+/* Se ejecuta el movimiento escogido */
 void Battle::setMove(Movimientos* _move){
 //    QThread::msleep(100);
     bool cpuAlive=true;
@@ -425,7 +435,7 @@ void Battle::setMove(Movimientos* _move){
         close();
 }
 
-// Animaciones de ataque para los pokemons inferiores
+/* Animaciones de ataque para los pokemons inferiores */
 void Battle::attackAnimationInf(){
     audio.launchSound("attack.wav");
     for (int i = 0 ; i <= 10 ; i++){
@@ -440,7 +450,7 @@ void Battle::attackAnimationInf(){
     }
 }
 
-// Animaciones de ataque para los pokemons superiores
+/* Animaciones de ataque para los pokemons superiores */
 void Battle::attackAnimationSup(){
     audio.launchSound("attack.wav");
     for (int i = 0 ; i <= 10 ; i++){
@@ -455,6 +465,7 @@ void Battle::attackAnimationSup(){
     }
 }
 
+/* Cambia el pokemon ya sea por decisión propia o por muerte del pokemon actual */
 void Battle::setPoke(Pokemon* _poke,bool cambio_forzado) {
     user_poke = _poke;
     QThread::msleep(300);
@@ -478,7 +489,7 @@ void Battle::setPoke(Pokemon* _poke,bool cambio_forzado) {
     }
 }
 
-// Animacion de la barra de vida
+/* Animacion de la barra de vida */
 void Battle::hpBarAnimation(int antes, Pokemon* pokemon) {
     float ant = antes;
     float tot = pokemon->getHPtotal();
@@ -520,6 +531,7 @@ void Battle::hpBarAnimation(int antes, Pokemon* pokemon) {
     }
 }
 
+/* Cambia el pokemon del rival */
 void Battle::changeCpuPoke(){
     cpu_poke = cpu->getPokemon();
 
@@ -536,6 +548,7 @@ void Battle::changeCpuPoke(){
     updateBars();
 }
 
+/* Comprueba la vida del pokemon rival para ver si puede seguir luchando */
 bool Battle::checkCpuPokeHp(){
     if(cpu_poke->getHP()<=0){
         qDebug() << "Dejalo, ya esta muerto";
@@ -568,7 +581,7 @@ bool Battle::checkCpuPokeHp(){
                     break;
 
                 case(3):
-                    ui->cuadro_texto->setText("Hoy toca chill y netflix...");
+                    ui->cuadro_texto->setText("Bueno, pues hoy toca chill y netflix...");
                     this->repaint();
                     QThread::msleep(3000);
                     break;
@@ -595,6 +608,7 @@ bool Battle::checkCpuPokeHp(){
         return true;
 }
 
+/* Comprueba la vida del pokemon del usuario para ver si puede seguir luchando */
 bool Battle::checkUserPokeHp(){
     if(user_poke->getHP()<=0){
         user->updateStatus();
@@ -613,6 +627,7 @@ bool Battle::checkUserPokeHp(){
         return true;
 }
 
+/* Ataque del pokemon del usuario */
 bool Battle::UserAttack(Movimientos* _move){
     uint acertado;
     int vida_anterior;
@@ -636,6 +651,7 @@ bool Battle::UserAttack(Movimientos* _move){
     return true;
 }
 
+/* Ataque aleatorio del rival */
 bool Battle::CpuAttack(){
     uint acertado;
     int vida_anterior;
@@ -657,6 +673,7 @@ bool Battle::CpuAttack(){
     return true;
 }
 
+/* Resuelve el estado del pokemon afectado */
 void Battle::resolveStates(Pokemon* poke){
     int vida_anterior=poke->getHP();
     poke->getStatePtr()->resolveState(poke);
@@ -671,6 +688,7 @@ void Battle::resolveStates(Pokemon* poke){
         checkCpuPokeHp();
 }
 
+/* Actualiza la información del pokemon */
 void Battle::updateBars(){
     QString stylesheet = "background: transparent;";
     QString formato = ".png";
@@ -715,6 +733,7 @@ void Battle::updateBars(){
     this->repaint();
 }
 
+/* Texto durante la batalla */
 void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Pokemon* Atacante, Pokemon* Defensor){
     QString texto;
     float multiplicador;
@@ -722,12 +741,14 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
     switch (acertado) {
         case 0:
             ui->cuadro_texto->setText(QString("%1 ha fallado.").arg(QString::fromStdString(Atacante->getName())));
+            this->repaint();
             QThread::msleep(1000);
             break;
         case 1:
             {
                 texto = QString("%1").arg(QString::fromStdString(Atacante->getName()));
-                ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                ui->cuadro_texto->setText(QString("%1 ha realizado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                this->repaint();
                 if(Defensor==user_poke)
                     attackAnimationSup();
                 else
@@ -736,27 +757,32 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
                 multiplicador = Defensor->getType().multiplicador(_move->getTipos());
                 efectividad=Defensor->getType().eficacia(multiplicador);
                 ui->cuadro_texto->setText(QString::fromStdString(efectividad));
+                this->repaint();
                 break;
             }
         case 2:
             {
                 texto= QString("%1").arg(QString::fromStdString(Atacante->getName()));
-                ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                ui->cuadro_texto->setText(QString("%1 ha realizado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                this->repaint();
                 if(Defensor==user_poke)
                     attackAnimationSup();
                 else
                     attackAnimationInf();
                 hpBarAnimation(vida_anterior,Defensor);
                 ui->cuadro_texto->setText(QString::fromStdString(efectividad));
+                this->repaint();
                 QThread::msleep(500);
                 Defensor->getStatePtr()->getStateName();
                 ui->cuadro_texto->setText(QString("%1 ha sido %2.").arg(QString::fromStdString(Defensor->getName())).arg(QString::fromStdString(Defensor->getStatePtr()->getStateName())));
+                this->repaint();
                 break;
             }
         case 3:
             {
                 texto = QString("%1").arg(QString::fromStdString(Atacante->getName()));
-                ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                ui->cuadro_texto->setText(QString("%1 ha realizado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                this->repaint();
                 if(Defensor==user_poke )
                     attackAnimationSup();
                 else
@@ -765,31 +791,38 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
                 multiplicador = Defensor->getType().multiplicador(_move->getTipos());
                 efectividad=Defensor->getType().eficacia(multiplicador);
                 ui->cuadro_texto->setText(QString::fromStdString(efectividad));
+                this->repaint();
                 QThread::msleep(500);
                 ui->cuadro_texto->setText("¡Golpe critico!");
+                this->repaint();
                 break;
             }
         case 4:
             {
                 texto= QString("%1").arg(QString::fromStdString(Atacante->getName()));
                 ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                this->repaint();
                 if(Defensor==user_poke)
                     attackAnimationSup();
                 else
                     attackAnimationInf();
                 hpBarAnimation(vida_anterior,Defensor);
                 ui->cuadro_texto->setText(QString::fromStdString(efectividad));
+                this->repaint();
                 QThread::msleep(500);
                 ui->cuadro_texto->setText("¡Golpe critico!");
+                this->repaint();
                 QThread::msleep(500);
                 Defensor->getStatePtr()->getStateName();
                 ui->cuadro_texto->setText(QString("%1 ha sido %2.").arg(QString::fromStdString(Defensor->getName())).arg(QString::fromStdString(Defensor->getStatePtr()->getStateName())));
+                this->repaint();
                 break;
             }
         case 5:
             {
                 texto= QString("%1").arg(QString::fromStdString(Atacante->getName()));
                 ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+                this->repaint();
                 if(Defensor==user_poke)
                     attackAnimationSup();
                 else
@@ -798,12 +831,14 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
                 QThread::msleep(500);
                 Defensor->getStatePtr()->getStateName();
                 ui->cuadro_texto->setText(QString("%1 ha sido %2.").arg(QString::fromStdString(Defensor->getName())).arg(QString::fromStdString(Defensor->getStatePtr()->getStateName())));
+                this->repaint();
                 break;
             }
     default:
             {
             texto = QString("%1").arg(QString::fromStdString(Atacante->getName()));
             ui->cuadro_texto->setText(QString("%1 ha realiazado %2").arg(QString::fromStdString(Atacante->getName())).arg(QString::fromStdString(_move->getName())));
+            this->repaint();
             if(Defensor==user_poke)
                 attackAnimationSup();
             else
@@ -812,6 +847,7 @@ void Battle::BattleText(uint acertado,Movimientos* _move,int vida_anterior, Poke
             multiplicador = Defensor->getType().multiplicador(_move->getTipos());
             efectividad=Defensor->getType().eficacia(multiplicador);
             ui->cuadro_texto->setText(QString::fromStdString(efectividad));
+            this->repaint();
             break;
             }
 
