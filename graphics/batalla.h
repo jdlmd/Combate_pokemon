@@ -14,11 +14,11 @@ class Batalla : public QMainWindow
 public:
     bool sgenre;
     QString sname;
-    explicit Batalla(QWidget *parent = nullptr,QString sname="usuario",bool genre=0);
+    explicit Batalla(QWidget *parent = nullptr,QString sname="usuario",bool genre=0); // Constructor
     ~Batalla();
 
 private slots:
-    void on_next_clicked();
+    void on_next_clicked(); // Comprueba si se pulsa el boton de siguiente
 
 private:
     Ui::Batalla *ui;

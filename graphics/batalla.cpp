@@ -12,6 +12,7 @@
 #include "mapa.h"
 #include <QFontDatabase>
 
+/* Constructor */
 Batalla::Batalla(QWidget *parent,QString name,bool genre) :
     QMainWindow(parent),
     ui(new Ui::Batalla)
@@ -36,10 +37,12 @@ Batalla::Batalla(QWidget *parent,QString name,bool genre) :
 " o cambiar tu pokémon.\n   Si haces un cambio, ¡pierdes el turno!");
 }
 
+/* Destructor */
 Batalla::~Batalla() {
     delete ui;
 }
 
+/* Cuando se pulsa el boton de siguiente */
 void Batalla::on_next_clicked() {
         QMessageBox::information(this,tr("Misión"),tr("Derrota a los cuatro maestros de la región.\n"
     "¡Buena suerte!"));

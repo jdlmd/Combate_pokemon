@@ -5,6 +5,7 @@
 #include "QCloseEvent"
 #include <QThread>
 
+/* Constructor */
 cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_forzado) :
     QDialog(parent),
     ui(new Ui::cambio)
@@ -13,6 +14,7 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
     this->setFixedSize(this->size()); // Evita que se haga resize
 //    setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint);
 
+    // Se inicializan variables
     user = _user;
     cambio_forzado=_cambio_forzado;
     AbrilCerral=cambio_forzado;
@@ -28,6 +30,7 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
 
     Pokemon* pok[n];
 
+    // Se esconde la interfaz de cambio de pokemon
     ui->nombre1->hide();
     ui->nombre2->hide();
     ui->nombre3->hide();
@@ -83,6 +86,7 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
     ui->btn5->setEnabled(false);
     ui->btn6->setEnabled(false);
 
+    // Hace visible la interfaz de cambio de pokemon segun el numero de pokemon que tenga el entrenador
     for (uint i = 0 ; i < n ; i++) {
         pok[i] = user->getPokemon(i);
         if (i == 0) {
@@ -263,11 +267,13 @@ cambio::cambio(QWidget *parent, Entrenador* _user, Pokemon* _poke,bool _cambio_f
     }
 }
 
+/* Destructor */
 cambio::~cambio()
 {
     delete ui;
 }
 
+/* Comprueba si se pulsa el boton 1 */
 void cambio::on_btn1_clicked() {
     AbrilCerral=false;
     close();
@@ -276,6 +282,7 @@ void cambio::on_btn1_clicked() {
     delete this;
 }
 
+/* Comprueba si se pulsa el boton 2 */
 void cambio::on_btn2_clicked() {
     AbrilCerral=false;
     close();
@@ -284,6 +291,7 @@ void cambio::on_btn2_clicked() {
     delete this;
 }
 
+/* Comprueba si se pulsa el boton 3 */
 void cambio::on_btn3_clicked() {
     AbrilCerral=false;
     close();
@@ -292,6 +300,7 @@ void cambio::on_btn3_clicked() {
     delete this;
 }
 
+/* Comprueba si se pulsa el boton 4 */
 void cambio::on_btn4_clicked() {
     AbrilCerral=false;
     close();
@@ -300,6 +309,7 @@ void cambio::on_btn4_clicked() {
     delete this;
 }
 
+/* Comprueba si se pulsa el boton 5 */
 void cambio::on_btn5_clicked() {
     AbrilCerral=false;
     close();
@@ -308,6 +318,7 @@ void cambio::on_btn5_clicked() {
     delete this;
 }
 
+/* Comprueba si se pulsa el boton 6 */
 void cambio::on_btn6_clicked() {
     AbrilCerral=false;
     close();
@@ -315,6 +326,8 @@ void cambio::on_btn6_clicked() {
     QThread::msleep(50);
     delete this;
 }
+
+/* Cierra la ventana de interfaz de combate */
 void cambio::closeEvent(QCloseEvent *event){
     if(AbrilCerral){
         QMessageBox::information(this,"Alerta","Tu pokemon esta debilitado, necesitas escoger a otro");
