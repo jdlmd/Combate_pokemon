@@ -2,16 +2,19 @@
 
 using namespace std;
 
+/* Constructor por defecto: pone el estado a NONE, el pokemon se puede mover y dura infinitos turnos */
 Estados::Estados() {
     estado = NONE;
     turnos = -1;
     mov = true;
 }
 
+/* Destructor, vacío a propósito */
 Estados::~Estados() {
 
 }
 
+/* Devuelve una cadena de caracteres con el estado que tiene el pokemon */
 string Estados::getStateName() {
     switch (estado) {
         case(NONE):
@@ -31,6 +34,9 @@ string Estados::getStateName() {
     }
 }
 
+/* Resuelve el estado del pokemon, esto es aplicarle el efecto del estado cada turno y reducir
+   la duración en turnos del estado si éste no es infinito. Los efectos del estados pueden ser
+   reducción de la vida cada turno o que no se pueda mover */
 void Estados::resolveState(Pokemon *pokemon) {
     srand(time(NULL));
     switch (estado) {
@@ -72,10 +78,13 @@ void Estados::resolveState(Pokemon *pokemon) {
     }
 }
 
+/* Devuelve si el pokemon puede moverse o no, siendo false que no puede moverse */
 bool Estados::getMov() {
     return mov;
 }
 
+/* Introduciendo una cadena de caracteres con el nombre del estado devuelve el valor que hace
+   referencia a ese estado */
 Estado Estados::getStateByName(std::string _state) {
     if (_state == "NINGUNO") {
         return NONE;
@@ -94,6 +103,33 @@ Estado Estados::getStateByName(std::string _state) {
     }
 }
 
+/* Introduciendo una variable tipo 'estado' devuelve una cadena de caracteres con el nombre
+   del estado */
+std::string Estados::getNameByState(Estado _state) {
+    switch (_state) {
+        case(NONE):
+            return "NONE";
+        case(QUEMADO):
+            return "QUEMADO";
+        case(PARALIZADO):
+            return "PARALIZADO";
+        case(ENVENENADO):
+            return "ENVENENADO";
+        case(DORMIDO):
+            return "DORMIDO";
+        case(CONGELADO):
+            return "CONGELADO";
+        default:
+            return "NONE";
+    }
+}
+
+/* Cambia el estado de un pokemon, los valores que se introducen son el nuevo estado y el pokemon al
+   que afectará este nuevo estado. Si ya tenía un estado anteriormente devuelve las estadísticas del
+   pokemon (alteradas por el estado) a la normalidad, esto ocurre en el caso de paralizado y quemado
+   que reducían la velocidad y el ataque respectivamente. Al aplicar un estado nuevo se cambian las
+   estadísticas que correspondan y el pokemon sufre los efectos del estado en el mismo turno en el
+   que le meten el estado */
 void Estados::changeState(Estado _state, Pokemon* pokemon) {
     srand(time(NULL));
     Tipos first = pokemon->type.getPrimary();
@@ -144,25 +180,8 @@ void Estados::changeState(Estado _state, Pokemon* pokemon) {
     }
 }
 
+/* Devuelve el estado actual del pokemon */
 Estado Estados::getState(){
     return estado;
 }
 
-std::string Estados::getNameByState(Estado _state) {
-    switch (_state) {
-        case(NONE):
-            return "NONE";
-        case(QUEMADO):
-            return "QUEMADO";
-        case(PARALIZADO):
-            return "PARALIZADO";
-        case(ENVENENADO):
-            return "ENVENENADO";
-        case(DORMIDO):
-            return "DORMIDO";
-        case(CONGELADO):
-            return "CONGELADO";
-        default:
-            return "NONE";
-    }
-}
