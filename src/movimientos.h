@@ -15,11 +15,11 @@ class Movimientos {
         Movimientos();
         Movimientos(std::string _name, std::string _type, uint _atckORsp, uint _precision, uint _potencia, uint _pp, uint _defORspdef); // Constructor
         virtual ~Movimientos();
-        std::string getName();
-        uint getPPtotal();
-        uint getPPremaining();
-        std::string getType();
-        Tipos getTipos();
+        std::string getName(); // Devuelve el nombre del movimiento
+        uint getPPtotal(); // Devuelve el numero total de PP del movimiento
+        uint getPPremaining(); // Devuelve el numero de PP que le quedan al movimiento
+        std::string getType(); // Devuelve el nombre del tipo del movimiento
+        Tipos getTipos(); // Devuelve el tipo del movimiento
         virtual uint getDamage(Pokemon* atacante,Pokemon* defensor); // Calcular el daño
     protected:
         std::string nombre; // Nombre del movimiento

@@ -81,7 +81,7 @@ uint Movimientos::getDamage(Pokemon *atacante,Pokemon *defensor){
     return 0; // Si el ataque falla devuelve 0
 }
 
-/* Devuelve el nombre del tipo del movimiento */
+/* Devuelve una cadena de caracteres con el nombre del tipo del movimiento */
 std::string Movimientos::getType(){
     return Tipo::getNamebyType(type);
 }
@@ -96,7 +96,7 @@ uint Movimientos::getPPremaining(){
     return ppRemaining;
 }
 
-/* Devuelve el numero total de PP (Power Points) */
+/* Devuelve el numero total de PP (Power Points) que tiene el movimiento */
 uint Movimientos::getPPtotal(){
     return ppTotal;
 }
