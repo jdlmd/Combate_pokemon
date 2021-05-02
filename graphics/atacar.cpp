@@ -3,10 +3,12 @@
 #include "../src/movimientos.h"
 #include "qdebug.h"
 
+/* Constructor */
 Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     QDialog(parent),
     ui(new Ui::Atacar)
 {
+    // Inicialización de la pantalla de ataques
     user_poke=_user_poke;
     cpu_poke=_cpu_poke;
     uint n=user_poke->getNumberMoves();
@@ -18,6 +20,7 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     ui->setupUi(this);
     this->setFixedSize(this->size()); // Evita que se haga resize
 
+    // Esconde la interfaz de ataque
     ui->attck1->hide();
     ui->attck2->hide();
     ui->attck3->hide();
@@ -43,6 +46,7 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     ui->a3->setEnabled(false);
     ui->a4->setEnabled(false);
 
+    // Dependiendo del numero de ataques se muestra y habilita la interfaz de los ataques
     for (uint i = 0 ; i < n ; i++) {
         mov[i]=user_poke->getMove(i);
         if(i==0){
@@ -97,28 +101,33 @@ Atacar::Atacar(QWidget *parent,Pokemon* _user_poke,Pokemon* _cpu_poke) :
     }
 }
 
+/* Destructor */
 Atacar::~Atacar() {
     delete ui;
 }
 
+/* Emite una señal con el movimiento seleccionado al pulsar el movimiento 1 */
 void Atacar::on_a1_clicked() {
     close();
     emit selectedMove(user_poke->getMove(0));
     delete this;
 }
 
+/* Emite una señal con el movimiento seleccionado al pulsar el movimiento 2 */
 void Atacar::on_a2_clicked() {
     close();
     emit selectedMove(user_poke->getMove(1));
     delete this;
 }
 
+/* Emite una señal con el movimiento seleccionado al pulsar el movimiento 3 */
 void Atacar::on_a3_clicked() {
     close();
     emit selectedMove(user_poke->getMove(2));
     delete this;
 }
 
+/* Emite una señal con el movimiento seleccionado al pulsar el movimiento 4 */
 void Atacar::on_a4_clicked() {
     close();
     emit selectedMove(user_poke->getMove(3));
