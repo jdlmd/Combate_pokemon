@@ -301,10 +301,10 @@ void Battle::battleStartAnimation(QLabel *fondo) {
             break;
 
         case(3):
-            ui->cuadro_texto->setText("¿Quieres ganarme?");
+            ui->cuadro_texto->setText("¿Pretendes ganarme?");
             this->repaint();
             QThread::msleep(3000);
-            ui->cuadro_texto->setText("¡Veremos si puedes hacerlo!");
+            ui->cuadro_texto->setText("¡Aún estás a años luz para eso!");
             this->repaint();
             QThread::msleep(2500);
             break;
