@@ -1,7 +1,10 @@
-TEMPLATE = app
-CONFIG += console c++11
-CONFIG -= app_bundle
-CONFIG -= qt
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG += c++11
+
+
 
 SOURCES += \
         ../../../src/entrenador.cpp \
@@ -23,6 +26,6 @@ HEADERS += \
 
 # Copia de los archivos de entrenadores a la carpeta build
 COPIES += trainerFiles
-trainerFiles.files = $$files(*.txt) # Path de copia
-trainerFiles.path = $$OUT_PWD/ # Path destino
+trainerFiles.files = $$files(entrenadores/*.txt) # Path de copia
+trainerFiles.path = $$OUT_PWD/Combate_pokemon # Path destino
 # trainerFiles.base = $$PWD/audio # Base del path

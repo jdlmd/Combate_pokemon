@@ -5,7 +5,6 @@
 #include <SDL_mixer.h>
 #include <SDL_main.h>
 #include <string>
-#include <QThread>
 
 class Audio
 {
