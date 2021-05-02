@@ -1,4 +1,4 @@
-ppT#ifndef MOVIMIENTOS_H
+#ifndef MOVIMIENTOS_H
 #define MOVIMIENTOS_H
 
 #include "tipo.h"

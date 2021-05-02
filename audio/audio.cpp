@@ -2,7 +2,6 @@
 #include "iostream"
 //#include "filesystem"
 #include "fstream"
-#include <QDebug>
 
 Audio audio; // Variable externa audio (audio/extern.h)
 
@@ -24,7 +23,6 @@ Audio::~Audio() {
 void Audio::launchAudio(std::string filename) {
 
     std::string fullPath = SDL_GetBasePath();
-    qDebug() << QString::fromStdString(fullPath);
     std::ifstream f(fullPath+"./Combate_pokemon/audio/files/" + filename);
     if(f.good()){
         fullPath.append("./Combate_pokemon/audio/files/" + filename);

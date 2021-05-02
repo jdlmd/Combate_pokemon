@@ -17,10 +17,10 @@ class Audio
         void launchSound(std::string filename);
 
     private:
-        SDL_AudioSpec want, have; // Especificaciones de audio
-        SDL_AudioDeviceID audio;
-        Uint8* buf; // Puntero para el buffer
-        Uint32 len; // Longitud de la onda
+//        SDL_AudioSpec want, have; // Especificaciones de audio
+//        SDL_AudioDeviceID audio;
+//        Uint8* buf; // Puntero para el buffer
+//        Uint32 len; // Longitud de la onda
 
         Mix_Music* bgm;
         Mix_Chunk* effect;
